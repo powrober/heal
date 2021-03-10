@@ -2,7 +2,6 @@ package heal.project.me.common.interceptor;
 
 import java.net.InetAddress;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.ict.hhw.member.model.vo.Member;
+import heal.project.me.member.model.vo.Member;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 

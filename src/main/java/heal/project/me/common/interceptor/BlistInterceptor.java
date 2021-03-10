@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.ict.hhw.member.model.vo.Member;
+import heal.project.me.member.model.vo.Member;
 
 public class BlistInterceptor extends HandlerInterceptorAdapter {
 	/*
@@ -39,7 +39,7 @@ public class BlistInterceptor extends HandlerInterceptorAdapter {
 			logger.info("비로그인 상태에서 [" + request.getRequestURI() + "] 접근하려고함");
 
 			request.setAttribute("msg", "로그인 후 이용하세요.");
-			request.getRequestDispatcher("/WEB-INF/views/main/main.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/main/home.jsp").forward(request, response);
 
 			return false; // false를 반환해야 controller를 실행 안한다.
 		}

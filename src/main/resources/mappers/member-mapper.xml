@@ -4,7 +4,7 @@
    
    <resultMap id="memberResultSet" type="Member">
       <id property="mid" column="MID"/>
-      <result property="id" column="id"/>
+      <result property="id" column="ID"/>
       <result property="pwd" column="PWD"/>
       <result property="name" column="NAME"/>
       <result property="nick" column="NICK"/>
@@ -20,6 +20,20 @@
       <result property="etc" column="ETC"/>
    </resultMap>
 
+   <select id="idCheck" parameterType="string" resultType="_int">
+      SELECT
+         COUNT(*)
+      FROM MEMBER
+      WHERE ID = #{ id }
+   </select>
+
+ 
+   <!-- 회원 정보 조회-->
+   <select id="selectMember" parameterType="Member" resultMap="memberResultSet">
+      SELECT * FROM MEMBER
+      WHERE MID = #{ mid }
+   </select>
+   
 
     <select id="selectAll" resultMap="memberResultSet">
       select * from member
@@ -38,7 +52,7 @@
       SELECT
             *
          FROM MEMBER
-        WHERE ID = #{ mid }
+        WHERE MID = #{ mid }
           AND USER_NOW = 'Y'
    </select>
 
@@ -94,13 +108,7 @@
          SET MSTATUS='N'
        WHERE ID = #{ id }
    </update>
-   
-   <!-- 회원 정보 조회-->
-   <select id="selectMember" parameterType="Member" resultMap="memberResultSet">
-      SELECT * FROM MEMBER
-      WHERE ID = #{ id }
-   </select>
-   
+  
    <!-- 회원 정보 수정 -->
 	<update id="updateMember" parameterType="Member">
 		UPDATE 
@@ -142,11 +150,5 @@
       update member set pwd = #{ pwd } where id = #{ id }
    </update>
    
-   <select id="idCheck" parameterType="string" resultType="_int">
-      SELECT
-         COUNT(*)
-      FROM MEMBER
-      WHERE ID = #{ id }
-   </select>
-
+  
 </mapper>

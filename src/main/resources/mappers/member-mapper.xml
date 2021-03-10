@@ -52,7 +52,7 @@
       SELECT
             *
          FROM MEMBER
-        WHERE MID = #{ mid }
+        WHERE ID = #{ id }
           AND USER_NOW = 'Y'
    </select>
 

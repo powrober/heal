@@ -71,7 +71,7 @@ span.error {
 											
 											<tr class="fst">
 												<th>아이디<span class="ico">*<span class="screen_out">필수항목</span></span></th>
-												<td><input type="text" name="id" id="id" maxlength="16" label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" required>&nbsp;&nbsp;
+												<td><input type="text" name="id" id="userId" maxlength="16" label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" required>&nbsp;&nbsp;
 													<!-- ajax를 적용  -->
 													<span class="guide ok">사용가능</span>
 													<span class="guide error">사용불가능</span> 
@@ -237,7 +237,7 @@ span.error {
 				// 아이디 중복체크 여부
 				if ($("#idDuplicateCheck").val() == 0) {
 					alert("사용가능한 아이디를 입력해주세요.");
-					$("#id").focus();
+					$("#userId").focus();
 					return false;
 				} else {
 					return true;
@@ -247,10 +247,10 @@ span.error {
 			}
 
 			$(function() {
-				$("#id").on("keyup", function() {
-					var id = $(this).val();
+				$("#userId").on("keyup", function() {
+					var userId = $(this).val();
 
-					if (id.length < 5) {
+					if (userId.length < 5) {
 						$(".guide").hide();
 						$("#idDuplicateCheck").val(0);
 
@@ -260,7 +260,7 @@ span.error {
 					$.ajax({
 						url : "idCheck.do",
 						data : {
-							id : id
+							id : userId
 						},
 						type : "post",
 						success : function(data) {

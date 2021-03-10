@@ -92,7 +92,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
     </div>
     
     <!-- Page-->
-    <div class="page" style="margin-bottom:-180px;">
+    <div class="page" style="margin-bottom:-200px;">
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->

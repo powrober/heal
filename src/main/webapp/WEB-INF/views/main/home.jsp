@@ -19,73 +19,79 @@
           <div class="row row-fix justify-content-xl-end row-30">
             <div class="col-xl-8">
               <div class="parallax-text-wrap">
-                <h3>Our Best Rooms</h3><span class="parallax-text">Rooms & suites</span>
+                <h3>Healing House</h3><span class="parallax-text">Healing House</span>
               </div><img class="title-decorative" src="/me/resources/images/title-decorative-84x8.png" alt="" width="84" height="8"/>
             </div>
-            <div class="col-xl-3 text-xl-right"><a class="button button-primary" href="rooms-&amp;-suites.html">View All Rooms</a></div>
+            <div class="col-xl-3 text-xl-right"><a class="button button-primary" href="#">All Rooms</a></div>
           </div>
+          
           <div class="row row-xxl-60 row-50 offset-top-xxl-93">
             <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-01-570x370.jpg" alt="" width="570" height="370"/>
+                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-1.jpg" alt="" width="570" height="370"/>
                   </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
+                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
                 </div>
                 <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">Single Room</a><span class="event-default-price">from $280</span></h5>
+                  <h5><a class="event-default-title" href="#">블루102/퍼플101,102</a><span class="event-default-price">온돌</span></h5>
                 </div>
               </article>
             </div>
+            
             <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-02-570x370.jpg" alt="" width="570" height="370"/>
+                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-2.jpg" alt="" width="570" height="370"/>
                   </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
+                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
                 </div>
                 <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">Double Room</a><span class="event-default-price">from $480</span></h5>
+                  <h5><a class="event-default-title" href="#">블루103/퍼플103</a><span class="event-default-price">침대</span></h5>
                 </div>
               </article>
             </div>
+            
             <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-03-570x370.jpg" alt="" width="570" height="370"/>
+                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-3.jpg" alt="" width="570" height="370"/>
                   </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
+                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
                 </div>
                 <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">Superior Room</a><span class="event-default-price">from $550</span></h5>
+                  <h5><a class="event-default-title" href="#">블루201/퍼플203</a><span class="event-default-price">특실/복층</span></h5>
                 </div>
               </article>
             </div>
+            
             <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-04-570x370.jpg" alt="" width="570" height="370"/>
+                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-4.jpg" alt="" width="570" height="370"/>
                   </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
+                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
                 </div>
                 <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">Family Room</a><span class="event-default-price">from $350</span></h5>
+                  <h5><a class="event-default-title" href="#">블루202/퍼플202</a><span class="event-default-price">특실/복층</span></h5>
                 </div>
               </article>
             </div>
+            
             <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-05-570x370.jpg" alt="" width="570" height="370"/>
+                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="370"/>
                   </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
+                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
                 </div>
                 <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">Executive Room</a><span class="event-default-price">from $520</span></h5>
+                  <h5><a class="event-default-title" href="#">퍼플201/퍼플203</a><span class="event-default-price">특실/복층</span></h5>
                 </div>
               </article>
             </div>
-            <div class="col-sm-6 col-xl-4">
+            
+        <!--     <div class="col-sm-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
                   <figure class="event-default-image"><img src="images/home-06-570x370.jpg" alt="" width="570" height="370"/>
@@ -96,51 +102,97 @@
                   <h5><a class="event-default-title" href="rooms-&amp;-suites.html">VIP Suite</a><span class="event-default-price">from $600</span></h5>
                 </div>
               </article>
+            </div> -->
+          </div>
+        </div>
+      </section>
+      
+     <!-- Grid gallery-->
+      <section class="section section-lg text-center bg-default">
+        <div class="container container-wide">
+          <h3>Our Services</h3>
+          <div class="isotope-wrap row row-fix">
+            <!-- Isotope Filters-->
+            <div class="col-xl-12">
+              <div class="row row-30 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
+               
+                <div class="col-18 col-md-8 col-lg-6 isotope-item" data-filter="type 1">
+                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/pool/1.jpg" data-lightgallery="item">
+                      <div class="gallery-item-image">
+                        <figure><img src="/me/resources/images/ourservices/pool/2.jpg" alt="" width="570" height="380"/>
+                        </figure>
+                        <div class="caption">
+                          <p class="caption-title">Pool &amp; Spa</p>
+                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+                
+                <div class="col-18 col-md-8 col-lg-6 isotope-item" data-filter="type 1">
+                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/terrace/1.jpg" data-lightgallery="item">
+                      <div class="gallery-item-image">
+                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
+                        </figure>
+                        <div class="caption">
+                          <p class="caption-title">Breathtaking Exterior</p>
+                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+               
+                <div class="col-24 col-md-12 col-lg-8 isotope-item" data-filter="type 1">
+                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/barbecue/1.jpg" data-lightgallery="item">
+                      <div class="gallery-item-image">
+                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
+                        </figure>
+                        <div class="caption">
+                          <p class="caption-title">Friendly Atmosphere</p>
+                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+               
+                <div class="col-24 col-md-12 col-lg-8 isotope-item" data-filter="type 2">
+                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/jetski/1.jpg" data-lightgallery="item">
+                      <div class="gallery-item-image">
+                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
+                        </figure>
+                        <div class="caption">
+                          <p class="caption-title">Comfortable Rooms</p>
+                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- about service-->
+      <section class="section section-lg text-center text-md-left bg-default">
+        <div class="container container-bigger">
+          <div class="row row-50 justify-content-md-center justify-content-xl-between">
+            <div class="col-md-9 col-xl-5">
+              <h3>Overview</h3>
+              <div class="divider divider-default"></div>
+              <p>Vel nihil percipitur ei. Fugit option oportere est in, te dignissim philosophia mea, duo diceret eruditi ea. In eum porro bonorum, ut stet partiendo efficiantur vis. No errem platonem consectetuer quo, legimus tincidunt percipitur pri id. No nec congue libris</p>
+              <!-- Quote minimal-->
+              <article class="quote-minimal">
+                <p class="quote-minimal-text">Ei sumo eruditi sadipscing nec, scripta epicurei ut eam. Duo ut fastidii platonem, eu soleat</p>
+              </article>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur beatae, delectus dolorem eveniet fuga id, impedit itaque nemo nesciunt nihil nobis odit quas quis quo sunt suscipit tempora</p><a class="button button-primary" href="#">Order Now</a>
+            </div>
+            <div class="col-xl-6 text-center"><img src="images/single-service-01-720x460.jpg" alt="" width="720" height="460"/>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Our Services-->
-      <section class="section section-lg bg-gray-100 text-center">
-        <div class="container container-wide">
-          <h3>Our Services</h3><img class="title-decorative" src="images/title-decorative-84x8.png" alt="" width="84" height="8"/>
-          <div class="row row-30 justify-content-sm-center text-left">
-            <div class="col-sm-10 col-md-6 col-xl-3">
-              <article class="box-minimal-border">
-                <div class="box-minimal-icon novi-icon linearicons-swim"></div>
-                <p class="big box-minimal-title">Swimming Pool</p>
-                <hr>
-                <div class="box-minimal-text text-spacing-sm">The recreation area of our hotel includes a customly designed swimming pool under a glass vault and a bath VIP-complex for six people.</div>
-              </article>
-            </div>
-            <div class="col-sm-10 col-md-6 col-xl-3">
-              <article class="box-minimal-border">
-                <div class="box-minimal-icon novi-icon linearicons-wifi"></div>
-                <p class="big box-minimal-title">Free Wi-Fi</p>
-                <hr>
-                <div class="box-minimal-text text-spacing-sm">Our free Wi-Fi internet service is available 24-hours in lobby, meeting room, facilities and guest rooms to hel you stay connected wherever you are.</div>
-              </article>
-            </div>
-            <div class="col-sm-10 col-md-6 col-xl-3">
-              <article class="box-minimal-border">
-                <div class="box-minimal-icon novi-icon linearicons-chef"></div>
-                <p class="big box-minimal-title">Restaurants</p>
-                <hr>
-                <div class="box-minimal-text text-spacing-sm">The restaurants of our hotel will gratify the taste of the most exacting guests. Here, you can taste some culinary masterpieces by our chef.</div>
-              </article>
-            </div>
-            <div class="col-sm-10 col-md-6 col-xl-3">
-              <article class="box-minimal-border">
-                <div class="box-minimal-icon novi-icon linearicons-car"></div>
-                <p class="big box-minimal-title">Car Rentals</p>
-                <hr>
-                <div class="box-minimal-text text-spacing-sm">We work with the best car rental companies in United States of America, bringing you discount car rental rates and a wide variety of car rental classes.</div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Latest News-->
       <section class="section section-lg novi-background bg-cover bg-default text-center">

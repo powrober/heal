@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +36,9 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 </style>
 
 </head>
+
 <body>
 
-  <body>
     <div class="ie-panel"><a href="#"><img src="R" height="42" width="820" alt="#"></a></div>
     <!-- Page preloader-->
     <div class="page-loader">
@@ -90,9 +91,10 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
         </div>
       </div>
     </div>
-    
+
+
     <!-- Page-->
-    <div class="page" style="margin-bottom:-200px;">
+    <div class="page" style="margin-bottom:-930px;">
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -130,136 +132,37 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   <!--Brand--><a class="brand-name" href="index.jsp"><img class="logo-default" src="/me/resources/images/logo1.jpg" alt="" width="185" height="57"/><img class="logo-inverse" src="/me/resources/images/logo2.jpg" alt="" width="185" height="30"/></a>
                 </div>
               </div>
+              
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
                   <!-- RD Navbar Nav-->
-                  <ul class="rd-navbar-nav">
-                    <li class="active"><a href="#">Home</a>
-                    </li>
-                    <li><a href="#">예약안내</a>
-                    </li>
-                    <li><a href="#">즐길거리</a>
-                    </li>
-                    <li><a href="#">수다방</a>
-                    </li>
-                    <li><a href="#">QnA</a>
-                    </li>
-                    <li><a href="#">로그인</a>
-                    </li>
-                    <li><a href="#">회원가입</a>
-                    </li>
+                  <ul class="rd-navbar-nav" style="float:left;">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">예약안내</a></li>
+                    <li><a href="#">즐길거리</a></li>
+                    <li><a href="#">수다방</a></li>
+                    <li><a href="#">QnA</a></li>
+                    <c:if test="${ empty sessionScope.loginUser }">
+						<li><a class="nav-link" href="loginView.do">로그인</a></li>
+						<li><a class="nav-link" href="enrollView.do">회원가입</a></li>
+				    </c:if>
+					<c:if test="${ !empty sessionScope.loginUser }">
+						<c:url var="mypage" value="/myInfo.do">
+						<c:param name="writer" value="${ loginUser.nickname }"/>
+					</c:url>
+						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
+						<li><a class="nav-link" href="${ mypage }">마이페이지</a></li>
+					</c:if>
                   </ul>
                 </div>
               </div>
+              
               <div class="rd-navbar-aside-right"><a class="button button-sm button-primary" href="#">예약하기</a></div>
             </div>
           </nav>
         </div>
       </header>
-      
-      
-      <section class="section">
-        <div class="swiper-form-wrap">
-          <!-- Swiper-->
-          <div class="swiper-container swiper-slider swiper-slider_height-1 swiper-align-left swiper-align-left-custom context-dark bg-gray-darker" data-loop="false" data-autoplay="4782" data-simulate-touch="false" data-slide-effect="fade">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper1.jpg">
-                <div class="swiper-slide-caption">
-                  <div class="container container-bigger swiper-main-section">
-                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
-                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                        <h3>Your Perfect Accommodation</h3>
-                        <div class="divider divider-default"></div>
-                        <p class="text-spacing-sm">Jasmine hotel offers comfortable accommodation with a wide variety of rooms, additional services, and amenities available to all our guests. We offer the highest level of hospitality and great customer service.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper2.jpg">
-                <div class="swiper-slide-caption">
-                  <div class="container container-bigger swiper-main-section">
-                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
-                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                        <h3>150+ Rooms to Choose From</h3>
-                        <div class="divider divider-default"></div>
-                        <p class="text-spacing-sm">Our hotel has a wide variety of greatly furnished and fully equipped rooms for every guest. Whether you are travelling on busiess or with family, we have what you need to enjoy your stay.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper3.jpg">
-                <div class="swiper-slide-caption">
-                  <div class="container container-bigger swiper-main-section">
-                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
-                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                        <h3>Diverse Facilities</h3>
-                        <div class="divider divider-default"></div>
-                        <p class="text-spacing-sm">At our hotel, you can always feel comfortable in your room, having the right surroundings to relax and reload as it is utmost important. We offer a wide variety of hotel facilities including what you require.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Swiper controls-->
-            <div class="swiper-pagination-wrap">
-              <div class="container container-bigger">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="swiper-pagination"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container container-bigger form-request-wrap form-request-wrap-modern">
-            <div class="row row-fix justify-content-sm-center justify-content-lg-end">
-              <div class="col-lg-5 col-xxl-5">
-                <div class="form-request form-request-modern">
-                  <h4>힐링하우스 예약하기</h4>
-                  <!-- RD Mailform-->
-                  <form class="rd-mailform form-fix">
-                    <div class="row row-17 row-fix">
-                      <div class="col-sm-12">
-                        <label class="form-label-outside">Check in</label>
-                        <div class="form-wrap form-wrap-inline">
-                          <input class="form-input" id="forms-current-from" data-time-picker="date"><span class="data-time-picker-arrow"></span>
-                          <label class="form-label" for="forms-current-from">입실날짜</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <label class="form-label-outside">Check out</label>
-                        <div class="form-wrap form-wrap-inline">
-                          <input class="form-input" id="forms-current-to" data-time-picker="date"><span class="data-time-picker-arrow"></span>
-                          <label class="form-label" for="forms-current-to">퇴실날짜</label>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <label class="form-label-outside">Adults</label>
-                        <div class="form-wrap form-wrap-modern">
-                          <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <label class="form-label-outside">Children</label>
-                        <div class="form-wrap form-wrap-modern">
-                          <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-wrap form-button">
-                      <button class="button button-block button-primary" type="submit">예약 확인하기</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
     </div>
+    
 </body>
 </html>

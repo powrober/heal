@@ -14,6 +14,109 @@
    	<hr style="clear: both; opacity:0;">
      <!--Our Best Rooms-->
      
+      
+      <section class="section">
+        <div class="swiper-form-wrap">
+          <!-- Swiper-->
+          <div class="swiper-container swiper-slider swiper-slider_height-1 swiper-align-left swiper-align-left-custom context-dark bg-gray-darker" data-loop="false" data-autoplay="4782" data-simulate-touch="false" data-slide-effect="fade">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper1.jpg">
+                <div class="swiper-slide-caption">
+                  <div class="container container-bigger swiper-main-section">
+                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
+                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
+                        <h3>Your Perfect Accommodation</h3>
+                        <div class="divider divider-default"></div>
+                        <p class="text-spacing-sm">Jasmine hotel offers comfortable accommodation with a wide variety of rooms, additional services, and amenities available to all our guests. We offer the highest level of hospitality and great customer service.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper2.jpg">
+                <div class="swiper-slide-caption">
+                  <div class="container container-bigger swiper-main-section">
+                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
+                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
+                        <h3>150+ Rooms to Choose From</h3>
+                        <div class="divider divider-default"></div>
+                        <p class="text-spacing-sm">Our hotel has a wide variety of greatly furnished and fully equipped rooms for every guest. Whether you are travelling on busiess or with family, we have what you need to enjoy your stay.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide" data-slide-bg="/me/resources/images/swiper3.jpg">
+                <div class="swiper-slide-caption">
+                  <div class="container container-bigger swiper-main-section">
+                    <div class="row row-fix justify-content-sm-center justify-content-md-start">
+                      <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
+                        <h3>Diverse Facilities</h3>
+                        <div class="divider divider-default"></div>
+                        <p class="text-spacing-sm">At our hotel, you can always feel comfortable in your room, having the right surroundings to relax and reload as it is utmost important. We offer a wide variety of hotel facilities including what you require.</p><a class="button button-default-outline button-sm" href="rooms-&amp;-suites.html">Learn More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Swiper controls-->
+            <div class="swiper-pagination-wrap">
+              <div class="container container-bigger">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container container-bigger form-request-wrap form-request-wrap-modern">
+            <div class="row row-fix justify-content-sm-center justify-content-lg-end">
+              <div class="col-lg-5 col-xxl-5">
+                <div class="form-request form-request-modern">
+                  <h4>힐링하우스 예약하기</h4>
+                  <!-- RD Mailform-->
+                  <form class="rd-mailform form-fix">
+                    <div class="row row-17 row-fix">
+                      <div class="col-sm-12">
+                        <label class="form-label-outside">Check in</label>
+                        <div class="form-wrap form-wrap-inline">
+                          <input class="form-input" id="forms-current-from" data-time-picker="date"><span class="data-time-picker-arrow"></span>
+                          <label class="form-label" for="forms-current-from">입실날짜</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <label class="form-label-outside">Check out</label>
+                        <div class="form-wrap form-wrap-inline">
+                          <input class="form-input" id="forms-current-to" data-time-picker="date"><span class="data-time-picker-arrow"></span>
+                          <label class="form-label" for="forms-current-to">퇴실날짜</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <label class="form-label-outside">Adults</label>
+                        <div class="form-wrap form-wrap-modern">
+                          <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <label class="form-label-outside">Children</label>
+                        <div class="form-wrap form-wrap-modern">
+                          <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-wrap form-button">
+                      <button class="button button-block button-primary" type="submit">예약 확인하기</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <section class="section section-variant-1 bg-default novi-background bg-cover">
         <div class="container container-wide">
           <div class="row row-fix justify-content-xl-end row-30">
@@ -107,307 +210,24 @@
         </div>
       </section>
       
-     <!-- Grid gallery-->
-      <section class="section section-lg text-center bg-default">
-        <div class="container container-wide">
-          <h3>Our Services</h3>
-          <div class="isotope-wrap row row-fix">
-            <!-- Isotope Filters-->
-            <div class="col-xl-12">
-              <div class="row row-30 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
-               
-                <div class="col-18 col-md-8 col-lg-6 isotope-item" data-filter="type 1">
-                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/pool/1.jpg" data-lightgallery="item">
-                      <div class="gallery-item-image">
-                        <figure><img src="/me/resources/images/ourservices/pool/2.jpg" alt="" width="570" height="380"/>
-                        </figure>
-                        <div class="caption">
-                          <p class="caption-title">Pool &amp; Spa</p>
-                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                        </div>
-                      </div></a>
-                  </div>
-                </div>
-                
-                <div class="col-18 col-md-8 col-lg-6 isotope-item" data-filter="type 1">
-                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/terrace/1.jpg" data-lightgallery="item">
-                      <div class="gallery-item-image">
-                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
-                        </figure>
-                        <div class="caption">
-                          <p class="caption-title">Breathtaking Exterior</p>
-                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                        </div>
-                      </div></a>
-                  </div>
-                </div>
-               
-                <div class="col-24 col-md-12 col-lg-8 isotope-item" data-filter="type 1">
-                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/barbecue/1.jpg" data-lightgallery="item">
-                      <div class="gallery-item-image">
-                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
-                        </figure>
-                        <div class="caption">
-                          <p class="caption-title">Friendly Atmosphere</p>
-                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                        </div>
-                      </div></a>
-                  </div>
-                </div>
-               
-                <div class="col-24 col-md-12 col-lg-8 isotope-item" data-filter="type 2">
-                  <div class="gallery-item-wrap"><a class="gallery-item" href="/me/resources/images/ourservices/jetski/1.jpg" data-lightgallery="item">
-                      <div class="gallery-item-image">
-                        <figure><img src="/me/resources/images/ourservices/pool/1-1.jpg" alt="" width="570" height="380"/>
-                        </figure>
-                        <div class="caption">
-                          <p class="caption-title">Comfortable Rooms</p>
-                          <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                        </div>
-                      </div></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       <!-- about service-->
-      <section class="section section-lg text-center text-md-left bg-default">
-        <div class="container container-bigger">
-          <div class="row row-50 justify-content-md-center justify-content-xl-between">
+       <section class="section section-lg bg-gray-100 text-center">
+        <div class="container container-wide">
+          <div class="row row-50 justify-content-md-center justify-content-xl-between" style="margin-bottom: -300px;">
             <div class="col-md-9 col-xl-5">
-              <h3>Overview</h3>
+              <h3>안녕하세요!<br> <b>Healing House</b> 입니다</h3>
               <div class="divider divider-default"></div>
-              <p>Vel nihil percipitur ei. Fugit option oportere est in, te dignissim philosophia mea, duo diceret eruditi ea. In eum porro bonorum, ut stet partiendo efficiantur vis. No errem platonem consectetuer quo, legimus tincidunt percipitur pri id. No nec congue libris</p>
+              <p>힐링하우스 펜션 홈페이지에 방문해 주셔서 감사합니다. 저희 욕지도 힐링하우스 펜션은 욕지도 유동마을 바닷가 언덕에 위치하여 펜션 앞으로 탁 트인 바다전망이 한눈에 들어옵니다.
+				  아름다운 바다전망이 보이는 깨끗한 객실과 넓은 야외공간이 있어 좋은 분들과의 욕지 여행길이 더욱 즐거워 진답니다.</p>
               <!-- Quote minimal-->
               <article class="quote-minimal">
-                <p class="quote-minimal-text">Ei sumo eruditi sadipscing nec, scripta epicurei ut eam. Duo ut fastidii platonem, eu soleat</p>
+                <p class="quote-minimal-text">대표 전성국</p>
               </article>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur beatae, delectus dolorem eveniet fuga id, impedit itaque nemo nesciunt nihil nobis odit quas quis quo sunt suscipit tempora</p><a class="button button-primary" href="#">Order Now</a>
+              <p>아름다운 욕지도 유동마을 바닷가에서 바다체험도 할 수 있고 욕지도 일주드라이브 코스 옆에 위치하여 욕지도 여행지 어디로든 편하게 가실 수 있어 정말 좋습니다.
+				  아름다운 욕지도 여행길에 저희 욕지도 힐링하우스 펜션으로 오셔서 여러분들의 욕지도 여행에 정말 좋은 추억을 만들고 가시기 바랍니다. 감사합니다.</p>
             </div>
-            <div class="col-xl-6 text-center"><img src="images/single-service-01-720x460.jpg" alt="" width="720" height="460"/>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- Latest News-->
-      <section class="section section-lg novi-background bg-cover bg-default text-center">
-        <div class="container container-wide">
-          <div class="row">
-            <div class="col-sm-12">
-              <h3>Latest News</h3><img class="title-decorative" src="images/title-decorative-84x8.png" alt="" width="84" height="8"/>
-              <!-- Owl Carousel-->
-              <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="1" data-md-items="1" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-stage-padding="5" data-loop="true" data-margin="30" data-mouse-drag="false" data-dots="true" data-autoplay="true">
-                <article class="post-blog"><a class="post-blog-image" href="single-post.html"><img src="images/home-07-570x415.jpg" alt="" width="570" height="415"/></a>
-                  <div class="post-blog-caption">
-                    <div class="post-blog-caption-header">
-                      <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="single-post.html">News</a></li>
-                      </ul>
-                      <ul class="post-blog-meta">
-                        <li><span>by</span>&nbsp;<a href="#">Ronald Chen</a></li>
-                      </ul>
-                    </div>
-                    <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="single-post.html">How to Easily Book the Best Hotel and Get the Best Room This Season</a></h5>
-                    </div>
-                    <div class="post-blog-caption-footer">
-                      <time datetime="2019">Feb 27, 2019 at 6:53 pm</time><a class="post-comment" href="single-post.html"><span class="icon novi-icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>2</span></a>
-                    </div>
-                  </div>
-                </article>
-                <article class="post-blog"><a class="post-blog-image" href="news.html"><img src="images/home-08-570x415.jpg" alt="" width="570" height="415"/></a>
-                  <div class="post-blog-caption">
-                    <div class="post-blog-caption-header">
-                      <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="news.html">News</a></li>
-                      </ul>
-                      <ul class="post-blog-meta">
-                        <li><span>by</span>&nbsp;<a href="#">Ronald Chen</a></li>
-                      </ul>
-                    </div>
-                    <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="news.html">15 Useful Hotel Safety Tips You Should Not Ignore During Your Stay</a></h5>
-                    </div>
-                    <div class="post-blog-caption-footer">
-                      <time datetime="2019">Feb 27, 2019 at 6:53 pm</time><a class="post-comment" href="news.html"><span class="icon novi-icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>2</span></a>
-                    </div>
-                  </div>
-                </article>
-                <article class="post-blog"><a class="post-blog-image" href="news.html"><img src="images/home-09-570x415.jpg" alt="" width="570" height="415"/></a>
-                  <div class="post-blog-caption">
-                    <div class="post-blog-caption-header">
-                      <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="news.html">News</a></li>
-                      </ul>
-                      <ul class="post-blog-meta">
-                        <li><span>by</span>&nbsp;<a href="#">Ronald Chen</a></li>
-                      </ul>
-                    </div>
-                    <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="news.html">5 Simple Tricks for Getting Stellar Hotel Service Wherever You Are</a></h5>
-                    </div>
-                    <div class="post-blog-caption-footer">
-                      <time datetime="2019">Feb 27, 2019 at 6:53 pm</time><a class="post-comment" href="news.html"><span class="icon novi-icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>2</span></a>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div><a class="button button-primary button-offset-lg" href="news.html">View All Blog Posts</a>
-        </div>
-      </section>
-
-      <!-- Testimonials-->
-      <section class="section section-xl text-center bg-gray-100">
-        <div class="container container-bigger">
-          <h3>Testimonials</h3><img class="title-decorative" src="images/title-decorative-84x8.png" alt="" width="84" height="8"/>
-          <!-- Owl Carousel-->
-          <div class="owl-carousel owl-layout-1" data-items="1" data-dots="true" data-nav="true" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false" data-autoplay="false">
-            <article class="quote-boxed">
-              <div class="quote-boxed-aside"><img class="quote-boxed-image" src="images/quote-user-1-210x210.png" alt="" width="210" height="210"/>
-              </div>
-              <div class="quote-boxed-main">
-                <div class="quote-boxed-text">
-                  <p>Jasmine Hotel is an excellent choice for anybody considering hosting their events there. Top level facilities and excellent staff make for a brilliant environment within which to operate. The hotel is meticulous in its planning, providing excellent décor, signage and the like. Importantly, they are always prompt and attentive.</p>
-                </div>
-                <div class="quote-boxed-meta">
-                  <p class="quote-boxed-cite">Ann McMillan</p>
-                  <p class="quote-boxed-small">Regular Client</p>
-                </div>
-              </div>
-            </article>
-            <article class="quote-boxed">
-              <div class="quote-boxed-aside"><img class="quote-boxed-image" src="images/quote-user-2-210x210.png" alt="" width="210" height="210"/>
-              </div>
-              <div class="quote-boxed-main">
-                <div class="quote-boxed-text">
-                  <p>I had a marvelous time at Jasmine Hotel. From accommodation to spa, massage and room service, everything was wonderfully organized and delivered. Now I always stay at this hotel when I have a chance and I recommend everyone to do so. You won’t find any other hotel in the area that is always ready to go an extra mile for their customers.</p>
-                </div>
-                <div class="quote-boxed-meta">
-                  <p class="quote-boxed-cite">Debra Ortega</p>
-                  <p class="quote-boxed-small">Regular Client</p>
-                </div>
-              </div>
-            </article>
-            <article class="quote-boxed">
-              <div class="quote-boxed-aside"><img class="quote-boxed-image" src="images/quote-user-3-210x210.png" alt="" width="210" height="210"/>
-              </div>
-              <div class="quote-boxed-main">
-                <div class="quote-boxed-text">
-                  <p>I have to recognize your outstanding hospitality and service that I receive on a daily basis. My room is always clean, fresh towels and linens are always present. Your staff makes me feel as If I am the only customer in your hotel. If you are looking for exclusivity and first class then look no further.</p>
-                </div>
-                <div class="quote-boxed-meta">
-                  <p class="quote-boxed-cite">Samantha Smith</p>
-                  <p class="quote-boxed-small">Regular Client</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Gallery-->
-      <section class="section section-lg-top text-center bg-gray-100">
-        <div class="isotope-wrap row row-50 row-fix">
-          <!-- Isotope Content-->
-          <div class="col-xl-12">
-            <div class="row row-condensed row-no-gutter isotope" data-isotope-layout="fitRows" data-isotope-group="gallery-02" data-lightgallery="group">
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 1">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-01-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-01-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Pool &amp; Spa</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 1">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-02-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-02-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Breathtaking Exterior</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 1">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-03-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-03-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Friendly Atmosphere</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 2">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-04-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-04-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Comfortable Rooms</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 2">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-05-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-05-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Diverse Amenities</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="type 2">
-                <div class="gallery-item-wrap"><a class="gallery-item gallery-item-fullwidth" href="images/gallery-06-original.jpg" data-lightgallery="item">
-                    <div class="gallery-item-image">
-                      <figure><img src="images/gallery-fullwidth-06-640x430.jpg" alt="" width="640" height="430"/>
-                      </figure>
-                      <div class="caption">
-                        <p class="caption-title">Spectacular Interior</p>
-                        <p class="caption-text">At our hotel, you can experience the utmost level of comfort &amp; hospitality.</p>
-                      </div>
-                    </div></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="parallax-container section-md" data-parallax-img="images/cta-01.jpg">
-        <div class="parallax-content">
-          <div class="container container-wide">
-            <div class="row row-fix row-50 justify-content-sm-center">
-              <div class="col-xxl-9">
-                <div class="box-cta box-cta-inline row-20">
-                  <div class="box-cta-inner">
-                    <h3 class="box-cta-title">Enjoy Your Stay at Jasmine Hotel</h3>
-                    <p>Book your room now to take advantage of our accommodation and additional services.</p>
-                  </div>
-                  <div class="box-cta-inner"><a class="button button-white-outline button-lg" href="#">Book Now</a></div>
-                </div>
-              </div>
-            </div>
+            <div class="col-xl-6 text-center" style="position: relative;"><img src="/me/resources/images/ourview1.jpg" alt="" width="1200" height="1000"/></div>
+            <div class="col-xl-6" style="position: relative; left:500px; top: -300px;"><img src="/me/resources/images/CEO.jpg" alt="" width="400" height="400"/></div>
           </div>
         </div>
       </section>

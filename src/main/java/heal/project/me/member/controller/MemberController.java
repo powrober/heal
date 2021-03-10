@@ -349,24 +349,7 @@ public class MemberController {
 		return "redirect:home.do";
 	}
 
-	// 내공 '내공관리' & '환전'하기로 이동
-	@RequestMapping("myNaegong.do")
-	public String myNaegongView() {
-		return "member/naegongInfo";
-	}
-
-	// 내공 '포인트 관리'하기로 이동
-	@RequestMapping("myPoint.do")
-	public String myPointView() {
-		return "member/pointInfo";
-	}
-
-	// '충전하기'로 이동
-	@RequestMapping("payCash.do")
-	public String payCashView() {
-		return "member/payCash";
-	}
-
+	
 	// '내정보 관리하기'로 이동
 	@RequestMapping("myInfoUpdate.do")
 	public String myInfoUpdateView(@RequestParam("id") String id, Model model) {

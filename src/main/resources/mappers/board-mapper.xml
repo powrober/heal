@@ -55,7 +55,7 @@
    
    
 	<!-- Member, Board, Reply 조인 -->
-	<select id="selectNewBoardList" parameterType="heal.project.me.board.model.vo.BoardPage" resultMap="resultBoardList">
+	<select id="selectNewBoardList" parameterType="heal.project.me.board.model.vo.BoardPage" resultMap="resultBoard">
       <![CDATA[
         SELECT *
         FROM (
@@ -185,7 +185,7 @@
    </update>
    
    
-   <select id="searchTitle" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchTitle" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoard">
          <![CDATA[
         SELECT *
           FROM  (
@@ -221,7 +221,7 @@
          ]]>
    </select>
    
-   <select id="searchWriter" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchWriter" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoard">
          <![CDATA[
 		SELECT *
           FROM  (
@@ -257,7 +257,7 @@
                 ]]>
    </select>
    
-   <select id="searchDate" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchDate" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoard">
          <![CDATA[
          SELECT *
           FROM  (

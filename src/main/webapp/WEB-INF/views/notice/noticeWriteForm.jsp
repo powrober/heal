@@ -45,7 +45,7 @@ table.table2 td {
 
 </head>
 <body>
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../main/header.jsp" />
 	<hr>
 	
 	<section style="padding: 70px 0 60px 0; margin-left: 700px;">
@@ -116,7 +116,7 @@ table.table2 td {
 <script src="/hhw/resources/writerform/js/script.min.js"></script>
  
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 	
 </body>
 </html>

@@ -18,7 +18,7 @@
 </head>
 <body>
 	
-	<c:import url="../common/header.jsp" />
+	<c:import url="../main/header.jsp" />
 
 	<div style="text-align: center; padding-top: 90px;">
 		<div>
@@ -184,7 +184,7 @@
 
 
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 
 </body>
 </html>

@@ -162,7 +162,7 @@ table.table2 td {
 </head>
 <body>
 	
-	<c:import url="../common/header.jsp" />
+	<c:import url="../main/header.jsp" />
 
 	<div style="text-align: center; padding-top: 120px;">
 		<div>
@@ -419,7 +419,7 @@ table.table2 td {
 
 
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 
 </body>
 </html>

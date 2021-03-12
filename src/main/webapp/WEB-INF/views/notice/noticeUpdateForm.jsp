@@ -36,7 +36,7 @@ table.table2 td {
 
 </head>
 <body>
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../main/header.jsp" />
 	<hr>
 	
 		<section style="padding: 70px 0 60px 0;">
@@ -112,6 +112,6 @@ table.table2 td {
 	</section>
 	
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

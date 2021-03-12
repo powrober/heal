@@ -137,7 +137,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                 <div class="rd-navbar-nav-wrap">
                   <!-- RD Navbar Nav-->
                   
-<c:url var="nlist" value="nlist.do">
+<c:url var="list" value="nlist.do">
 	<c:param name="page" value="1" />
 </c:url>
                   
@@ -145,7 +145,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                     <li class="active"><a href="home.do">Home</a></li>
                     <li><a href="#">예약안내</a></li>
                     <li><a href="#">즐길거리</a></li>
-                    <li><a href="${ nlist }">수다방</a></li>
+                    <li><a href="${ list }">수다방</a></li>
                     <li><a href="#">QnA</a></li>
                     <c:if test="${ empty sessionScope.loginUser }">
 						<li><a class="nav-link" href="loginView.do">로그인</a></li>

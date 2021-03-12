@@ -66,7 +66,7 @@
       where nid = #{nid}
    </select>
    
-   <select id="selectNewTop3" resultMap="noticeTop3ResultSet">
+  <!--  <select id="selectNewTop3" resultMap="noticeTop3ResultSet">
    		<![CDATA[
    		select *
    		from (select rownum rnum
@@ -79,7 +79,7 @@
    				  order by nid desc))
    		where rnum >= 1 and rnum <= 5
    		]]>
-   </select>
+   </select> -->
    
    <insert id="insertNotice" parameterType="Notice">
       insert into notice

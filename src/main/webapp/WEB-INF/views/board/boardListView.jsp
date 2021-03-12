@@ -21,12 +21,6 @@
 <meta charset="UTF-8">
 <title>자유게시판</title>
 
-<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/resources/css/myPage/common.css" />
-<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.kin/static/pc/20210209151259/css/min/components.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/myPage/other.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/myPage/profile.css" />
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.2">
-
 
 <script type="text/javascript" src="/hhw/resources/js/jquery-3.5.1.min.js"></script>
 
@@ -73,7 +67,32 @@
 </head>
 
 <body>
-	<jsp:include page="../common/header.jsp" />
+
+	<jsp:include page="../main/header.jsp" />
+	
+	<c:url var="nlist" value="nlist.do">
+		<c:param name="page" value="1" />
+	</c:url>
+	
+	<c:url var="blist" value="blist.do">
+		<c:param name="page" value="1" />
+	</c:url>
+
+
+ 	<!-- Breadcrumbs-->
+     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
+       <div class="parallax-content">
+         <div class="container">
+           <p class="heading-1 breadcrumbs-custom-title">자유게시판</p>
+           <ul class="breadcrumbs-custom-path">
+             <li><a href="home.do">Home</a></li>
+             <li><a href="${ nlist }">공지시항</a></li>
+             <li><a href="${ blist }">자유게시판</a></li>
+           </ul>
+         </div>
+       </div>
+     </section>
+	
 	
 	<div style="text-align: center; padding-top: 100px;">
 		<div>
@@ -187,29 +206,29 @@
 						<td align="left" width="550" style="font-size:15px; color: black;"><c:url var="bdt" value="/bdetail.do">
 								<c:param name="page" value="${ currentPage }" />
 								<c:param name="bid" value="${ b.bid }" />
-							</c:url> <a href="${ bdt }" style="color: black;">${ b.btitle }</a>&nbsp;[${ b.b_ref_bid }]
-								<c:if test="${ !empty b.b_original_filename }"><img src="/hhw/resources/images/file.png" style="width:20px;"> </c:if>
-								<c:if test="${ empty b.b_original_filename }"> &nbsp; </c:if></td>
+							</c:url> <a href="${ bdt }" style="color: black;">${ b.btitle }</a>&nbsp;
+								<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+								<c:if test="${ empty b.b_file }"> &nbsp; </c:if></td>
 					
-						<td align="center" width="150" style="font-size:15px; color: black;">${ b.bwriter }
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade lt 0}"> <%-- 불량회원 --%>
+						<td align="center" width="150" style="font-size:15px; color: black;">${ b.buser }
+							 <%-- <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade lt 0}"> 불량회원
 							 <img src="/hhw/resources/images/i_0.png" style="width:20px; float:left;">
 							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 1  &&  b.grade lt 10}">  <%-- 신규회원 --%>
+							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 1  &&  b.grade lt 10}">  신규회원
 							 <img src="/hhw/resources/images/i_1.png" style="width:20px; float:left;">
 							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 11 && b.grade lt 20}">  <%-- 우수회원 --%>
+							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 11 && b.grade lt 20}">  우수회원
 							 <img src="/hhw/resources/images/i_2.png" style="width:20px; float:left;">
 							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 21 && b.grade lt 30}">  <%-- 최우수회원 --%>
+							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 21 && b.grade lt 30}">  최우수회원
 							 <img src="/hhw/resources/images/i_3.png" style="width:20px; float:left;">
 							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade eq 0}">  <%-- 관리자 --%>
+							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade eq 0}">  관리자
 							 <img src="/hhw/resources/images/i_admin.png" style="width:20px; float:left;">
-							 </c:if>
+							 </c:if> --%>
 							 </td>
 	
-						<td align="center" width="130" style="font-size:15px; color: black;">${ b.b_create_date }</td>
+						<td align="center" width="130" style="font-size:15px; color: black;">${ b.b_date }</td>
 	
 						<td align="center" width="80" style="font-size:15px; color: black;">${ b.bcount }</td>
 						
@@ -398,6 +417,6 @@
 		</div>
 	</c:if>
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

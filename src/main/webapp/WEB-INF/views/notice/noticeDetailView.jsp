@@ -41,7 +41,7 @@ table.table2 td {
 </head>
 <body>
 	
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../main/header.jsp" />
 	
 	
 	<div style="text-align: center; padding-top: 120px;">
@@ -126,7 +126,7 @@ table.table2 td {
 		
 	</table>
 
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 	
 </body>
 </html>

@@ -42,7 +42,7 @@ table.table2 td {
 
 </head>
 <body>
-	<c:import url="../common/header.jsp"/>
+	<c:import url="../main/header.jsp"/>
 	<hr>
 
 	<section style="padding: 70px 0 60px 0;">
@@ -127,7 +127,7 @@ table.table2 td {
 <script src="/hhw/resources/writerform/js/script.min.js"></script>
  
 	
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 	
 </body>
 </html>

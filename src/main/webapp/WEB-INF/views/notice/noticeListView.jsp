@@ -18,16 +18,8 @@
 <title>공지사항</title>
 
 
-<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/resources/css/myPage/common.css" />
-<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.kin/static/pc/20210209151259/css/min/components.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/myPage/other.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/myPage/profile.css" />
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.2">
+<script type="text/javascript" src="/hhw/resources/js/jquery-3.5.1.min.js"></script>
 
-
-<script type="text/javascript"
-	src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
-	
 <script type="text/javascript">
 	 $(function() {
 		showDiv();
@@ -54,46 +46,43 @@
 		}
 	}
 	
-	
 	function showWriteForm() {
 		location.href = "${ nwf }";
 	}
 	
+	
 </script>
+
+
 </head>
 
 <body>
 
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../main/header.jsp" />
+
 
 	<c:url var="nlist" value="nlist.do">
 		<c:param name="page" value="1" />
 	</c:url>
-	<c:url var="about" value="aboutUs.do">
-		<c:param name="page" value="1" />
-	</c:url>
-	<c:url var="howto" value="howTo.do">
-		<c:param name="page" value="1" />
-	</c:url>
-	<c:url var="faq" value="faq.move">
+	
+	<c:url var="blist" value="blist.do">
 		<c:param name="page" value="1" />
 	</c:url>
 
-	<section class="breadcrumbs-custom-inset">
-		<div class="breadcrumbs-custom context-dark bg-overlay-46">
-			<div class="container">
-				<h2 class="breadcrumbs-custom-title">공지사항</h2>
-				<ul class="breadcrumbs-custom-path">
-					<li><a class="nav-link" href="${ nlist }">공지사항</a></li>
-					<li><a class="nav-link" href="${ about }">About Us</a></li>
-					<li><a class="nav-link" href="${ howto }">사이트 이용 방법</a></li>
-					<li><a class="nav-link" href="${ faq }">FAQ</a></li>
-				</ul>
-			</div>
-			<div class="box-position-1"
-				style="background-image: url(/hhw/resources/images/5F5F5F.jpg);"></div>
-		</div>
-	</section>
+
+ 	<!-- Breadcrumbs-->
+     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
+       <div class="parallax-content">
+         <div class="container">
+           <p class="heading-1 breadcrumbs-custom-title">공지사항</p>
+           <ul class="breadcrumbs-custom-path">
+             <li><a href="home.do">Home</a></li>
+             <li><a href="${ nlist }">공지시항</a></li>
+             <li><a href="${ blist }">자유게시판</a></li>
+           </ul>
+         </div>
+       </div>
+     </section>
 	
 	
 	<div style="text-align: center; padding-top: 30px;">
@@ -202,10 +191,10 @@
 								<c:param name="nid" value="${ n.nid }" />
 							</c:url>
 							<a href="${und}" style="color: black;">${n.ntitle}</a>
-								<c:if test="${ !empty n.n_file_name }"><img src="/hhw/resources/images/file.png" style="width:20px;"> </c:if>
-								<c:if test="${ empty n.n_file_name }"> &nbsp; </c:if></td>
+								<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+								<c:if test="${ empty n.n_file }"> &nbsp; </c:if></td>
 					
-						<td align="center" width="150" style="font-size:15px; color: black;">${n.nwriter}</td>
+						<td align="center" width="150" style="font-size:15px; color: black;">${n.nuser}</td>
 	
 						<td align="center" width="130" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
 	
@@ -356,7 +345,7 @@
 		</div>
 	</c:if>
 	
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../main/footer.jsp" />
 
 </body>
 </html>

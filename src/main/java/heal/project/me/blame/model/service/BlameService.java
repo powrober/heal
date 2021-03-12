@@ -1,11 +1,10 @@
-package com.ict.hhw.blame.model.service;
+package heal.project.me.blame.model.service;
 
 import java.util.ArrayList;
 
-import com.ict.hhw.blame.model.vo.Blame;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
-import com.ict.hhw.notice.model.vo.Notice;
+import heal.project.me.blame.model.vo.Blame;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 public interface BlameService {
 		

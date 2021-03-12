@@ -1,15 +1,15 @@
-package com.ict.hhw.board.model.service;
+package heal.project.me.board.model.service;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ict.hhw.board.model.dao.BoardDao;
-import com.ict.hhw.board.model.vo.Board;
-import com.ict.hhw.board.model.vo.BoardList;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.board.model.dao.BoardDao;
+import heal.project.me.board.model.vo.Board;
+import heal.project.me.board.model.vo.BoardList;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {

@@ -1,4 +1,4 @@
-package com.ict.hhw.notice.model.vo;
+package heal.project.me.notice.model.vo;
 
 public class NoticePage {
 	private int startRow;

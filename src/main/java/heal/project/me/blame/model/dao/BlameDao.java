@@ -1,4 +1,4 @@
-package com.ict.hhw.blame.model.dao;
+package heal.project.me.blame.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ict.hhw.blame.model.vo.Blame;
-import com.ict.hhw.blame.model.vo.BlamePage;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.blame.model.vo.Blame;
+import heal.project.me.blame.model.vo.BlamePage;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 @Repository("blameDao")
 public class BlameDao {

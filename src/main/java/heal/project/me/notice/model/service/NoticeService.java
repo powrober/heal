@@ -1,9 +1,9 @@
-package com.ict.hhw.notice.model.service;
+package heal.project.me.notice.model.service;
 
 import java.util.ArrayList;
 
-import com.ict.hhw.common.SearchDate;
-import com.ict.hhw.notice.model.vo.Notice;
+import heal.project.me.common.SearchDate;
+import heal.project.me.notice.model.vo.Notice;
 
 public interface NoticeService {
 	ArrayList<Notice> selectAll();

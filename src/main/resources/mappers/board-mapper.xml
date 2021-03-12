@@ -5,19 +5,18 @@
    <resultMap type="Board" id="resultBoard">
       <id column="bid" property="bid" />
       <result column="btype" property="btype" />
-      <result column="bwriter" property="bwriter" />
+      <result column="buser" property="buser" />
       <result column="btitle" property="btitle" />
       <result column="bcontent" property="bcontent" />
-      <result column="b_original_filename" property="b_original_filename" />
-      <result column="b_rename_filename" property="b_rename_filename" />
-      <result column="b_create_date" property="b_create_date" />
+      <result column="b_file" property="b_file" />
+      <result column="b_rfile" property="b_rfile" />
+      <result column="b_date" property="b_date" />
       <result column="b_modfiy_date" property="b_modfiy_date" />
       <result column="bcount" property="bcount" />
-      <result column="b_rcount" property="b_rcount" />
       <result column="bstatus" property="bstatus" />
    </resultMap>
    
-   
+   <!-- 
     <resultMap type="BoardList" id="resultBoardList">
      <id column="bid" property="bid" />
       <result column="b_ref_bid" property="b_ref_bid" />
@@ -30,14 +29,14 @@
       <result column="bcount" property="bcount" />
       <result column="grade" property="grade" />
 	</resultMap>
-
+ -->
 
    <resultMap type="Board" id="resultTop3">
       <id column="bid" property="bid" />
       <result column="btype" property="btype" />
-      <result column="bwriter" property="bwriter" />
+      <result column="buser" property="buser" />
       <result column="btitle" property="btitle" />
-      <result column="b_create_date" property="b_create_date" />
+      <result column="b_date" property="b_date" />
       <result column="bcount" property="bcount" />
    </resultMap>
 
@@ -56,38 +55,27 @@
    
    
 	<!-- Member, Board, Reply 조인 -->
-	<select id="selectNewBoardList" parameterType="com.ict.hhw.board.model.vo.BoardPage" resultMap="resultBoardList">
+	<select id="selectNewBoardList" parameterType="heal.project.me.board.model.vo.BoardPage" resultMap="resultBoardList">
       <![CDATA[
         SELECT *
-          FROM  (
-                 SELECT ROWNUM RNUM
+        FROM (
+        SELECT ROWNUM RNUM
                , BID
-               , B_REF_BID
                , BTYPE
                , BTITLE
-               , BWRITER
-               , B_ORIGINAL_FILENAME
-               , B_RENAME_FILENAME
-               , B_CREATE_DATE
+               , BUSER
+               , BCONTENT
+               , B_FILE
+               , B_RFILE
+               , B_DATE
+               , B_MODFIY_DATE
                , BCOUNT
-               , GRADE
-          FROM  ( SELECT B.BID
-                        ,(SELECT COUNT(*) FROM B_REPLY R LEFT JOIN BOARD B ON B.BID = R.B_REF_BID WHERE R.B_STATUS = 'Y') AS B_REF_BID
-                		, B.BTYPE
-                		, B.BTITLE
-                		, B.BWRITER
-                		, B.B_ORIGINAL_FILENAME
-                		, B.B_RENAME_FILENAME
-                		, B.B_CREATE_DATE
-                		, B.BCOUNT
-                		, M.GRADE
-           FROM BOARD B
-           LEFT JOIN B_REPLY R ON B.B_RCOUNT = R.B_REF_BID
-           LEFT JOIN MEMBER M ON B.BWRITER = M.NICKNAME
-           WHERE B.BSTATUS = 'Y'
-          ORDER BY B.BID DESC))
-          WHERE RNUM >=  #{ startRow }
-          AND RNUM <= #{ endRow }
+               , BSTATUS
+        FROM BOARD B
+        WHERE BSTATUS = 'Y'
+        ORDER BY BID DESC)
+        WHERE RNUM >=  #{ startRow }
+        AND RNUM <= #{ endRow }
                 ]]>
    </select>
 	
@@ -101,8 +89,8 @@
             , BID
             , BTYPE
             , BTITLE
-            , BWRITER
-            , B_CREATE_DATE
+            , BUSER
+            , B_DATE
             , BCOUNT
         FROM (
       SELECT *
@@ -142,11 +130,11 @@
       values (
               seq_bid.nextval
             , #{ btype }
-            , #{ bwriter }
+            , #{ buser }
             , #{ btitle }
             , #{ bcontent }
-            , #{ b_original_filename }
-            , #{ b_rename_filename }
+            , #{ b_file }
+            , #{ b_rfile }
             , sysdate
             , sysdate
             , default
@@ -197,7 +185,7 @@
    </update>
    
    
-   <select id="searchTitle" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchTitle" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
          <![CDATA[
         SELECT *
           FROM  (
@@ -233,7 +221,7 @@
          ]]>
    </select>
    
-   <select id="searchWriter" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchWriter" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
          <![CDATA[
 		SELECT *
           FROM  (
@@ -269,7 +257,7 @@
                 ]]>
    </select>
    
-   <select id="searchDate" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="resultBoardList">
+   <select id="searchDate" parameterType="heal.project.me.common.SearchAndPage" resultMap="resultBoardList">
          <![CDATA[
          SELECT *
           FROM  (
@@ -315,13 +303,13 @@
    <select id="getSearchWriterListCount" parameterType="string" resultType="_int">
       select count(*) 
         from board
-       where bwriter like '%' || #{ keyword } || '%'
+       where buser like '%' || #{ keyword } || '%'
    </select>
    
-   <select id="getSearchDateListCount" parameterType="com.ict.hhw.common.SearchDate" resultType="_int">
+   <select id="getSearchDateListCount" parameterType="heal.project.me.common.SearchDate" resultType="_int">
       select count(*) 
         from board
-       where b_create_date
+       where b_date
        between #{ begin }
            and #{ end }
    </select>

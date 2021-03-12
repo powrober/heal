@@ -1,4 +1,4 @@
-package com.ict.hhw.board.controller;
+package heal.project.me.board.controller;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -21,20 +21,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ict.hhw.board.model.service.BoardService;
-import com.ict.hhw.board.model.vo.Board;
-import com.ict.hhw.board.model.vo.BoardList;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.board.model.service.BoardService;
+import heal.project.me.board.model.vo.Board;
+import heal.project.me.board.model.vo.BoardList;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 @Controller
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	
-	
-	
 	// 글쓰기 페이지 이동 요청 처리용
 	@RequestMapping("bwmove.do")
 	public String moveBoardWriteForm() {
@@ -66,7 +63,7 @@ public class BoardController {
 		// 단, 첨부된 파일의 이름을 'yyyyMMddHHmmss.확장자'형식으로 바꾸어 저장함
 		if (mfile != null) {
 			String fileName = mfile.getOriginalFilename();
-			board.setB_original_filename(fileName); // 원래 파일명 vo에 저장
+			board.setB_file(fileName); // 원래 파일명 vo에 저장
 
 			// 첨부된 파일의 파일명 바꾸기
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -82,7 +79,7 @@ public class BoardController {
 					model.addAttribute("msg", "전송 파일 저장 실패");
 					return "common/errorPage";
 				}
-				board.setB_rename_filename(renameFileName);
+				board.setB_file(renameFileName);
 			}
 		}
 
@@ -115,11 +112,11 @@ public class BoardController {
 		String savePath = request.getSession().getServletContext().getRealPath("resources/board_files");
 
 		// 원래 첨부파일이 있었는데 삭제를 선택한 경우
-		if (board.getB_original_filename() != null && delFlag != null && delFlag.contentEquals("yes")) {
+		if (board.getB_file() != null && delFlag != null && delFlag.contentEquals("yes")) {
 			// 저장 폴더에서 파일을 삭제함
-			new File(savePath + "\\" + board.getB_rename_filename()).delete();
-			board.setB_original_filename(null);
-			board.setB_rename_filename(null);
+			new File(savePath + "\\" + board.getB_rfile()).delete();
+			board.setB_file(null);
+			board.setB_rfile(null);
 		}
 
 		// 새로운 첨부파일이 있다면
@@ -142,13 +139,13 @@ public class BoardController {
 			} // 첨부된 파일의 파일명 변경에서 폴더에 저장 처리
 
 			// 원래 첨부파일이 있는데 바뀐 경우
-			if (board.getB_original_filename() == null) {
+			if (board.getB_file() == null) {
 				// 원래 파일을 폴더에서 삭제 처리
-				new File(savePath + "\\" + board.getB_rename_filename()).delete();
+				new File(savePath + "\\" + board.getB_rfile()).delete();
 			}
 
-			board.setB_original_filename(fileName);
-			board.setB_rename_filename(renameFileName);
+			board.setB_file(fileName);
+			board.setB_rfile(renameFileName);
 		} // mfile != null
 
 		if (boardService.updateBoard(board) > 0) {
@@ -179,8 +176,8 @@ public class BoardController {
 			job.put("bid", board.getBid()); // map이랑 같다
             job.put("btype", board.getBtype());
 			job.put("btitle", URLEncoder.encode(board.getBtitle(), "utf-8")); // 인코딩 해서 제이슨 객체 안에 담는다
-			job.put("bwriter", board.getBwriter());
-			job.put("b_create_date", board.getB_create_date().toString());
+			job.put("buser", board.getBuser());
+			job.put("b_date", board.getB_date().toString());
 			job.put("bcount", board.getBcount());
 			// 날짜형식의 데이터를 json객체에 담을 때 주의사항, 뷰쪽에서 꺼낼 때 에러가나서, string형으로 바꿔서 json에 담아줘야한다.
 

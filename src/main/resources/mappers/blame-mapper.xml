@@ -4,13 +4,11 @@
    
    <resultMap type="Blame"  id="blameResultSet">
       <id property="blame_no" column="blame_no"/>
-      <result property="blame_bid" column="blame_bid"/>
       <result property="blame_type" column="blame_type"/>
-      <result property="mm_nickname" column="mm_nickname"/>
-      <result property="target_nickname" column="target_nickname"/>
+      <result property="reporter" column="reporter"/>
+      <result property="targetuser" column="targetuser"/>
       <result property="blame_date" column="blame_date"/>
       <result property="blame_content" column="blame_content"/>
-      <result property="blame_ip" column="blame_ip"/>
    </resultMap>
    
    	
@@ -31,15 +29,14 @@
       		  (seq_blid.nextval
       		, #{ blame_bid }
       		, #{ blame_type }
-      		, #{ mm_nickname }
-      		, #{ target_nickname }
+      		, #{ reporter }
+      		, #{ targetuser }
       		, sysdate
       		, #{ blame_content }
-      		, #{ blame_ip }
       		)
    </insert>
 
-   <select id="selectList" parameterType="com.ict.hhw.blame.model.vo.BlamePage" resultMap="blameResultSet">
+   <select id="selectList" parameterType="heal.project.me.blame.model.vo.BlamePage" resultMap="blameResultSet">
       <![CDATA[
          SELECT *
           FROM  (
@@ -62,7 +59,7 @@
    </select>
   
   
-   <select id="searchTitle" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="blameResultSet">
+   <select id="searchTitle" parameterType="heal.project.me.common.SearchAndPage" resultMap="blameResultSet">
          <![CDATA[
          SELECT *
           FROM (
@@ -86,7 +83,7 @@
          ]]>
    </select>
    
-   <select id="searchWriter" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="blameResultSet">
+   <select id="searchWriter" parameterType="heal.project.me.common.SearchAndPage" resultMap="blameResultSet">
          <![CDATA[
          SELECT *
           FROM (

@@ -1,4 +1,4 @@
-package com.ict.hhw.blame.model.vo;
+package heal.project.me.blame.model.vo;
 
 public class BlamePage {
 	private int startRow;

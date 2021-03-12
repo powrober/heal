@@ -1,4 +1,4 @@
-package com.ict.hhw.notice.controller;
+package heal.project.me.notice.controller;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,11 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ict.hhw.board.model.vo.Board;
-import com.ict.hhw.common.SearchDate;
-import com.ict.hhw.member.model.vo.Member;
-import com.ict.hhw.notice.model.service.NoticeService;
-import com.ict.hhw.notice.model.vo.Notice;
+import heal.project.me.common.SearchDate;
+import heal.project.me.notice.model.service.NoticeService;
+import heal.project.me.notice.model.vo.Notice;
 
 
 @Controller
@@ -71,7 +68,7 @@ public class NoticeController {
 				job.put("nid", notice.getNid());
 				job.put("ntype", notice.getNtype());
 				job.put("ntitle", URLEncoder.encode(notice.getNtitle(), "utf-8"));
-				job.put("n_create_date", notice.getN_date().toString()); // 날짜형은 반! 드! 시! String으로 변환해줘야함
+				job.put("n_date", notice.getN_date().toString()); // 날짜형은 반! 드! 시! String으로 변환해줘야함
 				job.put("ncount", notice.getNcount());
 
 
@@ -179,7 +176,7 @@ public class NoticeController {
 						model.addAttribute("msg", "전송 파일 저장 실패");
 						return "common/errorPage";
 					}
-					notice.setN_file_name(mfile.getOriginalFilename());
+					notice.setN_file(mfile.getOriginalFilename());
 					logger.info("ninsert.do : " + notice);
 				}
 			}
@@ -235,16 +232,16 @@ public class NoticeController {
 			String savePath = request.getSession().getServletContext().getRealPath("resources/notice_files");
 
 			// 원래 첨부파일이 있었는데 삭제를 선택한 경우
-			if (notice.getN_file_name() != null && delFlag != null && delFlag.contentEquals("yes")) {
+			if (notice.getN_file() != null && delFlag != null && delFlag.contentEquals("yes")) {
 				// 저장 폴더에서 파일을 삭제함
-				new File(savePath + "\\" + notice.getN_file_name()).delete();
-				notice.setN_file_name(null);
+				new File(savePath + "\\" + notice.getN_file()).delete();
+				notice.setN_file(null);
 			}
 
 			// 원래 첨부파일이 없었는데 새로 추가한 경우
 			if (mfile != null) {
 				String fileName = mfile.getOriginalFilename();
-				if (notice.getN_file_name() == null && fileName.length() > 0) {
+				if (notice.getN_file() == null && fileName.length() > 0) {
 					// 업로드된 파일을 지정 폴더로 옮기기
 					try {
 						mfile.transferTo(new File(savePath + "\\" + mfile.getOriginalFilename()));
@@ -253,7 +250,7 @@ public class NoticeController {
 						model.addAttribute("msg", "전송파일 저장 실패");
 						return "common/errorPage";
 					}
-					notice.setN_file_name(mfile.getOriginalFilename());
+					notice.setN_file(mfile.getOriginalFilename());
 				}
 			}
 

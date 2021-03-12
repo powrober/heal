@@ -7,9 +7,19 @@
 
 	<typeAliases>
 		<typeAlias type="heal.project.me.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="heal.project.me.n_reply.model.vo.N_Reply" alias="N_Reply"/>
+		<typeAlias type="heal.project.me.b_reply.model.vo.B_Reply" alias="B_Reply"/>
+		<typeAlias type="heal.project.me.notice.model.vo.Notice" alias="Notice"/>
+		<typeAlias type="heal.project.me.board.model.vo.Notice" alias="Board"/>
+		<typeAlias type="heal.project.me.blame.model.vo.Blame" alias="Board"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/n_reply-mapper.xml"/>
+		<mapper resource="mappers/b_reply-mapper.xml"/>
+		<mapper resource="mappers/notice-mapper.xml"/>
+		<mapper resource="mappers/board-mapper.xml"/>
+		<mapper resource="mappers/blame-mapper.xml"/>
 	</mappers>
 </configuration>

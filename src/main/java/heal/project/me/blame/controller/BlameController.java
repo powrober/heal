@@ -1,4 +1,4 @@
-package com.ict.hhw.blame.controller;
+package heal.project.me.blame.controller;
 
 import java.util.ArrayList;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ict.hhw.blame.model.service.BlameService;
-import com.ict.hhw.blame.model.vo.Blame;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.blame.model.service.BlameService;
+import heal.project.me.blame.model.vo.Blame;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 @Controller
 public class BlameController {

@@ -1,4 +1,4 @@
-package com.ict.hhw.blame.model.vo;
+package heal.project.me.blame.model.vo;
 
 import java.sql.Date;
 
@@ -6,15 +6,24 @@ public class Blame {
 	private final static long serialVersionUID = 4312L;
 	
 	private int blame_no; 				//신고번호
-	private int blame_bid;				//신고 게시물의 번호
 	private String blame_type;			//신고 글 구분
-	private String mm_nickname;			//신고회원
-	private String target_nickname;		//신고 당한 회원
+	private String reporter;			//신고회원
+	private String tagetuser;		//신고 당한 회원
 	private Date blame_date;			//신고번호 일자
 	private String blame_content;		//신고자 신고내용
-	private String blame_ip;			//신고자 IP
 
 	public Blame() {}
+
+	public Blame(int blame_no, String blame_type, String reporter, String tagetuser, Date blame_date,
+			String blame_content) {
+		super();
+		this.blame_no = blame_no;
+		this.blame_type = blame_type;
+		this.reporter = reporter;
+		this.tagetuser = tagetuser;
+		this.blame_date = blame_date;
+		this.blame_content = blame_content;
+	}
 
 	public int getBlame_no() {
 		return blame_no;
@@ -22,14 +31,6 @@ public class Blame {
 
 	public void setBlame_no(int blame_no) {
 		this.blame_no = blame_no;
-	}
-
-	public int getBlame_bid() {
-		return blame_bid;
-	}
-
-	public void setBlame_bid(int blame_bid) {
-		this.blame_bid = blame_bid;
 	}
 
 	public String getBlame_type() {
@@ -40,20 +41,20 @@ public class Blame {
 		this.blame_type = blame_type;
 	}
 
-	public String getMm_nickname() {
-		return mm_nickname;
+	public String getReporter() {
+		return reporter;
 	}
 
-	public void setMm_nickname(String mm_nickname) {
-		this.mm_nickname = mm_nickname;
+	public void setReporter(String reporter) {
+		this.reporter = reporter;
 	}
 
-	public String getTarget_nickname() {
-		return target_nickname;
+	public String getTagetuser() {
+		return tagetuser;
 	}
 
-	public void setTarget_nickname(String target_nickname) {
-		this.target_nickname = target_nickname;
+	public void setTagetuser(String tagetuser) {
+		this.tagetuser = tagetuser;
 	}
 
 	public Date getBlame_date() {
@@ -72,24 +73,15 @@ public class Blame {
 		this.blame_content = blame_content;
 	}
 
-	public String getBlame_ip() {
-		return blame_ip;
-	}
-
-	public void setBlame_ip(String blame_ip) {
-		this.blame_ip = blame_ip;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "Blame [blame_no=" + blame_no + ", blame_bid=" + blame_bid + ", blame_type=" + blame_type
-				+ ", mm_nickname=" + mm_nickname + ", target_nickname=" + target_nickname + ", blame_date=" + blame_date
-				+ ", blame_content=" + blame_content + ", blame_ip=" + blame_ip + "]";
+		return "Blame [blame_no=" + blame_no + ", blame_type=" + blame_type + ", reporter=" + reporter + ", tagetuser="
+				+ tagetuser + ", blame_date=" + blame_date + ", blame_content=" + blame_content + "]";
 	}
 
-
+	
 }

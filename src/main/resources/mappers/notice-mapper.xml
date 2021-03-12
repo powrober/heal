@@ -5,37 +5,29 @@
    <resultMap id="noticeResultSet" type="Notice">
       <id property="nid" column="nid"/>
       <result property="ntype" column="ntype"/>
-      <result property="nwriter" column="nwriter"/>
+      <result property="nuser" column="nuser"/>
       <result property="ntitle" column="ntitle"/>
       <result property="ncontent" column="ncontent"/>
-      <result property="n_file_name" column="n_file_name"/>
-      <result property="n_rfile_name" column="n_rfile_name"/>
+      <result property="n_file" column="n_file"/>
+      <result property="n_rfile" column="n_rfile"/>
       <result property="n_date" column="n_date"/>
       <result property="n_modfiy_date" column="n_modfiy_date"/>
       <result property="ncount" column="ncount"/>
       <result property="nstatus" column="nstatus"/>
    </resultMap>
-   
-   <resultMap id="noticeTop3ResultSet" type="Notice">
-      <id property="nid" column="nid"/>
-      <result property="ntype" column="ntype"/>
-      <result property="ntitle" column="ntitle"/>
-      <result property="n_date" column="n_date"/>
-      <result property="ncount" column="ncount"/>
-   </resultMap>
-   
-   <select id="selectNewNoticeList" parameterType="com.ict.hhw.notice.model.vo.NoticePage" resultMap="noticeResultSet">
+      
+   <select id="selectNewNoticeList" parameterType="heal.project.me.notice.model.vo.NoticePage" resultMap="noticeResultSet">
       <![CDATA[
         SELECT *
           FROM (
                  SELECT ROWNUM RNUM
                , NID
                , NTYPE
-               , NWRITER
+               , NUSER
                , NTITLE
                , NCONTENT
-               , N_FILE_NAME
-               , N_RFILE_NAME
+               , N_FILE
+               , N_RFILE
                , N_DATE
                , N_MODFIY_DATE
                , NCOUNT
@@ -94,11 +86,11 @@
       <if test="n_file_name != null">
       values (seq_nid.nextval
       		, #{ ntype }
-      		, #{ nwriter }
+      		, #{ nuser }
       		, #{ ntitle }
       		, #{ ncontent }
-      		, #{ n_file_name }
-      		, #{ n_rfile_name }
+      		, #{ n_file }
+      		, #{ n_rfile }
       		, sysdate
       		, sysdate
       		, default
@@ -123,11 +115,11 @@
       update notice
       set ntitle = #{ ntitle },
          ncontent = #{ ncontent }
-         <if test="n_file_name != null">
-         , n_file_name = #{ n_file_name }
+         <if test="n_file != null">
+         , n_file = #{ n_file }
          </if>
-         <if test="n_file_name == null">
-         , n_file_name = null
+         <if test="n_file == null">
+         , n_file = null
          </if>
       where nid = #{ nid }
    </update>
@@ -144,10 +136,10 @@
 	
    <select id="searchWriter" parameterType="string" resultMap="noticeResultSet">
    		select * from notice
-   		where nwriter like '%' || #{ keyword } || '%'
+   		where nuser like '%' || #{ keyword } || '%'
    </select>
    
-   <select id="searchDate" parameterType="com.ict.hhw.common.SearchDate" resultMap="noticeResultSet">
+   <select id="searchDate" parameterType="heal.project.me.common.SearchDate" resultMap="noticeResultSet">
    		select * from notice
    		where n_date between #{ begin } and #{ end }
    </select>

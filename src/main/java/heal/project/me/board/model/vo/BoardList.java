@@ -1,8 +1,6 @@
-package com.ict.hhw.board.model.vo;
+package heal.project.me.board.model.vo;
 
 import java.sql.Date;
-
-import com.ict.hhw.board_reply.model.vo.B_Reply;
 
 public class BoardList {
 	private final static long serialVersionUID = 3943L;

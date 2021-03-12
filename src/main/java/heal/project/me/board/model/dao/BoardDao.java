@@ -1,4 +1,4 @@
-package com.ict.hhw.board.model.dao;
+package heal.project.me.board.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ict.hhw.board.model.vo.Board;
-import com.ict.hhw.board.model.vo.BoardList;
-import com.ict.hhw.board.model.vo.BoardListPage;
-import com.ict.hhw.board.model.vo.BoardPage;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.board.model.vo.Board;
+import heal.project.me.board.model.vo.BoardList;
+import heal.project.me.board.model.vo.BoardPage;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 @Repository("boardDao")
 public class BoardDao {

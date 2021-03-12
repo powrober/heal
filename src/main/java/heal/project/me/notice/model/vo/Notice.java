@@ -1,4 +1,4 @@
-package com.ict.hhw.notice.model.vo;
+package heal.project.me.notice.model.vo;
 
 import java.sql.Date;
 
@@ -7,17 +7,33 @@ public class Notice {
 	
 	private int nid;
 	private String ntype;
-	private String nwriter;
+	private String nuser;
 	private String ntitle;
 	private String ncontent;
-	private String n_file_name;
-	private String n_rfile_name;
+	private String n_file;
+	private String n_rfile;
 	private Date n_date;
 	private Date n_modfiy_date;
 	private int ncount;
 	private String nstatus;
 	
 	public Notice() {}
+
+	public Notice(int nid, String ntype, String nuser, String ntitle, String ncontent, String n_file, String n_rfile,
+			Date n_date, Date n_modfiy_date, int ncount, String nstatus) {
+		super();
+		this.nid = nid;
+		this.ntype = ntype;
+		this.nuser = nuser;
+		this.ntitle = ntitle;
+		this.ncontent = ncontent;
+		this.n_file = n_file;
+		this.n_rfile = n_rfile;
+		this.n_date = n_date;
+		this.n_modfiy_date = n_modfiy_date;
+		this.ncount = ncount;
+		this.nstatus = nstatus;
+	}
 
 	public int getNid() {
 		return nid;
@@ -35,12 +51,12 @@ public class Notice {
 		this.ntype = ntype;
 	}
 
-	public String getNwriter() {
-		return nwriter;
+	public String getNuser() {
+		return nuser;
 	}
 
-	public void setNwriter(String nwriter) {
-		this.nwriter = nwriter;
+	public void setNuser(String nuser) {
+		this.nuser = nuser;
 	}
 
 	public String getNtitle() {
@@ -59,20 +75,20 @@ public class Notice {
 		this.ncontent = ncontent;
 	}
 
-	public String getN_file_name() {
-		return n_file_name;
+	public String getN_file() {
+		return n_file;
 	}
 
-	public void setN_file_name(String n_file_name) {
-		this.n_file_name = n_file_name;
+	public void setN_file(String n_file) {
+		this.n_file = n_file;
 	}
 
-	public String getN_rfile_name() {
-		return n_rfile_name;
+	public String getN_rfile() {
+		return n_rfile;
 	}
 
-	public void setN_rfile_name(String n_rfile_name) {
-		this.n_rfile_name = n_rfile_name;
+	public void setN_rfile(String n_rfile) {
+		this.n_rfile = n_rfile;
 	}
 
 	public Date getN_date() {
@@ -113,9 +129,9 @@ public class Notice {
 
 	@Override
 	public String toString() {
-		return "Notice [nid=" + nid + ", ntype=" + ntype + ", nwriter=" + nwriter + ", ntitle=" + ntitle + ", ncontent="
-				+ ncontent + ", n_file_name=" + n_file_name + ", n_rfile_name=" + n_rfile_name + ", n_date=" + n_date
-				+ ", n_modfiy_date=" + n_modfiy_date + ", ncount=" + ncount + ", nstatus=" + nstatus + "]";
+		return "Notice [nid=" + nid + ", ntype=" + ntype + ", nuser=" + nuser + ", ntitle=" + ntitle + ", ncontent="
+				+ ncontent + ", n_file=" + n_file + ", n_rfile=" + n_rfile + ", n_date=" + n_date + ", n_modfiy_date="
+				+ n_modfiy_date + ", ncount=" + ncount + ", nstatus=" + nstatus + "]";
 	}
 
 }

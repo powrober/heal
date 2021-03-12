@@ -1,4 +1,4 @@
-package com.ict.hhw.board.model.vo;
+package heal.project.me.board.model.vo;
 
 public class BoardPage {
 	private int startRow;

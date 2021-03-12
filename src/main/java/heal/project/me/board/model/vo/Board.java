@@ -1,4 +1,4 @@
-package com.ict.hhw.board.model.vo;
+package heal.project.me.board.model.vo;
 
 import java.sql.Date;
 
@@ -7,33 +7,31 @@ public class Board {
 	
 	private int bid;
 	private String btype;
+	private String buser;
 	private String btitle;
-	private String bwriter;
 	private String bcontent;
-	private String b_original_filename;
-	private String b_rename_filename;
-	private int bcount;
-	private int b_rcount;
-	private Date b_create_date;
+	private String b_file;
+	private String b_rfile;
+	private Date b_date;
 	private Date b_modfiy_date;
+	private int bcount;
 	private String bstatus;
 	
 	public Board() {}
 
-	public Board(int bid, String btype, String btitle, String bwriter, String bcontent, String b_original_filename,
-			String b_rename_filename, int bcount, int b_rcount, Date b_create_date, Date b_modfiy_date, String bstatus) {
+	public Board(int bid, String btype, String btitle, String buser, String bcontent, String b_file, String b_rfile,
+			Date b_date, Date b_modfiy_date, int bcount, String bstatus) {
 		super();
 		this.bid = bid;
 		this.btype = btype;
 		this.btitle = btitle;
-		this.bwriter = bwriter;
+		this.buser = buser;
 		this.bcontent = bcontent;
-		this.b_original_filename = b_original_filename;
-		this.b_rename_filename = b_rename_filename;
-		this.bcount = bcount;
-		this.b_rcount = b_rcount;
-		this.b_create_date = b_create_date;
+		this.b_file = b_file;
+		this.b_rfile = b_rfile;
+		this.b_date = b_date;
 		this.b_modfiy_date = b_modfiy_date;
+		this.bcount = bcount;
 		this.bstatus = bstatus;
 	}
 
@@ -61,12 +59,12 @@ public class Board {
 		this.btitle = btitle;
 	}
 
-	public String getBwriter() {
-		return bwriter;
+	public String getBuser() {
+		return buser;
 	}
 
-	public void setBwriter(String bwriter) {
-		this.bwriter = bwriter;
+	public void setBuser(String buser) {
+		this.buser = buser;
 	}
 
 	public String getBcontent() {
@@ -77,44 +75,28 @@ public class Board {
 		this.bcontent = bcontent;
 	}
 
-	public String getB_original_filename() {
-		return b_original_filename;
+	public String getB_file() {
+		return b_file;
 	}
 
-	public void setB_original_filename(String b_original_filename) {
-		this.b_original_filename = b_original_filename;
+	public void setB_file(String b_file) {
+		this.b_file = b_file;
 	}
 
-	public String getB_rename_filename() {
-		return b_rename_filename;
+	public String getB_rfile() {
+		return b_rfile;
 	}
 
-	public void setB_rename_filename(String b_rename_filename) {
-		this.b_rename_filename = b_rename_filename;
+	public void setB_rfile(String b_rfile) {
+		this.b_rfile = b_rfile;
 	}
 
-	public int getBcount() {
-		return bcount;
+	public Date getB_date() {
+		return b_date;
 	}
 
-	public void setBcount(int bcount) {
-		this.bcount = bcount;
-	}
-
-	public int getB_rcount() {
-		return b_rcount;
-	}
-
-	public void setB_rcount(int b_rcount) {
-		this.b_rcount = b_rcount;
-	}
-
-	public Date getB_create_date() {
-		return b_create_date;
-	}
-
-	public void setB_create_date(Date b_create_date) {
-		this.b_create_date = b_create_date;
+	public void setB_date(Date b_date) {
+		this.b_date = b_date;
 	}
 
 	public Date getB_modfiy_date() {
@@ -125,6 +107,14 @@ public class Board {
 		this.b_modfiy_date = b_modfiy_date;
 	}
 
+	public int getBcount() {
+		return bcount;
+	}
+
+	public void setBcount(int bcount) {
+		this.bcount = bcount;
+	}
+
 	public String getBstatus() {
 		return bstatus;
 	}
@@ -133,17 +123,16 @@ public class Board {
 		this.bstatus = bstatus;
 	}
 
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "Board [bid=" + bid + ", btype=" + btype + ", btitle=" + btitle + ", bwriter=" + bwriter + ", bcontent="
-				+ bcontent + ", b_original_filename=" + b_original_filename + ", b_rename_filename=" + b_rename_filename
-				+ ", bcount=" + bcount + ", b_rcount=" + b_rcount + ", b_create_date=" + b_create_date
-				+ ", b_modfiy_date=" + b_modfiy_date + ", bstatus=" + bstatus + "]";
+		return "Board [bid=" + bid + ", btype=" + btype + ", btitle=" + btitle + ", buser=" + buser + ", bcontent="
+				+ bcontent + ", b_file=" + b_file + ", b_rfile=" + b_rfile + ", b_date=" + b_date + ", b_modfiy_date="
+				+ b_modfiy_date + ", bcount=" + bcount + ", bstatus=" + bstatus + "]";
 	}
+
 
 }

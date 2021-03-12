@@ -1,11 +1,11 @@
-package com.ict.hhw.board.model.service;
+package heal.project.me.board.model.service;
 
 import java.util.ArrayList;
 
-import com.ict.hhw.board.model.vo.Board;
-import com.ict.hhw.board.model.vo.BoardList;
-import com.ict.hhw.common.SearchAndPage;
-import com.ict.hhw.common.SearchDate;
+import heal.project.me.board.model.vo.Board;
+import heal.project.me.board.model.vo.BoardList;
+import heal.project.me.common.SearchAndPage;
+import heal.project.me.common.SearchDate;
 
 public interface BoardService {
 	

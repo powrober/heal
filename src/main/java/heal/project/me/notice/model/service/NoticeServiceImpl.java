@@ -1,13 +1,13 @@
-package com.ict.hhw.notice.model.service;
+package heal.project.me.notice.model.service;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ict.hhw.common.SearchDate;
-import com.ict.hhw.notice.model.dao.NoticeDao;
-import com.ict.hhw.notice.model.vo.Notice;
+import heal.project.me.common.SearchDate;
+import heal.project.me.notice.model.dao.NoticeDao;
+import heal.project.me.notice.model.vo.Notice;
 
 @Service("noticeService")
 public class NoticeServiceImpl implements NoticeService {

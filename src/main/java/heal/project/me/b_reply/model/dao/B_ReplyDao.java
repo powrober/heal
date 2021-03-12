@@ -1,4 +1,4 @@
-package com.ict.hhw.board_reply.model.dao;
+package heal.project.me.b_reply.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ict.hhw.board_reply.model.vo.B_Reply;
+import heal.project.me.b_reply.model.vo.B_Reply;
 
 @Repository("b_replyDao")
 public class B_ReplyDao {
@@ -23,16 +23,16 @@ public class B_ReplyDao {
 		return sqlSession.update("b_replyMapper.updateB_Reply", b_reply);
 	}
 
-	public int deleteB_Reply(int b_rid) {
-		return sqlSession.delete("b_replyMapper.deleteB_Reply", b_rid);
+	public int deleteB_Reply(int brid) {
+		return sqlSession.delete("b_replyMapper.deleteB_Reply", brid);
 	}
 
-	public B_Reply selectB_Reply(int b_rid) {
-		return sqlSession.selectOne("b_replyMapper.selectB_Reply", b_rid);
+	public B_Reply selectB_Reply(int brid) {
+		return sqlSession.selectOne("b_replyMapper.selectB_Reply", brid);
 	}
 
-	public ArrayList<B_Reply> selectList(int b_ref_bid) {
-		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectList", b_ref_bid);
+	public ArrayList<B_Reply> selectList(int brid) {
+		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectList", brid);
 		return (ArrayList<B_Reply>)list;
 	}
 	

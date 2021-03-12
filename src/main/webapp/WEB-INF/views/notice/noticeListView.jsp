@@ -18,7 +18,8 @@
 <title>공지사항</title>
 
 
-<script type="text/javascript" src="/hhw/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 
 <script type="text/javascript">
 	 $(function() {
@@ -77,109 +78,96 @@
            <p class="heading-1 breadcrumbs-custom-title">공지사항</p>
            <ul class="breadcrumbs-custom-path">
              <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지시항</a></li>
+             <li><a href="${ nlist }">공지사항</a></li>
              <li><a href="${ blist }">자유게시판</a></li>
            </ul>
          </div>
        </div>
      </section>
 	
-	
-	<div style="text-align: center; padding-top: 30px;">
-		<div>
-			<h3 style="margin: 10px 0 10px 0;">공지사항</h3>
-		</div>
-	</div>
-	
-	<%-- 검색기능 --%>
-	<div>
-		<div style="text-align: left; padding-left: 550px;">
-			<div>
-				<select name="btype" id="item">
-					<option id="item" value="">검색 항목 선택</option>
-					<option id="item" value="title">제목</option>
-					<option id="item" value="writer">작성자</option>
-					<option id="item" value="date">게시날짜</option>
-				</select>
-	
-				<input type="radio" name="item" value="title" checked> 제목&nbsp; &nbsp; &nbsp; 
-				<input type="radio" name="item" value="writer">	 작성자 &nbsp; &nbsp; &nbsp; 
-				<input type="radio" name="item" value="date"> 날짜
-			</div>
-	
-			<div id="titleDiv">
-				<form action="nsearchTitle.do" method="post">
-					<input type="search" name="keyword">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
-					<%-- 목록 출력 --%>
-					<div style="align: center; padding-left: 400px">
-						<c:url var="nlist" value="/nlist.do"/>
-						<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
-					</div>
-				</form>
-			</div>
-			
-			<div id="writerDiv">
-				<form action="nsearchWriter.do" method="post">
-					<input type="search"name="keyword">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
-					<%-- 목록 출력 --%>
-					<div style="align: center; padding-left: 400px">
-						<c:url var="nlist" value="/nlist.do"/>
-						<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
-					</div>
-				</form>
-			</div>
+     <section class="section section-lg bg-default text-center">
+       <div class="container">
+         <div class="row justify-content-sm-center">
+           <div class="col-md-10 col-xl-8">
+             <h3>공지사항</h3>
+             
+             <%-- 검색기능 --%>
+				<div>
+					<div style="text-align: left; padding-left: 550px;">
+						<div>
+							<select name="btype" id="item">
+								<option id="item" value="">검색 항목 선택</option>
+								<option id="item" value="title">제목</option>
+								<option id="item" value="writer">작성자</option>
+								<option id="item" value="date">게시날짜</option>
+							</select>
 				
-			<div id="dateDiv">
-				<form action="nsearchDate.do" method="post">
-					<input type="date" name="begin"> ~ <input type="date" name="end">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
-					<%-- 목록 출력 --%>
-					<div style="align: center; padding-left: 400px">
-						<c:url var="nlist" value="/nlist.do"/>
-						<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
-					</div>
-				</form>
-			</div>
-		</div>
-		
-		<%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'B' }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -20px">
-				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color: #fff;">글쓰기</button>
-			</div>
-		</c:if>
-		
-	</div>
-	
-	
-	<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
-		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" >
-			<colgroup>
-				<col width="100">
-				<col width="100">
-				<col width="100">
-				<col width="100">
-				<col width="100">
-				<col width="100">
-			</colgroup>
-			<thead>
-				<tr>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" class="title">번호</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">말머리</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제&nbsp;&nbsp;&nbsp;&nbsp;목</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성날짜</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
-				</tr>
+							<input type="radio" name="item" value="title" checked> 제목&nbsp; &nbsp; &nbsp; 
+							<input type="radio" name="item" value="writer">	 작성자 &nbsp; &nbsp; &nbsp; 
+							<input type="radio" name="item" value="date"> 날짜
+						</div>
 				
-				<tr>
-					<td colspan="7" class="blank2">&nbsp;
-			    </tr>
-            </thead>
-            <tbody>
-                <tr>
+						<div id="titleDiv">
+							<form action="nsearchTitle.do" method="post">
+								<input type="search" name="keyword">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<%-- 목록 출력 --%>
+								<div style="align: center; padding-left: 400px">
+									<c:url var="nlist" value="/nlist.do"/>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+								</div>
+							</form>
+						</div>
+						
+						<div id="writerDiv">
+							<form action="nsearchWriter.do" method="post">
+								<input type="search"name="keyword">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<%-- 목록 출력 --%>
+								<div style="align: center; padding-left: 400px">
+									<c:url var="nlist" value="/nlist.do"/>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+								</div>
+							</form>
+						</div>
+							
+						<div id="dateDiv">
+							<form action="nsearchDate.do" method="post">
+								<input type="date" name="begin"> ~ <input type="date" name="end">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<%-- 목록 출력 --%>
+								<div style="align: center; padding-left: 400px">
+									<c:url var="nlist" value="/nlist.do"/>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+					<%-- 관리자가 로그인 했을 때 --%>
+					<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
+						<div style="text-align: right; padding-right: 550px; margin-top: -20px">
+							<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color: #fff;">글쓰기</button>
+						</div>
+					</c:if>
+				</div>
+             
+             <%-- 테이블 --%>
+             <div class="table-novi table-custom-responsive">
+               <table class="table-custom table-hover">
+                 <thead>
+                   <tr>
+                     <th>번호</th>
+                     <th>말머리</th>
+                     <th>제목</th>
+                     <th>작성자</th>
+                     <th>작성일</th>
+                     <th>조회수</th>
+                   </tr>
+                 </thead>
+                 
+                 <tbody>
+                   <tr>
                 	<c:forEach items="${ requestScope.list}" var="n">
 	                <tr>
 						<td align="center" width="80" style="font-size:15px; color: black;">${ n.nid }</td>
@@ -200,13 +188,15 @@
 	
 						<td align="center" width="80" style="font-size:15px; color: black;">${ n.ncount }</td>
 						
-					</tr>
 					</c:forEach>
             </tbody>
-        </table>
-    </div>
-    
-    
+                 
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
     
 	<%-- 현재 페이지가 1이 아니면 링크설정, 현재 1페이지이면 링크없음 --%>
 	<c:if test="${ empty action}">

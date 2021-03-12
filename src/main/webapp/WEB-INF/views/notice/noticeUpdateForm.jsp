@@ -37,15 +37,28 @@ table.table2 td {
 </head>
 <body>
 	<jsp:include page="../main/header.jsp" />
-	<hr>
 	
+ 	<!-- Breadcrumbs-->
+     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
+       <div class="parallax-content">
+         <div class="container">
+           <p class="heading-1 breadcrumbs-custom-title">공지사항 수정</p>
+           <ul class="breadcrumbs-custom-path">
+             <li><a href="home.do">Home</a></li>
+             <li><a href="${ nlist }">공지시항</a></li>
+             <li><a href="${ blist }">자유게시판</a></li>
+           </ul>
+         </div>
+       </div>
+     </section>
+
 		<section style="padding: 70px 0 60px 0;">
 		
 		<br><br>
 		<form action="nupdate.do" method="post" enctype="multipart/form-data" style="padding-bottom: 30px;">
 			<input type="hidden" name="nid" value="${ notice.nid }">
-			<c:if test="${ !empty notice.n_file_name }">
-				<input type="hidden" name="file_path" value="${ notice.n_file_name }">
+			<c:if test="${ !empty notice.n_file }">
+				<input type="hidden" name="file_path" value="${ notice.n_file }">
 			</c:if>
 			
 			<table style="padding-top: 50px" align="center" width="700" border="0" cellpadding="2">
@@ -74,17 +87,17 @@ table.table2 td {
 							
 							<tr>
 								<td>작성자</td>
-								<td><input type="text" name="nwriter" readonly value="${ notice.nwriter }"></td>
+								<td><input type="text" name="nuser" readonly value="${ notice.nuser }"></td>
 							</tr>
 	
 							<tr>
 								<td>첨부파일</td>
 								<td>
 									<%-- 원래 첨부파일이 있는 경우 --%>
-									<c:if test="${ !empty notice.n_file_name }"> ${ notice.n_file_name } &nbsp;<input type="checkbox" name="delFlag" value="yes"> 파일삭제 <br>
+									<c:if test="${ !empty notice.n_file }"> ${ notice.n_file } &nbsp;<input type="checkbox" name="delFlag" value="yes"> 파일삭제 <br>
 									</c:if>
 									<%-- 원래 첨부파일이 없을 경우 --%>
-									<c:if test="${empty notice.n_file_name }"> <input type="file" name="upfile">
+									<c:if test="${empty notice.n_file }"> <input type="file" name="upfile">
 									</c:if>
 								</td>
 							</tr>

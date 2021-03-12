@@ -83,7 +83,7 @@
    
    <insert id="insertNotice" parameterType="Notice">
       insert into notice
-      <if test="n_file_name != null">
+      <if test="n_file != null">
       values (seq_nid.nextval
       		, #{ ntype }
       		, #{ nuser }
@@ -96,10 +96,10 @@
       		, default
       		, default)
       </if>
-      <if test="n_file_name == null">
+      <if test="n_file == null">
       values (seq_nid.nextval
       		, #{ ntype }
-      		, #{ nwriter }
+      		, #{ nuser }
       		, #{ ntitle }
       		, #{ ncontent }
       		, null

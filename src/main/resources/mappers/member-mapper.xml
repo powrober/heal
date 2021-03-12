@@ -24,7 +24,7 @@
       SELECT
          COUNT(*)
       FROM MEMBER
-      WHERE ID = #{ id }
+      WHERE id = #{ id }
    </select>
 
  

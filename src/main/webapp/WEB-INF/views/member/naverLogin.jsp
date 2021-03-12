@@ -20,7 +20,7 @@
 	String clientSecret = "RIA79leRyX";// 애플리케이션 클라이언트 시크릿값";
 	String code = request.getParameter("code");
 	String state = request.getParameter("state");
-	String redirectURI = URLEncoder.encode("http://localhost:8888/hhw/naverLogin.move", "UTF-8");
+	String redirectURI = URLEncoder.encode("http://localhost:8856/me/naverLogin.move", "UTF-8");
 	String apiURL;
 	apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&";
 	apiURL += "client_id=" + clientId;
@@ -82,7 +82,7 @@
 		<div id="header" align="center">
 			<h1>
 				<a href="http://www.naver.com/"><img
-					src="/hhw/resources/images/icon/NAVER.png" width="240px"
+					src="/me/resources/images/naverLogin.png" width="240px"
 					height="44px" align="center"></a>
 			</h1>
 		</div>
@@ -105,8 +105,7 @@
 					<form action="naverLogin.do" method="post">
 						<input type="hidden" name="token" value="<%= tokenStr %>">
 						<button type="submit" style="border: none;">
-							<img src="/hhw/resources/images/icon/naverBtn.PNG" width="100%"
-							height="59px">
+							<img src="/me/resources/images/naverLogin.png" width="100%" height="59px">
 						</button>
 					</form>
 
@@ -134,12 +133,10 @@
 					id="fot.help">회원정보 고객센터</a></li>
 			</ul>
 			<address>
-				<em><a href="http://www.naver.com/"><img
-						src="/hhw/resources/images/icon/NAVER.png" width="63px"
-						height="11px" align="center"></a> </em><em class="copy">Copyright</em>
-				<em class="u_cri">©</em> <a target="_blank"
-					href="http://www.navercorp.com/" class="u_cra" id="fot.navercorp">NAVER
-					Corp.</a> <span class="all_r">All Rights Reserved.</span>
+				<em><a href="http://www.naver.com/">
+						<img src="/me/resources/images/naverLogin.png" width="63px" height="11px" align="center"></a> </em><em class="copy">Copyright</em>
+				<em class="u_cri">©</em>
+					<a target="_blank" href="http://www.navercorp.com/" class="u_cra" id="fot.navercorp">NAVER Corp.</a> <span class="all_r">All Rights Reserved.</span>
 			</address>
 		</div>
 

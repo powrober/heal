@@ -39,7 +39,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 
 <body>
 
-    <div class="ie-panel"><a href="#"><img src="R" height="42" width="820" alt="#"></a></div>
+    <div class="ie-panel"><a href="#"><img src="#" height="42" width="820" alt="#"></a></div>
     <!-- Page preloader-->
     <div class="page-loader">
       <div class="page-loader-body">
@@ -94,7 +94,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 
 
     <!-- Page-->
-    <div class="page" style="margin-bottom:-930px;">
+    <div class="page" style="margin-bottom:-740px;">
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -136,11 +136,16 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
                   <!-- RD Navbar Nav-->
+                  
+<c:url var="nlist" value="nlist.do">
+	<c:param name="page" value="1" />
+</c:url>
+                  
                   <ul class="rd-navbar-nav" style="float:left;">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="home.do">Home</a></li>
                     <li><a href="#">예약안내</a></li>
                     <li><a href="#">즐길거리</a></li>
-                    <li><a href="#">수다방</a></li>
+                    <li><a href="${ nlist }">수다방</a></li>
                     <li><a href="#">QnA</a></li>
                     <c:if test="${ empty sessionScope.loginUser }">
 						<li><a class="nav-link" href="loginView.do">로그인</a></li>
@@ -148,7 +153,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 				    </c:if>
 					<c:if test="${ !empty sessionScope.loginUser }">
 						<c:url var="mypage" value="/myInfo.do">
-						<c:param name="writer" value="${ loginUser.nickname }"/>
+						<c:param name="writer" value="${ loginUser.nick }"/>
 					</c:url>
 						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
 						<li><a class="nav-link" href="${ mypage }">마이페이지</a></li>

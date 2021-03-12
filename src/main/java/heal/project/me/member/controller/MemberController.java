@@ -51,6 +51,10 @@ public class MemberController {
 
 	// 로깅시 추가
 	private Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	
+	
+	
 
 	// 내정보 테스트 페이지로 이동 -- 임시 --나중에지움
 	@RequestMapping("test.do")
@@ -241,8 +245,11 @@ public class MemberController {
 				response.addCookie(cookiePwd);
 			}
 			/* 자동로그인 */
-
+			
+			System.out.println("로그인 회원정보 : " + loginUser);
+			
 			return "redirect:home.do";
+			
 		} else {
 			model.addAttribute("msg", "로그인 실패");
 			return "common/errorPage";
@@ -285,7 +292,7 @@ public class MemberController {
 			String naverCode = (String) resObj.get("id");
 			String email = (String) resObj.get("email");
 			String name = (String) resObj.get("name");
-			String nickname = (String) resObj.get("nickname");
+			String nickname = (String) resObj.get("nick");
 			String mobile = (String) resObj.get("mobile");
 			// 핸드폰 번호에서 숫자만 추출
 			mobile = mobile.replaceAll("[^0-9]", "");
@@ -552,6 +559,7 @@ public class MemberController {
 		}
 	}
 
+	
 	@ResponseBody
 	@RequestMapping("idCheck.do")
 	public String idCheck(String id) {

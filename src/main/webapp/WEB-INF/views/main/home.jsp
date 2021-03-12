@@ -11,9 +11,6 @@
 
 <jsp:include page="./header.jsp" />
 
-   	<hr style="clear: both; opacity:0;">
-     <!--Our Best Rooms-->
-     
       
       <section class="section">
         <div class="swiper-form-wrap">

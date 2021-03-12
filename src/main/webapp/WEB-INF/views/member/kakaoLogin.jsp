@@ -14919,9 +14919,9 @@ to {
 	</script>
 
 	<div id="kakaoWrap">
-		<div id="kakaoHead" role="banner">
-			<img src="/hhw/resources/images/icon/kakao.png">
-		</div>
+		<!-- <div id="kakaoHead" role="banner">
+			<img src="/me/resources/images/kakaoLogin.jpg">
+		</div> -->
 		<!-- // kakaoHead -->
 		<hr class="hide">
 		<div id="kakaoContent" class="cont_join cont_guardian cont_merge"
@@ -14937,7 +14937,7 @@ to {
 							카카오 아이디로<br> 로그인을 시작합니다!
 						</h2>
 						<p class="desc_page">
-							카카오계정 하나로<br> Hi Hello World 서비스를 이용할 수 있어요.
+							카카오계정 하나로<br> 힐링하우스 예약 서비스를 이용할 수 있어요.
 						</p>
 
 						<div class="box_intro">
@@ -14946,12 +14946,10 @@ to {
 									<input type="hidden" name="kid" id="kid"> <input
 										type="hidden" name="kname" id="kname"> <input
 										type="hidden" name="kemail" id="kemail">
-									<button class="btn_g btn_confirm verify_eamil" type="submit">카카오
-										계정으로 로그인</button>
+									<button class="btn_g btn_confirm verify_eamil" type="submit">카카오 계정으로 로그인</button>
 								</form>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<!--// mArticle -->
@@ -14989,10 +14987,7 @@ to {
 					</ul>
 				</div>
 			</div>
-			<small class="txt_copyright">Copyright © <a
-				href="https://www.kakaocorp.com/?lang=ko" class="link_kakao">Kakao
-					Corp.</a> All rights reserved.
-			</small>
+			<small class="txt_copyright">Copyright © <a href="https://www.kakaocorp.com/?lang=ko" class="link_kakao">Kakao Corp.</a> All rights reserved.</small>
 		</div>
 	</div>
 </body>

@@ -106,7 +106,7 @@
                 ]]>
    </select>
    
-   <select id="searchDate" parameterType="com.ict.hhw.common.SearchAndPage" resultMap="blameResultSet">
+   <select id="searchDate" parameterType="heal.project.me.common.SearchAndPage" resultMap="blameResultSet">
          <![CDATA[
          SELECT *
           FROM (
@@ -143,7 +143,7 @@
        where target_nickname like '%' || #{ keyword } || '%'
    </select>
    
-   <select id="getSearchDateListCount" parameterType="com.ict.hhw.common.SearchDate" resultType="_int">
+   <select id="getSearchDateListCount" parameterType="heal.project.me.common.SearchDate" resultType="_int">
       select count(*) 
         from Blame
        where blame_date

@@ -69,7 +69,7 @@ public class N_ReplyController {
 	}
 	
 	
-	@RequestMapping("rdel.do")
+	@RequestMapping("nrdel.do")
 	public String replyDeleteMethod(@RequestParam("nrid") int nrid, @RequestParam("nid") int nid, Model model) {
 		if (n_replyService.deleteN_Reply(nrid) > 0) {
 			return "redirect:ndetail.do?nid=" + nid;
@@ -79,13 +79,13 @@ public class N_ReplyController {
 		}
 	}
 	
-	@RequestMapping(value="rupdate.do", method=RequestMethod.POST)
-	public String replyUpdateMethod(N_Reply reply,
+	@RequestMapping(value="nrupdate.do", method=RequestMethod.POST)
+	public String replyUpdateMethod(N_Reply n_reply,
 			@RequestParam("nid") int nid, Model model) {
-		if (n_replyService.updateN_Reply(reply) > 0) {
+		if (n_replyService.updateN_Reply(n_reply) > 0) {
 			return "redirect:ndetail.do?nid=" + nid;
 		} else {
-			model.addAttribute("msg", reply.getNrid() + "번 댓글 삭제 실패.");
+			model.addAttribute("msg", n_reply.getNrid() + "번 댓글 삭제 실패.");
 			return "common/errorPage";
 		}
 	}

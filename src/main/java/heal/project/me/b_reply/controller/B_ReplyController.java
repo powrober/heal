@@ -23,7 +23,7 @@ public class B_ReplyController {
 	@Autowired
 	private B_ReplyService b_replyService;
 
-	@RequestMapping(value = "rinsert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "brinsert.do", method = RequestMethod.POST)
 	public String replyInsertMethod(B_Reply b_reply, Model model) {
 		
 		if (b_replyService.insertB_Reply(b_reply) > 0) {
@@ -38,7 +38,7 @@ public class B_ReplyController {
 	}
 
 	// ajax 원글에 대한 댓글 조회 처리용
-	@RequestMapping(value = "rlist.do", method = RequestMethod.POST)
+	@RequestMapping(value = "brlist.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String b_replyListMethod(@RequestParam("brid") int brid) throws UnsupportedEncodingException {
 		// 원글에 대한 댓글 조회 요청
@@ -71,7 +71,7 @@ public class B_ReplyController {
 	}
 	
 	
-	@RequestMapping("rdel.do")
+	@RequestMapping("brdel.do")
 	public String replyDeleteMethod(@RequestParam("brid") int brid, @RequestParam("bid") int bid, Model model) {
 		if (b_replyService.deleteB_Reply(brid) > 0) {
 			return "redirect:bdetail.do?bid=" + bid;
@@ -81,7 +81,7 @@ public class B_ReplyController {
 		}
 	}
 	
-	@RequestMapping(value="rupdate.do", method=RequestMethod.POST)
+	@RequestMapping(value="brupdate.do", method=RequestMethod.POST)
 	public String replyUpdateMethod(B_Reply reply,
 			@RequestParam("bid") int bid, Model model) {
 		if (b_replyService.updateB_Reply(reply) > 0) {

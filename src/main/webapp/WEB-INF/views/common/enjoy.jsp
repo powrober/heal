@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>자주묻는 질문</title>
+
 </head>
 <body>
 
@@ -80,7 +81,8 @@
               </div>
             </div>
           </div>
-          <div class="section-wrap-aside section-wrap-image"><img src="/me/resources/images/ourservices/jetski/1.jpg" alt="" width="960" height="660"/>
+          <div class="section-wrap-aside section-wrap-image">
+          <img src="/me/resources/images/ourservices/jetski/1.jpg" alt="" width="960" height="660"/>
           </div>
         </div>
       </section>

@@ -11,6 +11,18 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 열람 페이지</title>
+
+<!-- 부트스트랩 -->
+<link rel="styleSheet" href="/me/resources/bootstrap/styles.css">
+<script src="/me/resources/bootstrap/all.min.js"></script>
+<script src="/me/resources/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/me/resources/bootstrap/feather.min.js"></script>
+<script src="/me/resources/bootstrap/jquery-3.5.1.min.js"></script>
+<script src="/me/resources/bootstrap/prism-autoloader.min.js"></script>
+<script src="/me/resources/bootstrap/prism-core.min.js"></script>
+<script src="/me/resources/bootstrap/sb-customizer.js"></script>
+<script src="/me/resources/bootstrap/scripts.js"></script>
+
 </head>
 <body>
 	
@@ -26,23 +38,30 @@
              
                 <ul class="post-blog-article-meta group-xl">
                   
-                  <li>
+                  <li style="height: 0px">
                     <div class="box-inline">
                     	<span class="icon novi-icon icon-md icon-primary mdi mdi-account"></span>
 						<div><a href="#">${ notice.nuser }</a></div>
                     </div>
                   </li>
                   
-                  <li>
+                  <li style="padding-left: 200px;height: 0px;">
                     <div class="box-inline">
                     	<span class="icon novi-icon icon-md icon-primary mdi mdi-calendar-clock"></span>
                     	<div>${ notice.n_date }</div>
                     </div>
                   </li>
+
+                  <li style="padding-left: 450px;">
+                    <div class="box-inline">
+                    	<span class="icon novi-icon icon-md icon-primary mdi mdi-calendar-clock"><i class="fa fa-users"></i></span>
+                    	<div>${ notice.ncount }</div>
+                    </div>
+                  </li>
                   
                   <li>
                     <div class="box-inline">
-                    	<span class="icon novi-icon icon-md icon-primary mdi mdi-calendar-clock"></span>
+                    	<span class="icon novi-icon icon-md icon-primary mdi mdi-calendar-clock"><i class="fa fa-files-o"></i></span>
                     	<div>
     	                	<c:if test="${ empty notice.n_file }">첨부파일 없음</c:if>
 							<c:if test="${ !empty notice.n_file }">
@@ -53,13 +72,6 @@
 							<a href="${ nfd }">${ notice.n_file }</a>
 							</c:if>
                     	</div>
-                    </div>
-                  </li>
-                  
-                  <li>
-                    <div class="box-inline">
-                    	<span class="icon novi-icon icon-md icon-primary mdi mdi-calendar-clock"></span>
-                    	<div>${ notice.ncount }</div>
                     </div>
                   </li>
                   
@@ -77,7 +89,7 @@
 									<c:param name="nid" value="${ notice.nid }" />
 									<c:param name="page" value="${ currentPage }" />
 								</c:url>
-							<button type="button" onclick="javascript:location.href='${ nuv }'" style='float:center'>수정</button>
+							<button type="button" onclick="javascript:location.href='${ nuv }'" style="float:center; background-color:#f4a100; color:#fff;"><h4><span class="badge badge-warning">수정</span></h4></button>
 											 
 								<c:url var="ndl" value="/ndel.do">
 									<c:param name="nid" value="${ notice.nid }" />

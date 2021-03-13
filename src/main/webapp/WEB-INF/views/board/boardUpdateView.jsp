@@ -51,8 +51,8 @@ table.table2 td {
 		<form action="bupdate.do" method="post" enctype="multipart/form-data" style="padding-bottom: 30px;">
 			<input type="hidden" name="bid" value="${ board.bid }">
 			<input type="hidden" name="btitle" value="${ board.btitle }">
-			<input type="hidden" name="b_original_filename" value="${ board.b_original_filename }">
-			<input type="hidden" name="b_rename_filename" value="${ board.b_rename_filename }">
+			<input type="hidden" name="b_file" value="${ board.b_file }">
+			<input type="hidden" name="b_rfile" value="${ board.b_rfile }">
 			<input type="hidden" name="page" value="${ currentPage }">
 			
 			<table style="padding-top: 50px" align="center" width="700" border="0" cellpadding="2">
@@ -76,18 +76,18 @@ table.table2 td {
 							
 							<tr>
 								<td>작성자</td>
-								<td><input type="text" name="bwriter" readonly value="${ board.bwriter }"></td>
+								<td><input type="text" name="buser" readonly value="${ board.buser }"></td>
 							</tr>
 	
 							<tr>
 								<td>첨부파일</td>
 								<td>
 									<!-- 첨부파일이 있는데 삭제하는 경우 -->
-									<c:if test="${ !empty board.b_original_filename }">
-										${ board.b_original_filename } &nbsp; &nbsp; <input type="checkbox" name="delFlag" value="yes">파일삭제 <br>
+									<c:if test="${ !empty board.b_file }">
+										${ board.b_file } &nbsp; &nbsp; <input type="checkbox" name="delFlag" value="yes">파일삭제 <br>
 									</c:if>
 									<!-- 다른 파일로 변경하는 경우 -->
-									<c:if test="${ empty board.b_original_filename }"> 
+									<c:if test="${ empty board.b_file }"> 
 										<input type="file" name="upfile">
 									</c:if>
 								</td>

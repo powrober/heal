@@ -85,15 +85,15 @@
        </div>
      </section>
 	
-     <section class="section section-lg bg-default text-center">
-       <div class="container">
+     <section class="section section-lg bg-default text-center" style="padding-top: 50px;">
+       <div class="container" style="margin-left: 30px; margin-right: 0px;">
          <div class="row justify-content-sm-center">
            <div class="col-md-10 col-xl-8">
              <h3>공지사항</h3>
              
              <%-- 검색기능 --%>
 				<div>
-					<div style="text-align: left; padding-left: 550px;">
+					<div style="text-align: left; padding-top: 30px;">
 						<div>
 							<select name="btype" id="item">
 								<option id="item" value="">검색 항목 선택</option>
@@ -110,11 +110,11 @@
 						<div id="titleDiv">
 							<form action="nsearchTitle.do" method="post">
 								<input type="search" name="keyword">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 400px">
+								<div style="align: center; padding-left: 300px; margin-top: -50px;">
 									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
 								</div>
 							</form>
 						</div>
@@ -122,11 +122,11 @@
 						<div id="writerDiv">
 							<form action="nsearchWriter.do" method="post">
 								<input type="search"name="keyword">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 400px">
+								<div style="align: center; padding-left: 300px; margin-top: -50px;">
 									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
 								</div>
 							</form>
 						</div>
@@ -134,11 +134,11 @@
 						<div id="dateDiv">
 							<form action="nsearchDate.do" method="post">
 								<input type="date" name="begin"> ~ <input type="date" name="end">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 400px">
+								<div style="align: center; padding-left: 300px; margin-top: -50px;">
 									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color: #fff;">전체목록 보기</button>
+									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
 								</div>
 							</form>
 						</div>
@@ -146,23 +146,24 @@
 					
 					<%-- 관리자가 로그인 했을 때 --%>
 					<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-						<div style="text-align: right; padding-right: 550px; margin-top: -20px">
-							<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color: #fff;">글쓰기</button>
+						<div style="text-align: right; padding-right: 50px; margin-top: -50px">
+							<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">글쓰기</button>
 						</div>
 					</c:if>
 				</div>
              
              <%-- 테이블 --%>
-             <div class="table-novi table-custom-responsive">
-               <table class="table-custom table-hover">
+             <div class="table-novi table-custom-responsive" style="width:1200px;">
+               <table class="table-custom table-hover" style="width:1200px;">
+                
                  <thead>
                    <tr>
-                     <th>번호</th>
-                     <th>말머리</th>
-                     <th>제목</th>
-                     <th>작성자</th>
-                     <th>작성일</th>
-                     <th>조회수</th>
+                     <th style="color: #000; width:100px;">번호</th>
+                     <th style="color: #000;">말머리</th>
+                     <th style="color: #000;">제목</th>
+                     <th style="color: #000;">작성자</th>
+                     <th style="color: #000;">작성일</th>
+                     <th style="color: #000;" >조회수</th>
                    </tr>
                  </thead>
                  
@@ -170,9 +171,9 @@
                    <tr>
                 	<c:forEach items="${ requestScope.list}" var="n">
 	                <tr>
-						<td align="center" width="80" style="font-size:15px; color: black;">${ n.nid }</td>
+						<td align="center" width="100" style="font-size:15px; color: black;">${ n.nid }</td>
 	
-						<td align="center" width="150" style="font-size:15px; color: black;">${ n.ntype }</td>
+						<td align="center" width="200" style="font-size:15px; color: black;">${ n.ntype }</td>
 	
 						<td align="left" width="550" style="font-size:15px;">
 							<c:url value="/ndetail.do" var="und">
@@ -182,11 +183,11 @@
 								<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
 								<c:if test="${ empty n.n_file }"> &nbsp; </c:if></td>
 					
-						<td align="center" width="150" style="font-size:15px; color: black;">${n.nuser}</td>
+						<td align="center" width="250" style="font-size:15px; color: black;">${n.nuser}</td>
 	
-						<td align="center" width="130" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
+						<td align="center" width="200" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
 	
-						<td align="center" width="80" style="font-size:15px; color: black;">${ n.ncount }</td>
+						<td align="center" width="100" style="font-size:15px; color: black;">${ n.ncount }</td>
 						
 					</c:forEach>
             </tbody>

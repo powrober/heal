@@ -126,7 +126,7 @@
       INSERT 
         INTO BOARD
         
-      <if test="b_original_filename != null"><!-- 첨부파일이 있을 때 -->
+      <if test="b_file != null"><!-- 첨부파일이 있을 때 -->
       values (
               seq_bid.nextval
             , #{ btype }
@@ -139,14 +139,13 @@
             , sysdate
             , default
             , default
-            , default
              )
       </if>
-      <if test="b_original_filename == null"><!-- 첨부파일이 없을 때 -->
+      <if test="b_file == null"><!-- 첨부파일이 없을 때 -->
       values (
               seq_bid.nextval
              , #{ btype }
-             , #{ bwriter }
+             , #{ buser }
              , #{ btitle }
              , #{ bcontent }
              , null
@@ -155,7 +154,6 @@
              , sysdate
              , default
            	 , default
-             , default
              )
       </if>
    </insert>
@@ -165,13 +163,13 @@
          set   btitle = #{ btitle }
              , bcontent = #{ bcontent }
              , b_modfiy_date = sysdate
-         <if test="b_original_filename == null">
-            , b_original_filename = null
-            , b_rename_filename = null
+         <if test="b_file == null">
+            , b_file = null
+            , b_rfile = null
          </if>
-         <if test="b_original_filename != null">
-            , b_original_filename = #{ b_original_filename }
-            , b_rename_filename = #{ b_rename_filename }
+         <if test="b_file != null">
+            , b_file = #{ b_file }
+            , b_rfile = #{ b_rfile }
          </if>
        where bid = #{ bid }
    </update>

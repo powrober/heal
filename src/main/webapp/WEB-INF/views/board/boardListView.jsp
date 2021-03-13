@@ -22,7 +22,9 @@
 <title>자유게시판</title>
 
 
-<script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
+
 
 <script type="text/javascript">
 	 $(function() {
@@ -86,7 +88,7 @@
            <p class="heading-1 breadcrumbs-custom-title">자유게시판</p>
            <ul class="breadcrumbs-custom-path">
              <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지시항</a></li>
+             <li><a href="${ nlist }">공지사항</a></li>
              <li><a href="${ blist }">자유게시판</a></li>
            </ul>
          </div>
@@ -121,12 +123,12 @@
 				<form action="bsearchTitle.do" method="post">
 					<input type="hidden" name="page" value="1">
 					<input type="search" name="keyword" placeholder="제목">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 					<%-- 목록 출력 --%>
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color: #fff;">전체 목록</button>
+					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
 				</form>
 			</div>
 	
@@ -134,12 +136,12 @@
 				<form action="bsearchWriter.do" method="post">
 					<input type="hidden" name="page" value="1">
 					<input type="search" name="keyword" placeholder="닉네임">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 					<%-- 목록 출력 --%>
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color: #fff;">전체 목록</button>
+					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
 				</form>
 			</div>
 	
@@ -147,19 +149,19 @@
 				<form action="bsearchDate.do" method="post">
 					<input type="hidden" name="page" value="1">
 					<input type="date" name="begin"> ~ <input type="date" name="end">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color: #fff;">
+					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
 					<%-- 목록 출력 --%>
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color: #fff;">전체 목록</button>
+					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
 				</form>
 			</div>
 		</div>
 		
 				
 		<%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'B' }">
+		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
 			<div style="text-align: right; padding-right: 550px; margin-top: -40px;">
 					<c:url var="blame" value="/b.blame.list.do">
 						<c:param name="page" value="1" />
@@ -243,7 +245,7 @@
 		<%-- 로그인한 사용자만 글쓰기 기능 사용할 수 있게 함 --%>
 		<c:if test="${ !empty sessionScope.loginUser }">
 			<div style="text-align: right; padding-right: 550px;">
-				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color: #fff;">글쓰기</button>
+				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">글쓰기</button>
 			</div>
 		</c:if>
 		
@@ -252,7 +254,7 @@
 		<c:if test="${ empty sessionScope.loginUser }">
 			<div style="text-align: right; padding-right: 550px; margin-top: -20px">
 				<button class="btn btn-warning btn-round"
-					style="color: #fff;" data-toggle="modal" data-target="#Medium-modal">글쓰기</button>
+					style="color:#fff; font-family:sans-serif; background-color:#ad9463;" data-toggle="modal" data-target="#Medium-modal">글쓰기</button>
 				<div class="col-md-4 col-sm-12 mb-30">
 							<div class="pd-20 card-box height-100-p">
 								<div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

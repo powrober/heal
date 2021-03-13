@@ -114,101 +114,98 @@
         </div>
       </section>
       
-      <section class="section section-variant-1 bg-default novi-background bg-cover">
+       <section class="section section-lg novi-background bg-cover bg-default text-center" style="padding-bottom: 30px;">
         <div class="container container-wide">
-          <div class="row row-fix justify-content-xl-end row-30">
-            <div class="col-xl-8">
+            <div class="col-sm-12">
               <div class="parallax-text-wrap">
-                <h3>Healing House</h3><span class="parallax-text">Healing House</span>
+                <h3>Healing House Room</h3><span class="parallax-text" style="left: 80px;">Healing House</span>
               </div><img class="title-decorative" src="/me/resources/images/title-decorative-84x8.png" alt="" width="84" height="8"/>
+              
+              <!-- Owl Carousel-->
+              <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="1" data-md-items="1" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-stage-padding="5" data-loop="true" data-margin="30" data-mouse-drag="false" data-dots="true" data-autoplay="true">
+                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-1.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="#">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>온돌</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="#">블루102호 / 퍼플101호, 102호</a></h5>
+                    </div>
+                  </div>
+                </article>
+                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-2.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="#">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>침대</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="#">블루103호 / 퍼플103호</a></h5>
+                    </div>
+                  </div>
+                </article>
+                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-3.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="#">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>특실/복층</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="#">블루201호 / 퍼플203호</a></h5>
+                    </div>
+                  </div>
+                </article>
+                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-4.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="#">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>특실/복층</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="#">블루202호 / 퍼플202호</a></h5>
+                    </div>
+                  </div>
+                </article>
+                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="#">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>특실/복층</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="#">퍼플201호, 203호</a></h5>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
-            <div class="col-xl-3 text-xl-right"><a class="button button-primary" href="#">All Rooms</a></div>
-          </div>
-          
-          <div class="row row-xxl-60 row-50 offset-top-xxl-93">
-            <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-1.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">블루102/퍼플101,102</a><span class="event-default-price">온돌</span></h5>
-                </div>
-              </article>
-            </div>
-            
-            <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-2.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">블루103/퍼플103</a><span class="event-default-price">침대</span></h5>
-                </div>
-              </article>
-            </div>
-            
-            <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-3.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">블루201/퍼플203</a><span class="event-default-price">특실/복층</span></h5>
-                </div>
-              </article>
-            </div>
-            
-            <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-4.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">블루202/퍼플202</a><span class="event-default-price">특실/복층</span></h5>
-                </div>
-              </article>
-            </div>
-            
-            <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="#">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">퍼플201/퍼플203</a><span class="event-default-price">특실/복층</span></h5>
-                </div>
-              </article>
-            </div>
-            
-        <!--     <div class="col-sm-6 col-xl-4">
-              <article class="event-default-wrap">
-                <div class="event-default">
-                  <figure class="event-default-image"><img src="images/home-06-570x370.jpg" alt="" width="570" height="370"/>
-                  </figure>
-                  <div class="event-default-caption"><a class="button button-xs button-primary" href="rooms-&amp;-suites.html">Learn More</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="rooms-&amp;-suites.html">VIP Suite</a><span class="event-default-price">from $600</span></h5>
-                </div>
-              </article>
-            </div> -->
-          </div>
         </div>
       </section>
       
+      
       <!-- about service-->
-       <section class="section section-lg bg-gray-100 text-center">
+       <section class="section section-lg bg-gray-100 text-center" style="padding-top: 30px;">
         <div class="container container-wide">
           <div class="row row-50 justify-content-md-center justify-content-xl-between" style="margin-bottom: -300px;">
             <div class="col-md-9 col-xl-5">

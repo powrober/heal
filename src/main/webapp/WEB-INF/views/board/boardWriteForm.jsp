@@ -80,7 +80,7 @@ table.table2 td {
 							
 							<tr>
 								<td>작성자</td>
-								<td><input type="text" name="bwriter" readonly value="${ sessionScope.loginUser.nickname }"></td>
+								<td><input type="text" name="buser" readonly value="${ sessionScope.loginUser.nick }"></td>
 							</tr>
 	
 							<tr>

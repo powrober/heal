@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 열람 페이지</title>
+
 <script type="text/javascript"
 	src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
@@ -27,11 +28,11 @@
 		//jquery ajax 로 해당 게시글에 대한 댓글 조회 요청
 		//해당 게시글의 번호를 전송함
 		var bid = ${ board.bid };//el 의 값을 변수에 대입
-		var loginUser = "${ sessionScope.loginUser.nickname }"; //로그인한 회원 아이디 변수에 대입
+		var loginUser = "${ sessionScope.loginUser.nick }"; //로그인한 회원 아이디 변수에 대입
 		$.ajax({
 		url : "${ pageContext.request.contextPath }/rlist.do",
 		type : "post",
-		data : { b_ref_bid : bid }, //전송값에 변수 사용
+		data : { bid : bid }, //전송값에 변수 사용
 		dataType : "json",
 		success : function(data) {
 			console.log("success : " + data);
@@ -76,22 +77,22 @@
 							+ decodeURIComponent(json.list[i].b_rcontent).replace(/\+/gi, " ") 
 							+ "<button onclick='showBlamForm2();' style='float:right'>신고</button>"
 							+ "</td></tr></table></td></tr></table>"; */
-							if (loginUser == json.list[i].b_rwriter) {
-								values += "<tr><td><"+ json.list[i].b_rwriter
-										+ "> 님 댓글</td><td>"	+ json.list[i].b_create_date
+							if (loginUser == json.list[i].bruser) {
+								values += "<tr><td><"+ json.list[i].bruser
+										+ "> 님 댓글</td><td>"	+ json.list[i].br_date
 										+ "</td></tr><tr><td colspan='2'>"
 										+ "<form action='rupdate.do' method='post'>"
-										+ "<input type='hidden' name='b_rid' value='" +  json.list[i].b_rid  + "'>"
+										+ "<input type='hidden' name='brid' value='" +  json.list[i].brid  + "'>"
 										+ "<input type='hidden' name='bid' value='${board.bid}'>"
-										+ "<textarea name='b_rcontent' rows='2' cols='70'>"
-										+ decodeURIComponent(json.list[i].b_rcontent).replace(/\+/gi, " ")
+										+ "<textarea name='brcontent' rows='2' cols='70'>"
+										+ decodeURIComponent(json.list[i].brcontent).replace(/\+/gi, " ")
 										+ "</textarea><br><input type='submit' value='수정' style='width:50px;float:right;'></form>"
-										+ "<button onclick='replyDelete("+ json.list[i].b_rid+ ");' style='width:50px;float:right;margin-right:10px'>삭제 </button></td></tr>";
+										+ "<button onclick='replyDelete("+ json.list[i].brid+ ");' style='width:50px;float:right;margin-right:10px'>삭제 </button></td></tr>";
 							} else { 
-			 					values += "<tr><td><"+ json.list[i].b_rwriter
-										+ "> 님 댓글</td><td>"+ json.list[i].b_create_date
+			 					values += "<tr><td><"+ json.list[i].bruser
+										+ "> 님 댓글</td><td>"+ json.list[i].br_date
 										+ "</td></tr><tr><td colspan='2'>"
-										+ decodeURIComponent(json.list[i].b_rcontent).replace(/\+/gi, " ") 
+										+ decodeURIComponent(json.list[i].brcontent).replace(/\+/gi, " ") 
 										+ "<button onclick='showBlamForm2();' style='float:right'>신고</button></td></tr>";
 				}
 			} //for in
@@ -105,9 +106,9 @@
 		
 	}); //notice top3 ajax
 }); //jquery document ready
-	function replyDelete(b_rid) {
-		location.href = "${ pageContext.request.contextPath }/rdel.do?b_rid="
-				+ b_rid + "&bid=${ board.bid }";
+	function replyDelete(brid) {
+		location.href = "${ pageContext.request.contextPath }/rdel.do?brid="
+				+ brid + "&bid=${ board.bid }";
 	}
 	function showReplyForm() {
 		$("#replyDiv").css("display", "block");
@@ -178,18 +179,18 @@ table.table2 td {
 				<table class="table2">
 					<tr>
 						<td width="200px">작성자</td>
-						<td width="500px">${ board.bwriter } 님</td>
+						<td width="500px">${ board.buser } 님</td>
 					</tr>
 					<tr>
 						<td width="200px">첨부파일</td>
 						<td width="500px">
-							<c:if test="${ empty board.b_original_filename }">첨부파일 없음</c:if>
-							<c:if test="${ !empty board.b_original_filename }">
+							<c:if test="${ empty board.b_file }">첨부파일 없음</c:if>
+							<c:if test="${ !empty board.b_file }">
 								<c:url var="bfd" value="/bfdown.do">
-									<c:param name="ofile" value="${ board.b_original_filename }" />
-									<c:param name="rfile" value="${ board.b_rename_filename }" />
+									<c:param name="ofile" value="${ board.b_file }" />
+									<c:param name="rfile" value="${ board.b_rfile }" />
 								</c:url>
-							<a href="${ bfd }">${ board.b_original_filename }</a>
+							<a href="${ bfd }">${ board.b_file }</a>
 							</c:if>
 						</td>
 					</tr>
@@ -204,7 +205,7 @@ table.table2 td {
 		<tfoot>
           <td colspan="4" style="text-align: right;">
           	<%-- 로그인한 상태이면서, 본인이 작성한 게시글 일 때 --%>
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nickname eq board.bwriter }">
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick eq board.buser }">
 				<c:url var="buv" value="/bupview.do">
 					<c:param name="bid" value="${ board.bid }" />
 					<c:param name="page" value="${ currentPage }" />
@@ -224,7 +225,7 @@ table.table2 td {
 			</c:if> 
 			
 			<%-- 로그인한 상태이면서, 본인이 작성한 게시글이 아닐 때 --%>
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nickname ne board.bwriter and loginUser.user_lv eq 'A' }">
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'MEMBER' }">
 							
 				<c:url var="boardBlame" value="/b.blame.insert.do">
 					<c:param name="page" value="${ currentPage }" />
@@ -240,7 +241,7 @@ table.table2 td {
 			
 			<%-- 관리자가 로그인 했을일 때  --%>
 			
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nickname ne board.bwriter and loginUser.user_lv eq 'B' }">
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'admin' }">
 				<c:url var="buv" value="/bupview.do">
 					<c:param name="bid" value="${ board.bid }" />
 					<c:param name="page" value="${ currentPage }" />
@@ -295,12 +296,12 @@ table.table2 td {
 								
 									<tr>
 										<td width="200px">작성자</td>
-										<td width="500px"><input type="text" name="mm_nickname" readonly value="${ sessionScope.loginUser.nickname }"></td>
+										<td width="500px"><input type="text" name="reporter" readonly value="${ sessionScope.loginUser.nick }"></td>
 									</tr>
 									
 									<tr>
 										<td width="200px">신고대상</td>
-										<td width="500px"><input type="text" name="target_nickname" readonly value="${ board.bwriter }"></td>
+										<td width="500px"><input type="text" name="targetuser" readonly value="${ board.buser }"></td>
 									</tr>
 									
 									<tr>
@@ -341,12 +342,12 @@ table.table2 td {
 										
 										<tr>
 											<td width="200px">작성자</td>
-											<td width="500px"><input type="text" name="b_rwriter" readonly value="${ sessionScope.loginUser.nickname }"></td>
+											<td width="500px"><input type="text" name="bruser" readonly value="${ sessionScope.loginUser.nick }"></td>
 										</tr>
 										
 										<tr>
 											<td width="200px">내 용</td>
-											<td width="500px"><textarea name="b_rcontent" rows="5" cols="60"></textarea></td>
+											<td width="500px"><textarea name="brcontent" rows="5" cols="60"></textarea></td>
 										</tr>
 										
 										<tr>
@@ -386,12 +387,12 @@ table.table2 td {
 								
 									<tr>
 										<td width="200px">작성자</td>
-										<td width="500px"><input type="text" name="mm_nickname" readonly value="${ sessionScope.loginUser.nickname }"></td>
+										<td width="500px"><input type="text" name="reporter" readonly value="${ sessionScope.loginUser.nick }"></td>
 									</tr>
 									
 									<tr>
 										<td width="200px">신고대상</td>
-										<td width="500px"><input type="text" name="target_nickname" readonly value="${ board.bwriter }"></td>
+										<td width="500px"><input type="text" name="targetuser" readonly value="${ board.buser }"></td>
 									</tr>
 									
 									<tr>

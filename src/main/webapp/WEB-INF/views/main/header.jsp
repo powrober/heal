@@ -137,26 +137,36 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                 <div class="rd-navbar-nav-wrap">
                   <!-- RD Navbar Nav-->
                   
-<c:url var="list" value="nlist.do">
+<c:url var="nlist" value="nlist.do">
+	<c:param name="page" value="1" />
+</c:url>
+<c:url var="blist" value="blist.do">
 	<c:param name="page" value="1" />
 </c:url>
                   
                   <ul class="rd-navbar-nav" style="float:left;">
                     <li class="active"><a href="home.do">Home</a></li>
                     <li><a href="#">예약안내</a></li>
-                    <li><a href="#">즐길거리</a></li>
-                    <li><a href="${ list }">수다방</a></li>
-                    <li><a href="#">QnA</a></li>
+                    <li><a href="enjoy.do">즐길거리</a></li>
+                    <li><a href="${ nlist }">공지사항</a></li>
+                    <li><a href="${ blist }">자유게시판</a></li>
+                    <li><a href="qna.do">QnA</a></li>
                     <c:if test="${ empty sessionScope.loginUser }">
 						<li><a class="nav-link" href="loginView.do">로그인</a></li>
 						<li><a class="nav-link" href="enrollView.do">회원가입</a></li>
 				    </c:if>
-					<c:if test="${ !empty sessionScope.loginUser }">
+					<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'MEMBER' }">
 						<c:url var="mypage" value="/myInfo.do">
-						<c:param name="writer" value="${ loginUser.nick }"/>
+						<c:param name="nick" value="${ loginUser.nick }"/>
 					</c:url>
 						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
 						<li><a class="nav-link" href="${ mypage }">마이페이지</a></li>
+					</c:if>
+					<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
+						<c:url var="mypage" value="/myInfo.do">
+						<c:param name="nick" value="${ loginUser.nick }"/>
+					</c:url>
+						<li><a class="nav-link" href="#">관리자페이지</a></li>
 					</c:if>
                   </ul>
                 </div>

@@ -205,9 +205,9 @@
       
       
       <!-- about service-->
-       <section class="section section-lg bg-gray-100 text-center" style="padding-top: 30px;">
+       <section class="section section-lg bg-gray-100 text-center" style="padding-top: 50px;">
         <div class="container container-wide">
-          <div class="row row-50 justify-content-md-center justify-content-xl-between" style="margin-bottom: -300px;">
+          <div class="row row-50 justify-content-md-center justify-content-xl-between">
             <div class="col-md-9 col-xl-5">
               <h3>안녕하세요!<br> <b>Healing House</b> 입니다</h3>
               <div class="divider divider-default"></div>
@@ -215,13 +215,145 @@
 				  아름다운 바다전망이 보이는 깨끗한 객실과 넓은 야외공간이 있어 좋은 분들과의 욕지 여행길이 더욱 즐거워 진답니다.</p>
               <!-- Quote minimal-->
               <article class="quote-minimal">
+				<div class="col-xl-6 text-center"><img src="/me/resources/images/CEO.jpg" alt="" width="600" height="400"/></div>
                 <p class="quote-minimal-text">대표 전성국</p>
               </article>
               <p>아름다운 욕지도 유동마을 바닷가에서 바다체험도 할 수 있고 욕지도 일주드라이브 코스 옆에 위치하여 욕지도 여행지 어디로든 편하게 가실 수 있어 정말 좋습니다.
 				  아름다운 욕지도 여행길에 저희 욕지도 힐링하우스 펜션으로 오셔서 여러분들의 욕지도 여행에 정말 좋은 추억을 만들고 가시기 바랍니다. 감사합니다.</p>
             </div>
-            <div class="col-xl-6 text-center" style="position: relative;"><img src="/me/resources/images/ourview1.jpg" alt="" width="1200" height="1000"/></div>
-            <div class="col-xl-6" style="position: relative; left:500px; top: -300px;"><img src="/me/resources/images/CEO.jpg" alt="" width="400" height="400"/></div>
+            <div class="col-xl-6 text-center"><img src="/me/resources/images/ourview1.jpg" alt="" width="1200" height="1000"/></div>
+          </div>
+        </div>
+      </section>
+
+  	 <!-- 주변정보-->
+      <section class="section section-lg bg-default novi-background bg-cover text-center">
+        <div class="container">
+          <h3>관광지 정보</h3>
+          <div class="row row-50 justify-content-lg-center">
+            <div class="col-lg-10 col-xl-8">
+              <div class="tabs-custom tabs-vertical tabs-line" id="tabs-3">
+                <!-- Nav tabs-->
+                <ul class="nav nav-tabs">
+                  <li class="nav-item"><a class="nav-link active" href="#tabs-3-1" data-toggle="tab">욕지도</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tabs-3-2" data-toggle="tab">천황산</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tabs-3-3" data-toggle="tab">연화도</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tabs-3-4" data-toggle="tab">두미도</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tabs-3-5" data-toggle="tab">노대도</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tabs-3-6" data-toggle="tab">덕동 해수욕장</a></li>
+                </ul>
+                <!-- Tab panes-->
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="tabs-3-1">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">욕지도</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="tabs-3-2">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">천황산</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="tabs-3-3">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">연화도</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="tabs-3-4">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">두미도</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="tabs-3-5">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">노대도</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+                  
+                  <div class="tab-pane fade" id="tabs-3-6">
+                    <!-- Card info-->
+                    <article class="card-info">
+                      <div class="card-info-aside"><img class="card-info-image" src="/me/resources/images/information/1.jpg" alt="" width="150" height="150"/>
+                      </div>
+                      <div class="card-info-main">
+                        <h5 class="card-info-title">덕동 해수욕장</h5>
+                        <p>섬 가운데 큰 항구가 있어 남쪽 망망대해에서 불어오는 험한 파도를 막아 주는 천혜의 요새로,
+산 중턱에서 바라보는 항구의 모습은 섬이라기보다 호반위의 작은 읍내와 같이 한가롭기 그지없다.
+천황봉 등산로가 개설되어 있어 바다해안절경을 조망할 수 있고, 섬내에서의 교통은 비교적 편리하며
+다양한 숙박시설과 식당들이 있어 섬을 여행하는데 불편함은 없다</p>
+                      </div>
+                    </article>
+                  </div>
+				</div>
+			  </div>
+			</div>            
+          </div>
+        </div>
+      </section>
+
+      <section class="parallax-container section-md" data-parallax-img="/me/resources/images/mainfooter.jpg">
+        <div class="parallax-content">
+          <div class="container container-wide">
+            <div class="row row-fix row-50 justify-content-sm-center">
+              <div class="col-xxl-9">
+                <div class="box-cta box-cta-inline row-20">
+                  <div class="box-cta-inner">
+                    <h3 class="box-cta-title" style="color:#000;">지친 일상에서 힐링을 할 수 있는 그 곳!</h3>
+                    <p style="color:#000;">욕지도 Healing House에서 여러분을 모시겠습니다.</p>
+                  </div>
+                  <div class="box-cta-inner"><a class="button button-white-outline button-lg" href="#">예약하기</a></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

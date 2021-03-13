@@ -127,8 +127,15 @@
                 
                 </ul>
 
-                <p class="big">${ notice.ncontent }</p>
-                
+                <p class="big">
+					<c:if test="${ empty notice.n_file }">${ notice.ncontent }</c:if>
+					<c:if test="${ !empty notice.n_file }">
+						<c:url var="bfd" value="/nfdown.do">
+							<c:param name="ofile" value="${ notice.n_file }" />
+							<c:param name="rfile" value="${ notice.n_rfile }" />
+						</c:url>
+					<img src="/me/resources/notice_files/${ notice.n_file }" style="width:500px;"><br>${ notice.ncontent }
+					</c:if></p>
               </article>
               
               

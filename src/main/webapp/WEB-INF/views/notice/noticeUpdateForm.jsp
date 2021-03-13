@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="currentPage" value="${ requestScope.page }" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,21 +42,7 @@ table.table2 td {
 <body>
 	<jsp:include page="../main/header.jsp" />
 	
- 	<!-- Breadcrumbs-->
-     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
-       <div class="parallax-content">
-         <div class="container">
-           <p class="heading-1 breadcrumbs-custom-title">공지사항 수정</p>
-           <ul class="breadcrumbs-custom-path">
-             <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지시항</a></li>
-             <li><a href="${ blist }">자유게시판</a></li>
-           </ul>
-         </div>
-       </div>
-     </section>
-
-		<section style="padding: 70px 0 60px 0;">
+		<section style="padding: 70px 0 -20px 0;">
 		
 		<br><br>
 		<form action="nupdate.do" method="post" enctype="multipart/form-data" style="padding-bottom: 30px;">
@@ -110,11 +100,8 @@ table.table2 td {
 							<tr>
 								<th colspan="2" style="text-align: right; padding-top:20px">
 									<input type="submit" value="수정하기">&nbsp;
-									<input type="reset" value="수정취소"> &nbsp;
-										<c:url var="nlist" value="/nlist.do">
-											<c:param name="page" value="${ currentPage }" />
-										</c:url>
-									<button onclick="javascript:location.href='${ nlist }'; return false;">목록</button>
+									<input type="reset" value="리셋"> &nbsp;
+									<button onclick="javascript:history.go(-1); return false;">이전</button>
 								</th>
 							</tr>
 						</table>

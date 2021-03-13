@@ -19,6 +19,53 @@
       <result property="user_lv" column="USER_LV"/>
       <result property="etc" column="ETC"/>
    </resultMap>
+   
+   
+    <!-- 관리자가 회원 정보 수정 -->
+	<update id="update2Member" parameterType="Member">
+		UPDATE 
+		       MEMBER
+		   SET 
+		       user_now = #{ user_now },
+		       user_lv = #{ user_lv },
+		       etc = #{ etc }
+		 WHERE ID = #{ id }  
+	</update>
+   
+
+	 <select id="selectNewMemberList" parameterType="heal.project.me.member.model.vo.MemberPage" resultMap="memberResultSet">
+      <![CDATA[
+        SELECT *
+          FROM (
+                 SELECT ROWNUM RNUM
+               , MID
+               , ID
+               , NAME
+               , NICK
+               , BIRTHDAY
+               , GENDER
+               , PHONE
+               , EMAIL
+               , ADDRESS
+               , JOIN_DATE
+               , USER_NOW
+               , USER_LV
+               , ETC
+           FROM (
+           SELECT *
+           FROM MEMBER
+          ORDER BY MID DESC))
+          WHERE RNUM >= #{ startRow }
+          AND RNUM <= #{ endRow }
+                ]]>
+   </select>
+   
+
+   <select id="getListCount" resultType="_int">
+      select count(*)
+        from member
+   </select>
+
 
    <select id="idCheck" parameterType="string" resultType="_int">
       SELECT

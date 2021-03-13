@@ -61,8 +61,7 @@
 
 
 	<!-- Forms-->
-	<section class="section section-lg bg-default text-center"
-		style="margin-top: -150px;">
+	<section class="section section-lg bg-default text-center" style="margin-top: -30px;">
 		<div class="container">
 			<h3>Login</h3>
 			<div class="row row-fix justify-content-sm-center">

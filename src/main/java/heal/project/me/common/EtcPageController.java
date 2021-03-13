@@ -23,5 +23,17 @@ public class EtcPageController {
 	public String enjoy() {
 		return "common/enjoy";
 	}
+	
+	// 관리자 회원 페이지 이동
+	@RequestMapping("admin.do")
+	public String admin() {
+		return "admin/memberListView";
+	}
+	
+	// 관리자 불량회원 페이지 이동
+	@RequestMapping("blame.do")
+	public String blame() {
+		return "admin/blameListView";
+	}
 
 }

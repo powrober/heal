@@ -6,6 +6,12 @@ import heal.project.me.member.model.vo.Member;
 
 public interface MemberService {
 
+	// 회원 정보 수정 서비스를 위한 메소드
+	int update2Member(Member m);
+
+	int getListCount();
+	ArrayList<Member> selectMemberList(int currentPage, int limit);
+	
 	// 회원 로그인 서비스를 위한 메소드
 	Member loginMember(Member m);
 

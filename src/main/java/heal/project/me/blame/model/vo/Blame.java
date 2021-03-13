@@ -8,19 +8,19 @@ public class Blame {
 	private int blame_no; 				//신고번호
 	private String blame_type;			//신고 글 구분
 	private String reporter;			//신고회원
-	private String tagetuser;		//신고 당한 회원
+	private String targetuser;		//신고 당한 회원
 	private Date blame_date;			//신고번호 일자
 	private String blame_content;		//신고자 신고내용
 
 	public Blame() {}
 
-	public Blame(int blame_no, String blame_type, String reporter, String tagetuser, Date blame_date,
+	public Blame(int blame_no, String blame_type, String reporter, String targetuser, Date blame_date,
 			String blame_content) {
 		super();
 		this.blame_no = blame_no;
 		this.blame_type = blame_type;
 		this.reporter = reporter;
-		this.tagetuser = tagetuser;
+		this.targetuser = targetuser;
 		this.blame_date = blame_date;
 		this.blame_content = blame_content;
 	}
@@ -49,12 +49,12 @@ public class Blame {
 		this.reporter = reporter;
 	}
 
-	public String getTagetuser() {
-		return tagetuser;
+	public String getTargetuser() {
+		return targetuser;
 	}
 
-	public void setTagetuser(String tagetuser) {
-		this.tagetuser = tagetuser;
+	public void setTargetuser(String targetuser) {
+		this.targetuser = targetuser;
 	}
 
 	public Date getBlame_date() {
@@ -79,8 +79,8 @@ public class Blame {
 
 	@Override
 	public String toString() {
-		return "Blame [blame_no=" + blame_no + ", blame_type=" + blame_type + ", reporter=" + reporter + ", tagetuser="
-				+ tagetuser + ", blame_date=" + blame_date + ", blame_content=" + blame_content + "]";
+		return "Blame [blame_no=" + blame_no + ", blame_type=" + blame_type + ", reporter=" + reporter + ", targetuser="
+				+ targetuser + ", blame_date=" + blame_date + ", blame_content=" + blame_content + "]";
 	}
 
 	

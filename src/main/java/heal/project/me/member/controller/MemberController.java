@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.mail.HtmlEmail;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
@@ -32,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.multipart.MultipartFile;
 
 import heal.project.me.member.model.service.MemberService;
 import heal.project.me.member.model.vo.Member;
@@ -53,25 +51,57 @@ public class MemberController {
 	private Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	
-	
+	// 관리자가 수정하기
+	@RequestMapping("mupdate2.do")
+	public String update2Member(@ModelAttribute Member m, Model model, @RequestParam("post") String post) {
+
+		int result = mService.update2Member(m);
+
+		if (result > 0) {
+			model.addAttribute("loginUser", m);
+			return "admin/memberListView";
+		} else {
+			model.addAttribute("msg", "회원 정보 수정 실패!");
+			return "common/errorPage";
+		}
+	}
 	
 
 	// 내정보 테스트 페이지로 이동 -- 임시 --나중에지움
-	@RequestMapping("test.do")
-	public String test() {
-		return "member/info";
+	@RequestMapping("minsert2.do")
+	public String minsert2() {
+		return "admin/memberView";
 	}
 
 	// 회원 리스트 *** 이부분 수정하면 경필한테 알려주셈
 	@RequestMapping("mlist.do")
-	public String memberListMethod(Model model) {
-		ArrayList<Member> mlist = mService.selectAll();
+	public String MemberListMethod(@RequestParam("page") int currentPage, Model model) {
+		
+		int limit = 10;
+		ArrayList<Member> list = mService.selectMemberList(currentPage, limit);
+		
+		// 페이지 처리와 관련된 값 처리
+		// 총 페이지 계산을 위한 총 목록 갯수 조회
+		int listCount = mService.getListCount();
+		int maxPage = (int) ((double) listCount / limit + 0.9);
+		// 현재 페이지가 속한 페이지그룹의 시작페이지 값 설정
+		// 예 : 현재 페이지가 35이면, 시작페이지를 31로 지정(페이지 갯수를 10개 표시할 경우)
+		int startPage = ((int) (double) currentPage / 10) * 10 + 1;
+		int endPage = startPage + 9;
 
-		if (mlist.size() > 0) {
-			model.addAttribute("mlist", mlist);
-			return "mlist";
+		if (maxPage < endPage)
+			endPage = maxPage;
+
+		if (list.size() > 0) {
+			model.addAttribute("list", list);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("maxPage", maxPage);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+
+			return "admin/memberListView";
 		} else {
-			model.addAttribute("msg", "등록된  공지사항 정보가 없습니다.");
+			model.addAttribute("msg", currentPage + "페이지 출력 목록 조회 실패.");
 			return "common/errorPage";
 		}
 	}

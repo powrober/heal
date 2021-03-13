@@ -196,7 +196,16 @@ table.table2 td {
 					</tr>
 					<tr>
 						<td width="200px">내 용</td>
-						<td width="500px" height="200">${ board.bcontent }</td>
+						<td width="500px" height="200">
+							<c:if test="${ empty board.b_file }">${ board.bcontent }</c:if>
+							<c:if test="${ !empty board.b_file }">
+								<c:url var="bfd" value="/bfdown.do">
+									<c:param name="ofile" value="${ board.b_file }" />
+									<c:param name="rfile" value="${ board.b_rfile }" />
+								</c:url>
+							<img src="/me/resources/board_files/${ board.b_file }" style="width:500px;"><br>${ board.bcontent }
+							</c:if>
+						</td>
 					</tr>
 				</table>
 			</td>

@@ -47,25 +47,8 @@ table.table2 td {
 <body>
 	<jsp:include page="../main/header.jsp" />
 	
-
-
- 	<!-- Breadcrumbs-->
-     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
-       <div class="parallax-content">
-         <div class="container">
-           <p class="heading-1 breadcrumbs-custom-title">공지사항 글쓰기</p>
-           <ul class="breadcrumbs-custom-path">
-             <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지시항</a></li>
-             <li><a href="${ blist }">자유게시판</a></li>
-           </ul>
-         </div>
-       </div>
-     </section>
 	
-
-	
-	<section style="padding: 70px 0 60px 0; margin-left: 700px;">
+		<section style="padding: 70px 0 -20px 0;">
 		
 		<br><br>
 		<form action="ninsert.do" method="post" enctype="multipart/form-data">

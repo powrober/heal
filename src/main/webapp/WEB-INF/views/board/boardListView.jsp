@@ -21,10 +21,7 @@
 <meta charset="UTF-8">
 <title>자유게시판</title>
 
-
-<script type="text/javascript"
-	src="${ pageContext.request.contextPath }/resources/js/jquery-3.5.1.min.js"></script>
-
+<script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
 
 <script type="text/javascript">
 	 $(function() {
@@ -73,9 +70,9 @@
 	<jsp:include page="../main/header.jsp" />
 	
 	
-	<div style="text-align: center; padding-top: 100px;">
+	<div style="text-align: center; padding-top: -20px;">
 		<div>
-			<h3 style="margin: 10px 0 10px 0;">자유게시판</h3>
+			<h3 style="margin: 10px 0 30px 0;">자유게시판</h3>
 		</div>
 	</div>
 	

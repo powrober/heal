@@ -18,6 +18,13 @@ public class MemerServiceImpl implements MemberService {
 	//@Autowired
 	//SqlSessionTemplate sqlSession;
 
+	// 관리자가 회원 정보 수정 
+	@Override
+	public int update2Member(Member m) {
+		return mDao.update2Member(m);
+	}
+	
+	
 	@Override
 	public Member loginMember(Member m) {
 		Member loginUser = mDao.loginMember(m);
@@ -78,6 +85,16 @@ public class MemerServiceImpl implements MemberService {
 	@Override
 	public Member selectMember(String id) {
 		return mDao.selectMember(id);
+	}
+
+	@Override
+	public int getListCount() {
+		return mDao.getListCount();
+	}
+
+	@Override
+	public ArrayList<Member> selectMemberList(int currentPage, int limit) {
+		return mDao.selectMemberList(currentPage, limit);
 	}
 	
 }

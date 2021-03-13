@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import heal.project.me.blame.model.dao.BlameDao;
 import heal.project.me.blame.model.vo.Blame;
-import heal.project.me.common.SearchAndPage;
-import heal.project.me.common.SearchDate;
 
 @Service("blameService")
 public class BlameServiceImpl implements BlameService {
@@ -26,72 +24,8 @@ public class BlameServiceImpl implements BlameService {
    }
 
    @Override
-   public int addReadCount(int blame_no) {
-      return blameDao.addReadCount(blame_no);
-   }
-
-   @Override
    public int insertBlame(Blame blame) {
       return blameDao.insertBlame(blame);
    }
-
-   @Override
-   public int updateBlame(Blame blame) {
-      return blameDao.updateBlame(blame);
-   }
-
-   @Override
-   public int deleteBlame(int blame_no) {
-      return blameDao.deleteBlame(blame_no);
-   }
-
-	@Override
-	public ArrayList<Blame> selectSearchTitle(SearchAndPage searches) {
-		return blameDao.selectSearchTitle(searches);
-	}
-	
-	@Override
-	public ArrayList<Blame> selectSearchWriter(SearchAndPage searches) {
-		return blameDao.selectSearchWriter(searches);
-	}
-	
-	@Override
-	public ArrayList<Blame> selectSearchDate(SearchAndPage searches) {
-		return blameDao.selectSearchDate(searches);
-	}
-
-	@Override
-	public int getSearchTitleListCount(String keyword) {
-		return blameDao.getSearchTitleListCount(keyword);
-	}
-
-	@Override
-	public int getSearchWriterListCount(String keyword) {
-		return blameDao.getSearchWriterListCount(keyword);
-	}
-
-	@Override
-	public int getSearchDateListCount(SearchDate dates) {
-		return blameDao.getSearchDateListListCount(dates);
-	}
-
-	@Override
-	public ArrayList<Blame> selectTop3() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<Blame> selectList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Blame selectOne(int blame_no) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

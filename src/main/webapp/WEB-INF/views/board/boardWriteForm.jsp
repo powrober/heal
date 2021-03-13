@@ -13,10 +13,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="/hhw/resources/writerform/css/core.css" />
-<link rel="stylesheet" href="/hhw/resources/writerform/css/css2.css" />
-<link rel="stylesheet" href="/hhw/resources/writerform/css/icon-font.min.css" />
-<link rel="stylesheet" href="/hhw/resources/writerform/css/style.css" />
+<link rel="stylesheet" href="/me/resources/writerform/css/core.css" />
+<link rel="stylesheet" href="/me/resources/writerform/css/css2.css" />
+<link rel="stylesheet" href="/me/resources/writerform/css/icon-font.min.css" />
+<link rel="stylesheet" href="/me/resources/writerform/css/style.css" />
 
 
 <style>
@@ -49,8 +49,7 @@ table.table2 td {
 	<c:import url="../main/header.jsp" />
 	<hr>
 	
- 	<section style="padding: 70px 0 60px 0; margin-left: 200px;">
-		
+ 	<section>
 		<br>
 		<br>
 		<form action="binsert.do" method="post" enctype="multipart/form-data">
@@ -110,11 +109,11 @@ table.table2 td {
 		</form>
 	</section>
  
-<script src="/hhw/resources/writerform/js/core.js"></script>
-<script src="/hhw/resources/writerform/js/js.js"></script>
-<script src="/hhw/resources/writerform/js/layout-settings.js"></script>
-<script src="/hhw/resources/writerform/js/process.js"></script>
-<script src="/hhw/resources/writerform/js/script.min.js"></script>
+<script src="/me/resources/writerform/js/core.js"></script>
+<script src="/me/resources/writerform/js/js.js"></script>
+<script src="/me/resources/writerform/js/layout-settings.js"></script>
+<script src="/me/resources/writerform/js/process.js"></script>
+<script src="/me/resources/writerform/js/script.min.js"></script>
  
 
 	<jsp:include page="../main/footer.jsp" />

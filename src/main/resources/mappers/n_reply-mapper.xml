@@ -52,7 +52,8 @@
 	</update>
 
 	<delete id="deleteB_Reply" parameterType="_int">
-		delete from n_reply
+		update n_reply
+		   set nr_status = 'N'
 		where nrid = #{nrid}
 	</delete>
 </mapper>

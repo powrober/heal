@@ -94,7 +94,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 
 
     <!-- Page-->
-    <div class="page" style="margin-bottom:-740px;">
+    <div class="page" >
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -143,6 +143,9 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 <c:url var="blist" value="blist.do">
 	<c:param name="page" value="1" />
 </c:url>
+<c:url var="mlist" value="mlist.do">
+	<c:param name="page" value="1" />
+</c:url>
                   
                   <ul class="rd-navbar-nav" style="float:left;">
                     <li class="active"><a href="home.do">Home</a></li>
@@ -166,7 +169,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 						<c:url var="mypage" value="/myInfo.do">
 						<c:param name="nick" value="${ loginUser.nick }"/>
 					</c:url>
-						<li><a class="nav-link" href="#">관리자페이지</a></li>
+						<li><a class="nav-link" href="${ mlist }">관리자페이지</a></li>
 					</c:if>
                   </ul>
                 </div>

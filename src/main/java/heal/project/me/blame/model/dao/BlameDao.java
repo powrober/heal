@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import heal.project.me.blame.model.vo.Blame;
 import heal.project.me.blame.model.vo.BlamePage;
-import heal.project.me.common.SearchAndPage;
-import heal.project.me.common.SearchDate;
 
 @Repository("blameDao")
 public class BlameDao {
@@ -31,52 +29,9 @@ public class BlameDao {
 		return (ArrayList<Blame>)list;
 	}
 
-	//리스트보기
-	public Blame selectOne(int blame_no) {
-		return sqlSession.selectOne("blameMapper.selectBlame", blame_no);
-	}
-
-	public int addReadCount(int blame_no) {
-		return sqlSession.update("blameMapper.updateBlame", blame_no);
-	}
-
 	public int insertBlame(Blame blame) {
 		return sqlSession.insert("blameMapper.insertBlame", blame);
 	}
 
-	public int updateBlame(Blame blame) {
-		return sqlSession.update("blameMapper.updateBlame", blame);
-	}
-
-	public int deleteBlame(int blame_no) {
-		return sqlSession.update("blameMapper.changeBstatusN", blame_no);
-	}
-
-	public ArrayList<Blame> selectSearchTitle(SearchAndPage searches) {
-		List<Blame> list = sqlSession.selectList("blameMapper.searchTitle", searches);
-		return (ArrayList<Blame>)list;
-	}
-
-	public ArrayList<Blame> selectSearchWriter(SearchAndPage searches) {
-		List<Blame> list = sqlSession.selectList("blameMapper.searchWriter", searches);
-		return (ArrayList<Blame>)list;
-	}
-
-	public ArrayList<Blame> selectSearchDate(SearchAndPage searches) {
-		List<Blame> list = sqlSession.selectList("blameMapper.searchDate", searches);
-		return (ArrayList<Blame>)list;
-	}
-
-	public int getSearchTitleListCount(String keyword) {
-		return sqlSession.selectOne("blameMapper.getSearchTitleListCount", keyword);
-	}
-
-	public int getSearchWriterListCount(String keyword) {
-		return sqlSession.selectOne("blameMapper.getSearchWriterListCount", keyword);
-	}
-
-	public int getSearchDateListListCount(SearchDate dates) {
-		return sqlSession.selectOne("blameMapper.getSearchDateListCount", dates);
-	}
 
 }

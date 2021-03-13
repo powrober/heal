@@ -125,7 +125,8 @@
    </update>
    
    <delete id="deleteNotice" parameterType="_int">
-      delete from notice
+   		update notice
+		   set NSTATUS = 'N'
       where nid = #{ nid }
    </delete>
 

@@ -61,139 +61,64 @@
 
 	<jsp:include page="../main/header.jsp" />
 
-
-	<c:url var="nlist" value="nlist.do">
-		<c:param name="page" value="1" />
-	</c:url>
-	
-	<c:url var="blist" value="blist.do">
-		<c:param name="page" value="1" />
-	</c:url>
-
-
- 	<!-- Breadcrumbs-->
-     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
-       <div class="parallax-content">
-         <div class="container">
-           <p class="heading-1 breadcrumbs-custom-title">공지사항</p>
-           <ul class="breadcrumbs-custom-path">
-             <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지사항</a></li>
-             <li><a href="${ blist }">자유게시판</a></li>
-           </ul>
-         </div>
-       </div>
-     </section>
-	
      <section class="section section-lg bg-default text-center" style="padding-top: 50px;">
-       <div class="container" style="margin-left: 30px; margin-right: 0px;">
+       <div class="container">
          <div class="row justify-content-sm-center">
            <div class="col-md-10 col-xl-8">
-             <h3>공지사항</h3>
-             
-             <%-- 검색기능 --%>
-				<div>
-					<div style="text-align: left; padding-top: 30px;">
-						<div>
-							<select name="btype" id="item">
-								<option id="item" value="">검색 항목 선택</option>
-								<option id="item" value="title">제목</option>
-								<option id="item" value="writer">작성자</option>
-								<option id="item" value="date">게시날짜</option>
-							</select>
-				
-							<input type="radio" name="item" value="title" checked> 제목&nbsp; &nbsp; &nbsp; 
-							<input type="radio" name="item" value="writer">	 작성자 &nbsp; &nbsp; &nbsp; 
-							<input type="radio" name="item" value="date"> 날짜
-						</div>
-				
-						<div id="titleDiv">
-							<form action="nsearchTitle.do" method="post">
-								<input type="search" name="keyword">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 300px; margin-top: -50px;">
-									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
-								</div>
-							</form>
-						</div>
-						
-						<div id="writerDiv">
-							<form action="nsearchWriter.do" method="post">
-								<input type="search"name="keyword">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 300px; margin-top: -50px;">
-									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
-								</div>
-							</form>
-						</div>
-							
-						<div id="dateDiv">
-							<form action="nsearchDate.do" method="post">
-								<input type="date" name="begin"> ~ <input type="date" name="end">
-								<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-								<%-- 목록 출력 --%>
-								<div style="align: center; padding-left: 300px; margin-top: -50px;">
-									<c:url var="nlist" value="/nlist.do"/>
-									<button onclick="javascript:location.href='${ nlist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체목록 보기</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					
-					<%-- 관리자가 로그인 했을 때 --%>
-					<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-						<div style="text-align: right; padding-right: 50px; margin-top: -50px">
-							<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">글쓰기</button>
-						</div>
-					</c:if>
-				</div>
-             
+            <h3>공지사항</h3>
+             		
              <%-- 테이블 --%>
-             <div class="table-novi table-custom-responsive" style="width:1200px;">
-               <table class="table-custom table-hover" style="width:1200px;">
-                
-                 <thead>
-                   <tr>
-                     <th style="color: #000; width:100px;">번호</th>
-                     <th style="color: #000;">말머리</th>
-                     <th style="color: #000;">제목</th>
-                     <th style="color: #000;">작성자</th>
-                     <th style="color: #000;">작성일</th>
-                     <th style="color: #000;" >조회수</th>
-                   </tr>
-                 </thead>
-                 
-                 <tbody>
-                   <tr>
-                	<c:forEach items="${ requestScope.list}" var="n">
-	                <tr>
-						<td align="center" width="100" style="font-size:15px; color: black;">${ n.nid }</td>
-	
-						<td align="center" width="200" style="font-size:15px; color: black;">${ n.ntype }</td>
-	
-						<td align="left" width="550" style="font-size:15px;">
-							<c:url value="/ndetail.do" var="und">
-								<c:param name="nid" value="${ n.nid }" />
-							</c:url>
-							<a href="${und}" style="color: black;">${n.ntitle}</a>
-								<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-								<c:if test="${ empty n.n_file }"> &nbsp; </c:if></td>
-					
-						<td align="center" width="250" style="font-size:15px; color: black;">${n.nuser}</td>
-	
-						<td align="center" width="200" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
-	
-						<td align="center" width="100" style="font-size:15px; color: black;">${ n.ncount }</td>
+			<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
+				<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" >
+					<colgroup>
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" class="title">번호</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">말머리</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제&nbsp;&nbsp;&nbsp;&nbsp;목</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성날짜</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
+						</tr>
 						
-					</c:forEach>
-            </tbody>
-                 
-               </table>
-             </div>
+						<tr>
+							<td colspan="7" class="blank2">&nbsp;
+					    </tr>
+		            </thead>
+		            <tbody>
+		                <tr>
+		                	<c:forEach items="${ requestScope.list}" var="n">
+			                <tr>
+								<td align="center" width="80" style="font-size:15px; color: black;">${ n.nid }</td>
+			
+								<td align="center" width="150" style="font-size:15px; color: black;">${ n.ntype }</td>
+			
+								<td align="left" width="550" style="font-size:15px;">
+									<c:url value="/ndetail.do" var="und">
+										<c:param name="nid" value="${ n.nid }" />
+									</c:url>
+									<a href="${und}" style="color: black;">${n.ntitle}</a>
+										<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+										<c:if test="${ empty n.n_file }"> &nbsp; </c:if></td>
+							
+								<td align="center" width="150" style="font-size:15px; color: black;">${n.nuser}</td>
+			
+								<td align="center" width="130" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
+			
+								<td align="center" width="80" style="font-size:15px; color: black;">${ n.ncount }</td>
+								
+							</tr>
+							</c:forEach>
+		            </tbody>
+		        </table>
+		    </div>
            </div>
          </div>
        </div>

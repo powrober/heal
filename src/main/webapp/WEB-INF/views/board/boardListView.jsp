@@ -72,29 +72,6 @@
 
 	<jsp:include page="../main/header.jsp" />
 	
-	<c:url var="nlist" value="nlist.do">
-		<c:param name="page" value="1" />
-	</c:url>
-	
-	<c:url var="blist" value="blist.do">
-		<c:param name="page" value="1" />
-	</c:url>
-
-
- 	<!-- Breadcrumbs-->
-     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg">
-       <div class="parallax-content">
-         <div class="container">
-           <p class="heading-1 breadcrumbs-custom-title">자유게시판</p>
-           <ul class="breadcrumbs-custom-path">
-             <li><a href="home.do">Home</a></li>
-             <li><a href="${ nlist }">공지사항</a></li>
-             <li><a href="${ blist }">자유게시판</a></li>
-           </ul>
-         </div>
-       </div>
-     </section>
-	
 	
 	<div style="text-align: center; padding-top: 100px;">
 		<div>

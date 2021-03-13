@@ -84,7 +84,7 @@
 						<div>
 
 				          	<%-- 관리자가 접속했을 때 --%>
-							<c:if test="${ !empty sessionScope.loginUser and loginUser.nick eq notice.nuser and loginUser.user_lv eq 'admin' }">
+							<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
 								<c:url var="nuv" value="/upmove.do">
 									<c:param name="nid" value="${ notice.nid }" />
 									<c:param name="page" value="${ currentPage }" />

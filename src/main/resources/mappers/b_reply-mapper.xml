@@ -5,6 +5,7 @@
 	<resultMap type="B_Reply" id="resultB_Reply">
 		<id column="brid" property="brid" />
 		<result column="brcontent" property="brcontent" />
+		<result column="b_ref_bid" property="b_ref_bid" />
 		<result column="bruser" property="bruser"/>
 		<result column="br_date" property="br_date" />
 		<result column="br_modify_date" property="br_modify_date" />
@@ -13,9 +14,9 @@
 
 	<!-- 댓글 목록 -->
 	<select id="listB_Reply" resultType="heal.project.me.b_reply.model.vo.B_Reply">
-		select brid, brcontent, bruser, br_date, br_modify_date, br_status
+		select brid, brcontent, b_ref_bid, bruser, br_date, br_modify_date, br_status
 		form b_reply r, board b 
-		where r.bruser = b.buser
+		where r.b_ref_bid = b.bid
 		and brid = #{ brid}
 		order by brid
 	</select>
@@ -27,13 +28,13 @@
 
 	<select id="selectList" parameterType="_int" resultMap="resultB_Reply">
 		select * from b_reply
-		where br_status = 'Y' and brid = #{ brid } 
+		where br_status = 'Y' and b_ref_bid = #{ b_ref_bid } 
 		order by brid asc
 	</select>
 	
 	<insert id="insertB_Reply" parameterType="B_Reply">
 		insert into b_reply
-		values (seq_brid.nextval, #{ b_rcontent }, #{ bruser }, sysdate, sysdate, default)
+		values (seq_brid.nextval, #{ brcontent }, #{ b_ref_bid }, #{ bruser }, sysdate, sysdate, default)
 	</insert>
 	
 	<update id="updateB_Reply" parameterType="B_Reply">

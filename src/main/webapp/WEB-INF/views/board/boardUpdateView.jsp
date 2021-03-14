@@ -52,7 +52,9 @@ table.table2 td {
 			<input type="hidden" name="bid" value="${ board.bid }">
 			<input type="hidden" name="btitle" value="${ board.btitle }">
 			<input type="hidden" name="b_file" value="${ board.b_file }">
+			<input type="hidden" name="btype" value="${ board.btype }">
 			<input type="hidden" name="b_rfile" value="${ board.b_rfile }">
+			<input type="hidden" name="bstatus" value="${ board.bstatus }">
 			<input type="hidden" name="page" value="${ currentPage }">
 			
 			<table style="padding-top: 50px" align="center" width="700" border="0" cellpadding="2">

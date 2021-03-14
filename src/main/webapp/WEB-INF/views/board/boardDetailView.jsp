@@ -30,9 +30,9 @@
 		var bid = ${ board.bid };//el 의 값을 변수에 대입
 		var loginUser = "${ sessionScope.loginUser.nick }"; //로그인한 회원 아이디 변수에 대입
 		$.ajax({
-		url : "${ pageContext.request.contextPath }/rlist.do",
+		url : "${ pageContext.request.contextPath }/brlist.do",
 		type : "post",
-		data : { bid : bid }, //전송값에 변수 사용
+		data : { b_ref_bid : bid }, //전송값에 변수 사용
 		dataType : "json",
 		success : function(data) {
 			console.log("success : " + data);
@@ -165,7 +165,7 @@ table.table2 td {
 	
 	<c:import url="../main/header.jsp" />
 
-	<div style="text-align: center; padding-top: 120px;">
+	<div style="text-align: center; padding-top: 10px;">
 		<div>
 			<h4 style="margin: 20px 0 10px 0;">${ board.btitle }</h4>
 		</div>
@@ -347,7 +347,7 @@ table.table2 td {
 				<%-- 댓글달기 폼 영역 --%>
 				<br>
 				<div id="replyDiv" style="padding-bottom: 30px;  padding-top: 20px;">
-					<form action="rinsert.do" method="post">
+					<form action="brinsert.do" method="post">
 						<input type="hidden" name="b_ref_bid" value="${ board.bid }">
 						<table align="center" width="700" border="0" cellpadding="2">
 						
@@ -452,14 +452,11 @@ table.table2 td {
                       <div class="comment-text">
                         <p>Ei sumo eruditi sadipscing nec, scripta epicurei ut eam. Duo ut fastidii platonem, eu soleat salutandi neglegentur est. Erant harum malorum eum ne</p>
                       </div>
-                      <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
                     </div>
                   </article>
                   <div class="comment-group"> 
                     <!-- Comment-->
                     <article class="comment">
-                      <div class="comment-avatar"><img src="images/user-2-80x80.jpg" alt="" width="80" height="80"/>
-                      </div>
                       <div class="comment-body">
                         <div class="comment-header">
                           <p class="comment-title">Ronald Chen</p>
@@ -468,14 +465,11 @@ table.table2 td {
                         <div class="comment-text">
                           <p>Te partem omnesque eligendi has, nam ex persius lobortis. His ex amet facilis, ne vix diceret dolorum. Veniam nonumes sit an. Sit et possit hendrerit, ne his doming mnesarchum</p>
                         </div>
-                        <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
                       </div>
                     </article>
                   </div>
                   <!-- Comment-->
                   <article class="comment">
-                    <div class="comment-avatar"><img src="images/user-3-80x80.jpg" alt="" width="80" height="80"/>
-                    </div>
                     <div class="comment-body">
                       <div class="comment-header">
                         <p class="comment-title">Philip Bowman</p>
@@ -484,7 +478,6 @@ table.table2 td {
                       <div class="comment-text">
                         <p>Ei tollit euismod cum, augue labore euripidis mel ex, ut corpora appellantur deterruisset mel. Quo et consulatu suscipiantur. In sed homero habemus neglegentur</p>
                       </div>
-                      <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
                     </div>
                   </article>
                 </div>

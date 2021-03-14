@@ -116,7 +116,7 @@ public class BoardController {
 			return "common/errorPage";
 		}
 	}
-/*
+
 	// 게시글 수정 요청 처리용
 	@RequestMapping(value = "bupdate.do", method = RequestMethod.POST)
 	public String boardUpdateMethod(Board board, @RequestParam("page") int currentPage,
@@ -171,7 +171,7 @@ public class BoardController {
 		}
 	}
 	
-	// 관리자가 수정 요청 처리용
+                 //관리자가 수정 요청 처리용
 		@RequestMapping(value = "adminbupdate.do", method = RequestMethod.POST)
 		public String boardUpdate2Method(Board board, @RequestParam("page") int currentPage,
 				@RequestParam(name = "delFlag", required = false) String delFlag, HttpServletRequest request, Model model,
@@ -224,7 +224,7 @@ public class BoardController {
 				return "common/errorPage";
 			}
 		}
-*/
+
 	// ajax 로 인기 게시글 조회 처리용
 	@RequestMapping(value = "btop3.do", method = RequestMethod.POST)
 	@ResponseBody

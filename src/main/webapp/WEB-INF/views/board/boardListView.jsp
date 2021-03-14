@@ -76,8 +76,8 @@
 		</div>
 	</div>
 	
-	
-	<%-- 검색기능 --%>
+<%-- 	
+	검색기능
 	<div>
 		<div style="text-align: left; padding-left: 550px;">
 			<div>
@@ -98,7 +98,7 @@
 					<input type="hidden" name="page" value="1">
 					<input type="search" name="keyword" placeholder="제목">
 					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
+					목록 출력
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
@@ -111,7 +111,7 @@
 					<input type="hidden" name="page" value="1">
 					<input type="search" name="keyword" placeholder="닉네임">
 					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
+					목록 출력
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
@@ -124,7 +124,7 @@
 					<input type="hidden" name="page" value="1">
 					<input type="date" name="begin"> ~ <input type="date" name="end">
 					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
+					목록 출력
 					<c:url var="blist" value="/blist.do">
 						<c:param name="page" value="1" />
 					</c:url>
@@ -132,7 +132,7 @@
 				</form>
 			</div>
 		</div>
-		
+		 --%>
 				
 		<%-- 관리자가 로그인 했을 때 --%>
 		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">

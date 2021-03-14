@@ -7,6 +7,7 @@ public class B_Reply implements java.io.Serializable {
 	
 	private int brid;
 	private String brcontent;
+	private int b_ref_bid;
 	private String bruser;
 	private Date br_date;
 	private Date br_modify_date;
@@ -14,10 +15,12 @@ public class B_Reply implements java.io.Serializable {
 	
 	public B_Reply() {}
 
-	public B_Reply(int brid, String brcontent, String bruser, Date br_date, Date br_modify_date, String br_status) {
+	public B_Reply(int brid, String brcontent, int b_ref_bid, String bruser, Date br_date, Date br_modify_date,
+			String br_status) {
 		super();
 		this.brid = brid;
 		this.brcontent = brcontent;
+		this.b_ref_bid = b_ref_bid;
 		this.bruser = bruser;
 		this.br_date = br_date;
 		this.br_modify_date = br_modify_date;
@@ -38,6 +41,14 @@ public class B_Reply implements java.io.Serializable {
 
 	public void setBrcontent(String brcontent) {
 		this.brcontent = brcontent;
+	}
+
+	public int getB_ref_bid() {
+		return b_ref_bid;
+	}
+
+	public void setB_ref_bid(int b_ref_bid) {
+		this.b_ref_bid = b_ref_bid;
 	}
 
 	public String getBruser() {
@@ -78,8 +89,9 @@ public class B_Reply implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "B_Reply [brid=" + brid + ", brcontent=" + brcontent + ", bruser=" + bruser + ", br_date=" + br_date
-				+ ", br_modify_date=" + br_modify_date + ", br_status=" + br_status + "]";
+		return "B_Reply [brid=" + brid + ", brcontent=" + brcontent + ", b_ref_bid=" + b_ref_bid + ", bruser=" + bruser
+				+ ", br_date=" + br_date + ", br_modify_date=" + br_modify_date + ", br_status=" + br_status + "]";
 	}
 
+	
 }

@@ -61,11 +61,11 @@
 
 	<jsp:include page="../main/header.jsp" />
 
-     <section class="section section-lg bg-default text-center" style="padding-top: 50px;">
-       <div class="container">
-         <div class="row justify-content-sm-center">
-           <div class="col-md-10 col-xl-8">
-            <h3>공지사항</h3>
+     <div style="text-align: center; padding-top: -20px;">
+		<div>
+			<h3 style="margin: 10px 0 30px 0;">공지사항</h3>
+		</div>
+	</div>
         
         
         <%-- 관리자가 로그인 했을 때 --%>

@@ -37,8 +37,8 @@ public class B_ReplyServiceImpl implements B_ReplyService {
 	// 댓글 목록
 
 	@Override
-	public ArrayList<B_Reply> selectList(int brid) {
-		return b_replyDao.selectList(brid);
+	public ArrayList<B_Reply> selectList(int b_ref_bid) {
+		return b_replyDao.selectList(b_ref_bid);
 	}
 
 

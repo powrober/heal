@@ -28,11 +28,9 @@ public class B_ReplyController {
 		
 		if (b_replyService.insertB_Reply(b_reply) > 0) {
 			
-		
-			
-			return "redirect:bdetail.do?bid=" + b_reply.getBrid();
+			return "redirect:bdetail.do?bid=" + b_reply.getB_ref_bid();
 		} else {
-			model.addAttribute("msg", b_reply.getBrid() + "번 글에 대한 댓글달기 실패.");
+			model.addAttribute("msg", b_reply.getB_ref_bid() + "번 글에 대한 댓글달기 실패.");
 			return "common/errorPage";
 		}
 	}
@@ -40,9 +38,9 @@ public class B_ReplyController {
 	// ajax 원글에 대한 댓글 조회 처리용
 	@RequestMapping(value = "brlist.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String b_replyListMethod(@RequestParam("brid") int brid) throws UnsupportedEncodingException {
+	public String b_replyListMethod(@RequestParam("b_ref_bid") int b_ref_bid) throws UnsupportedEncodingException {
 		// 원글에 대한 댓글 조회 요청
-		ArrayList<B_Reply> list = b_replyService.selectList(brid); // 결과를 받아줌
+		ArrayList<B_Reply> list = b_replyService.selectList(b_ref_bid); // 결과를 받아줌
 
 		// 전송용 json 객체 준비
 		JSONObject sendJson = new JSONObject();

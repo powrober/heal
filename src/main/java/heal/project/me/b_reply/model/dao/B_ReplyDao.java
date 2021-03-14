@@ -31,8 +31,8 @@ public class B_ReplyDao {
 		return sqlSession.selectOne("b_replyMapper.selectB_Reply", brid);
 	}
 
-	public ArrayList<B_Reply> selectList(int brid) {
-		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectList", brid);
+	public ArrayList<B_Reply> selectList(int b_ref_bid) {
+		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectList", b_ref_bid);
 		return (ArrayList<B_Reply>)list;
 	}
 	

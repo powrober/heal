@@ -155,6 +155,7 @@ INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL, '참고게시글', '테스트닉네임
 CREATE TABLE B_REPLY(
   BRID                  NUMBER,
   BRCONTENT          VARCHAR2(400),
+  B_REF_BID       NUMBER,
   BRUSER             VARCHAR2(50) NOT NULL,
   BR_DATE               DATE,
   BR_MODIFY_DATE   DATE,
@@ -164,12 +165,13 @@ CONSTRAINT FK_BRUSER FOREIGN KEY (BRUSER) REFERENCES MEMBER(NICK) ON DELETE SET 
 );
 
 ------------------------------------------------------------------------------------------------------------------- B_REPLY 컬러명 지정
-COMMENT ON COLUMN B_REPLY.BRID IS '공지사항 댓글 번호';
-COMMENT ON COLUMN B_REPLY.BRCONTENT IS '공지사항 댓글 내용';
-COMMENT ON COLUMN B_REPLY.BRUSER IS '공지사항 댓글 작성자';
-COMMENT ON COLUMN B_REPLY.BR_DATE IS '공지사항 댓글 작성 일자';
-COMMENT ON COLUMN B_REPLY.BR_MODIFY_DATE IS '공지사항 댓글 수정 일자';
-COMMENT ON COLUMN B_REPLY.BR_STATUS IS '공지사항 댓글 상태';
+COMMENT ON COLUMN B_REPLY.BRID IS '게시글 댓글 번호';
+COMMENT ON COLUMN B_REPLY.BRCONTENT IS '게시글 댓글 내용';
+COMMENT ON COLUMN B_REPLY.B_REF_BID IS '참조공지글번호';
+COMMENT ON COLUMN B_REPLY.BRUSER IS '게시글 댓글 작성자';
+COMMENT ON COLUMN B_REPLY.BR_DATE IS '게시글 댓글 작성 일자';
+COMMENT ON COLUMN B_REPLY.BR_MODIFY_DATE IS '게시글 댓글 수정 일자';
+COMMENT ON COLUMN B_REPLY.BR_STATUS IS '게시글 댓글 상태';
 
 ------------------------------------------------------------------------------------------------------------------- B_REPLY 시퀀스
 CREATE SEQUENCE SEQ_BRID 
@@ -177,14 +179,15 @@ START WITH 1
 INCREMENT BY 1;
 
 ------------------------------------------------------------------------------------------------------------------- 샘플데이터(B_REPLY)
-INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 첫번째 댓글입니다.', '테스트닉네임1', '21/01/02', NULL, DEFAULT);
-INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 두번째 댓글입니다.', '테스트닉네임2', '21/01/02', NULL, DEFAULT);
-INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 세번째 댓글입니다.', '테스트닉네임3', '21/01/02', NULL, DEFAULT);
+INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 첫번째 댓글입니다.', '1', '테스트닉네임1', '21/01/02', NULL, DEFAULT);
+INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 두번째 댓글입니다.', '1', '테스트닉네임2', '21/01/02', NULL, DEFAULT);
+INSERT INTO B_REPLY VALUES(SEQ_BRID.NEXTVAL, '게시글 세번째 댓글입니다.', '1', '테스트닉네임3', '21/01/02', NULL, DEFAULT);
 
 ------------------------------------------------------------------------------------------------------------------- N_REPLY(공지사항 리플 테이블) 생성
 CREATE TABLE N_REPLY(
   NRID                  NUMBER,
   NRCONTENT          VARCHAR2(400),
+  N_REF_NID       NUMBER,
   NRUSER             VARCHAR2(50) NOT NULL,
   NR_DATE               DATE,
   NR_MODIFY_DATE   DATE,
@@ -196,6 +199,7 @@ CONSTRAINT FK_NRUSER FOREIGN KEY (NRUSER) REFERENCES MEMBER(NICK) ON DELETE SET 
 ------------------------------------------------------------------------------------------------------------------- N_REPLY 컬러명 지정
 COMMENT ON COLUMN N_REPLY.NRID IS '공지사항 댓글 번호';
 COMMENT ON COLUMN N_REPLY.NRCONTENT IS '공지사항 댓글 내용';
+COMMENT ON COLUMN N_REPLY.N_REF_NID IS '참조 공지글 번호';
 COMMENT ON COLUMN N_REPLY.NRUSER IS '공지사항 댓글 작성자';
 COMMENT ON COLUMN N_REPLY.NR_DATE IS '공지사항 댓글 작성 일자';
 COMMENT ON COLUMN N_REPLY.NR_MODIFY_DATE IS '공지사항 댓글 수정 일자';
@@ -206,15 +210,16 @@ CREATE SEQUENCE SEQ_NRID
 START WITH 1
 INCREMENT BY 1;
 
-------------------------------------------------------------------------------------------------------------------- 샘플데이터(B_REPLY)
-INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 첫번째 댓글입니다.', '테스트닉네임1', '21/01/01', NULL, DEFAULT);
-INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 두번째 댓글입니다.', '테스트닉네임1', '21/01/01', NULL, DEFAULT);
-INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 세번째 댓글입니다.', '테스트닉네임1', '21/01/01', NULL, DEFAULT);
+------------------------------------------------------------------------------------------------------------------- 샘플데이터(N_REPLY)
+INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 첫번째 댓글입니다.', '1',  '테스트닉네임1', '21/01/01', NULL, DEFAULT);
+INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 두번째 댓글입니다.', '1',  '테스트닉네임1', '21/01/01', NULL, DEFAULT);
+INSERT INTO N_REPLY VALUES(SEQ_NRID.NEXTVAL, '공지사항 세번째 댓글입니다.', '1',  '테스트닉네임1', '21/01/01', NULL, DEFAULT);
 
 
 ------------------------------------------------------------------------------------------------------------------- BLAME 테이블 생성
 CREATE TABLE BLAME(
-BLAME_NO      NUMBER,   
+BLAME_NO      NUMBER,
+BLAME_BID         NUMBER,
 BLAME_TYPE      CHAR(50) DEFAULT '부적절', 
 REPORTER         VARCHAR2(100),
 TARGETUSER      VARCHAR2(100),
@@ -222,11 +227,13 @@ BLAME_DATE      DATE,
 BLAME_CONTENT      VARCHAR2(2000),
 CONSTRAINT PK_BLAME_NO PRIMARY KEY(BLAME_NO),
 CONSTRAINT FK_REPORTER FOREIGN KEY (REPORTER) REFERENCES MEMBER(NICK) ON DELETE SET NULL,
-CONSTRAINT FK_TARGETUSER FOREIGN KEY (TARGETUSER) REFERENCES MEMBER(NICK) ON DELETE SET NULL
+CONSTRAINT FK_TARGETUSER FOREIGN KEY (TARGETUSER) REFERENCES MEMBER(NICK) ON DELETE SET NULL,
+CONSTRAINT FK_BLAME_BID FOREIGN KEY (BLAME_BID) REFERENCES BOARD(BID) ON DELETE SET NULL
 );
                                      
 ------------------------------------------------------------------------------------------------------------------- BLAME (신고한 내역이 저장) 컬럼명 생성
 COMMENT ON COLUMN BLAME.BLAME_NO IS '신고번호';
+COMMENT ON COLUMN BLAME.BLAME_BID IS '신고 게시물 번호';
 COMMENT ON COLUMN BLAME.BLAME_TYPE IS '신고 글 구분(1. 부적절, 2. 욕설, 3. 광고, 4. 음란물)';
 COMMENT ON COLUMN BLAME.REPORTER IS '신고한 회원';
 COMMENT ON COLUMN BLAME.TARGETUSER IS '신고당한 회원';
@@ -239,9 +246,9 @@ START WITH 1
 INCREMENT BY 1;
 
 ------------------------------------------------------------------------------------------------------------------- 샘플데이터(BLAME)
-INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL, '부적절', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
-INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL, '욕설', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
-INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL, '사기', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
+INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL,'1', '부적절', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
+INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL,'1', '욕설', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
+INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL,'1', '사기', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
 
 
 ------------------------------------------------------------------------------------------------------------------- 정산 테이블 생성

@@ -51,7 +51,7 @@ table.table2 td {
 	
      <div style="text-align: center; padding-top: 10px;">
 		<div>
-			<h4 style="margin: 20px 0 10px 0;">${ notice.ntitle }</h4>
+			<h4 style="margin: 00px 0 10px 0;">${ notice.ntitle }</h4>
 		</div>
 	</div>
 				

@@ -120,7 +120,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   <li><a class="icon novi-icon icon-sm-bigger icon-gray-1 mdi mdi-linkedin" href="#"></a></li>
                 </ul> -->
               </div>
-              <div class="rd-navbar-top-panel-inner"><a class="button button-sm button-primary" href="#">예약하기</a></div>
+              <div class="rd-navbar-top-panel-inner"><a class="button button-sm button-primary" href="room.do">예약하기</a></div>
             </div>
             <div class="rd-navbar-inner">
               <!-- RD Navbar Panel-->
@@ -149,7 +149,8 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   
                   <ul class="rd-navbar-nav" style="float:left;">
                     <li class="active"><a href="home.do">Home</a></li>
-                    <li><a href="room.do">예약안내</a></li>
+                    <li><a href="roominfo.do">안내사항</a></li>
+                    <li><a href="rooms.do">힐링하우스</a></li>
                     <li><a href="enjoy.do">즐길거리</a></li>
                     <li><a href="${ nlist }">공지사항</a></li>
                     <li><a href="${ blist }">자유게시판</a></li>
@@ -175,8 +176,16 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   </ul>
                 </div>
               </div>
+            		<c:if test="${ empty sessionScope.loginUser }">
+						<div class="rd-navbar-aside-right"><a class="button button-sm button-primary" href="room.do">예약하기</a></div>
+				    </c:if>
+					<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'MEMBER' }">
+						<div class="rd-navbar-aside-right"><a class="button button-sm button-primary" href="room.do">예약하기</a></div>
+					</c:if>
+					<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
+						<div class="rd-navbar-aside-right"><a class="button button-sm button-primary" href="http://www.realpen.co.kr/ps_admin/login.html" target="_blank" style="color:bule;">예약 관리자</a></div>
+					</c:if>
               
-              <div class="rd-navbar-aside-right"><a class="button button-sm button-primary" href="#">예약하기</a></div>
             </div>
           </nav>
         </div>

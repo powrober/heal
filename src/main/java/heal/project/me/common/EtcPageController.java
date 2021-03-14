@@ -41,5 +41,11 @@ public class EtcPageController {
 	public String room() {
 		return "room/room";
 	}
+	
+	// Roominfo 페이지 이동
+	@RequestMapping("roominfo.do")
+	public String roominfo() {
+		return "room/roominfo";
+	}
 
 }

@@ -104,7 +104,9 @@
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-primary" type="submit">예약 확인하기</button>
+                	    <c:url var="room" value="/room.do">
+						</c:url>
+                      <button class="button button-block button-primary" type="button" onclick="javascript:location.href='${ room }'">예약 확인하기</button>
                     </div>
                   </form>
                 </div>
@@ -118,7 +120,7 @@
         <div class="container container-wide">
             <div class="col-sm-12">
               <div class="parallax-text-wrap">
-                <h3>Healing House Room</h3><span class="parallax-text" style="left: 80px;">Healing House</span>
+                <h3>Healing House Rooms</h3><span class="parallax-text" style="left: 80px;">Healing House</span>
               </div><img class="title-decorative" src="/me/resources/images/title-decorative-84x8.png" alt="" width="84" height="8"/>
               
               <!-- Owl Carousel-->
@@ -339,6 +341,58 @@
           </div>
         </div>
       </section>
+      
+      <!-- a few words about us-->
+      <section class="section section-lg text-center text-md-left bg-default">
+        <div class="container container-bigger" style="padding-left: 0px;padding-right: 0px;margin-left: 20px;margin-right: 20px;width: 1000px;">
+          <div class="row row-50 justify-content-md-center justify-content-xl-end justify-content-xxl-between align-items-center" style="width: 2000px;">
+            <section class="section section-lg bg-default novi-background bg-cover text-center" style="width: 900px;padding-left: 0px;margin-left: 20px;">
+		        <div class="container">
+		          <h4>Healing House 오시는 길</h4>
+		          <div class="row row-50 justify-content-lg-center">
+		            <div class="col-lg-10 col-xl-8">
+		              <div class="tabs-custom tabs-vertical tabs-line" id="tabs-3">
+		                <!-- Nav tabs-->
+		                <ul class="nav nav-tabs">
+		                  <li class="nav-item"><a class="nav-link active" href="#tabs-2-1" data-toggle="tab">주소</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="#tabs-2-2" data-toggle="tab">뱃길 안내</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="#tabs-2-3" data-toggle="tab">배편연락처</a></li>
+		                  <li class="nav-item"><a class="nav-link" href="#tabs-2-4" data-toggle="tab">방문자 필독!!</a></li>
+		                </ul>
+		                <!-- Tab panes-->
+		                <div class="tab-content">
+		                  <div class="tab-pane fade show active" id="tabs-2-1">
+		                    <h6>지번</h6><p>경상남도 통영시 욕지면 서산리 106-26</p>
+		                    <h6>도로명</h6><p>경상남도 통영시 욕지면 유동길 89-79</p>
+		                  </div>
+
+		                  <div class="tab-pane fade show" id="tabs-2-2">
+		                  <h6>통영 → 욕지도</h6>
+		                  		<p>통영 서호동 여객선터미널 출발 ( 소요시간 1시간 10분 정도 )</p>
+								<p>통영 산양면 삼덕터미널 출발 ( 소요시간 1시간 정도 )</p>
+		                  </div>
+		                  
+		                  <div class="tab-pane fade show" id="tabs-2-3">
+		                  	<p>통영 욕지해운 : 055-641-6181</p>
+							<p>삼덕 영동고속 : 055-641-3734</p>
+		                  </div>
+		                  
+		                  <div class="tab-pane fade show" id="tabs-2-4">
+		                   자칫하면 배를 놓칠 수 있으며 자차를 가져올 경우 미리 배를 예약해야함으로!
+		                   꼭 예약 후 관리자에게 문의해 주세요~
+		                  </div>
+		                  
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </section>
+            <div class="col-md-9 col-lg-8 col-xl-6 col-xxl-6" style="width: 730px;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1380.5330855694187!2d128.23848175530108!3d34.61732022794895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e9e7a8944ed81%3A0x1ff1124de49be2b8!2z6rK97IOB64Ko64-EIO2GteyYgeyLnCDsmpXsp4DrqbQg7ISc7IKw66asIDEwNi0yNg!5e0!3m2!1sko!2skr!4v1498609401956" width="654" height="409" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="parallax-container section-md" data-parallax-img="/me/resources/images/mainfooter.jpg">
         <div class="parallax-content">
@@ -350,7 +404,7 @@
                     <h3 class="box-cta-title" style="color:#000;">지친 일상에서 힐링을 할 수 있는 그 곳!</h3>
                     <p style="color:#000;">욕지도 Healing House에서 여러분을 모시겠습니다.</p>
                   </div>
-                  <div class="box-cta-inner"><a class="button button-white-outline button-lg" href="#">예약하기</a></div>
+                  <div class="box-cta-inner"><a class="button button-white-outline button-lg" href="room.do">예약하기</a></div>
                 </div>
               </div>
             </div>

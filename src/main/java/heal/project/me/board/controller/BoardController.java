@@ -52,6 +52,21 @@ public class BoardController {
 		}
 	}
 
+	// 관리자가 게시글 수정 페이지로 이동 요청 처리용
+		@RequestMapping("adminbupview.do")
+		public String boardUpdate1Form(@RequestParam("bid") int bid, @RequestParam("page") int currentPage, Model model) {
+			Board board = boardService.selectBoard(bid);
+			if (board != null) {
+				model.addAttribute("board", board);
+				model.addAttribute("page", currentPage);
+				return "board/AdminboardUpdateView";
+			} else {
+				model.addAttribute("msg", bid + "번 게시글 수정페이지로 이동 실패");
+				return "common/errorPage";
+			}
+		}
+	
+	
 	// 파일업로드 기능이 있는 공지글 등록 요청 처리용
 	@RequestMapping(value = "binsert.do", method = RequestMethod.POST)
 	public String boardUpdateMethod(Board board, HttpServletRequest request,
@@ -101,7 +116,7 @@ public class BoardController {
 			return "common/errorPage";
 		}
 	}
-
+/*
 	// 게시글 수정 요청 처리용
 	@RequestMapping(value = "bupdate.do", method = RequestMethod.POST)
 	public String boardUpdateMethod(Board board, @RequestParam("page") int currentPage,
@@ -155,7 +170,61 @@ public class BoardController {
 			return "common/errorPage";
 		}
 	}
+	
+	// 관리자가 수정 요청 처리용
+		@RequestMapping(value = "adminbupdate.do", method = RequestMethod.POST)
+		public String boardUpdate2Method(Board board, @RequestParam("page") int currentPage,
+				@RequestParam(name = "delFlag", required = false) String delFlag, HttpServletRequest request, Model model,
+				@RequestParam(name = "upfile", required = false) MultipartFile mfile) {
 
+			// 업로드된 파일 저장 폴더 지정하기
+			String savePath = request.getSession().getServletContext().getRealPath("resources/board_files");
+
+			// 원래 첨부파일이 있었는데 삭제를 선택한 경우
+			if (board.getB_file() != null && delFlag != null && delFlag.contentEquals("yes")) {
+				// 저장 폴더에서 파일을 삭제함
+				new File(savePath + "\\" + board.getB_rfile()).delete();
+				board.setB_file(null);
+				board.setB_rfile(null);
+			}
+
+			// 새로운 첨부파일이 있다면
+			if (mfile != null) {
+				String fileName = mfile.getOriginalFilename();
+				String renameFileName = null;
+				if (fileName != null && fileName.length() > 0) {
+					// 첨부된 파일의 파일명 바꾸기
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+					renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()));
+					renameFileName += "." + fileName.substring(fileName.lastIndexOf(".") + 1);
+
+					try {
+						mfile.transferTo(new File(savePath + "\\" + renameFileName));
+					} catch (Exception e) {
+						e.printStackTrace();
+						model.addAttribute("msg", "전송 파일 저장 실패");
+						return "common/errorPage";
+					}
+				} // 첨부된 파일의 파일명 변경에서 폴더에 저장 처리
+
+				// 원래 첨부파일이 있는데 바뀐 경우
+				if (board.getB_file() == null) {
+					// 원래 파일을 폴더에서 삭제 처리
+					new File(savePath + "\\" + board.getB_rfile()).delete();
+				}
+
+				board.setB_file(fileName);
+				board.setB_rfile(renameFileName);
+			} // mfile != null
+
+			if (boardService.updateBoard(board) > 0) {
+				return "redirect:blist.do?page=" + currentPage; // redirect는 컨트롤러에서 컨트롤러 호출
+			} else {
+				model.addAttribute("msg", board.getBid() + "번 게시글 수정 실패.");
+				return "common/errorPage";
+			}
+		}
+*/
 	// ajax 로 인기 게시글 조회 처리용
 	@RequestMapping(value = "btop3.do", method = RequestMethod.POST)
 	@ResponseBody

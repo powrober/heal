@@ -3,11 +3,8 @@ package heal.project.me.member.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 
 import javax.servlet.http.Cookie;
@@ -49,6 +46,7 @@ public class MemberController {
 
 	// 로깅시 추가
 	private Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
 	
 	
 	// 관리자가 수정하기
@@ -143,36 +141,9 @@ public class MemberController {
 		}
 		/* 자동 로그인 */
 
-		/* 네이버 아이디로 로그인 (시작) */
-		String clientId = "BtKnvM1SxZzIcTukJJbO";// 애플리케이션 클라이언트 아이디값"; \
-		String redirectURI = URLEncoder.encode("http://localhost:8888/hhw/naverLogin.move", "UTF-8");
-		SecureRandom random = new SecureRandom();
-		String state = new BigInteger(130, random).toString();
-		String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-		apiURL += "&client_id=" + clientId;
-		apiURL += "&redirect_uri=" + redirectURI;
-		apiURL += "&state=" + state;
-		session.setAttribute("state", state);
-
-		model.addAttribute("apiURL", apiURL);
-
-		/* 네이버 아이디로 로그인 (끝) */
-
-		/* 카카오 아이디로 로그인 (시작) */
-		// String kakaoUrl = KakaoController.getAuthorizationUrl(session);
-
-		// 생성한 인증 URL을 View로 전달
-		// model.addAttribute("kakao_url", kakaoUrl);
-		/* 카카오 아이디로 로그인 (끝) */
-
 		return "member/login";
 	}
 
-	// 네이버 아이디로 로그인 페이지로 이동
-	@RequestMapping("naverLogin.move")
-	public String naverLoginView() {
-		return "member/naverLogin";
-	}
 
 	// 회원가입 페이지로 이동
 	@RequestMapping("enrollView.do")
@@ -278,7 +249,7 @@ public class MemberController {
 			
 			System.out.println("로그인 회원정보 : " + loginUser);
 			
-			return "redirect:home.do";
+			return "main/home";
 			
 		} else {
 			model.addAttribute("msg", "로그인 실패");

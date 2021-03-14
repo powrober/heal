@@ -40,28 +40,25 @@
 	margin: 0px 16px;
 }
 </style>
+
+<c:url var="home" value="/home.do" />
+
+<script type="text/javascript">
+function Home() {
+		location.href = "${ home }";
+	}
+</script>
+
 </head>
 
 <body>
-	<!-- 카카오 로그인 sdk -->
-	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script type="text/javascript">
-		function kakaoLogin(){
-			/* Kakao.init("0ff663d827e934918400ca41b464f8ba"); //JS KEY
-			
-			Kakao.Auth.authorize({
-				redirectUri: 'http://localhost:8888/hhw/kakoLogin.do'
-			}); */
-			
-		};
-	</script>
 
 	<!-- 헤더  -->
 	<jsp:include page="../main/header.jsp" />
 
 
 	<!-- Forms-->
-	<section class="section section-lg bg-default text-center" style="margin-top: -30px;">
+	<section class="section section-lg bg-default text-center" >
 		<div class="container">
 			<h3>Login</h3>
 			<div class="row row-fix justify-content-sm-center">
@@ -87,27 +84,13 @@
 							<span class="badge badge-warning" style="background-color:#ad9463;"><a href="findIdView.do" class="link" style="color:#fff; padding: 5px;">아이디 찾기</a></span>
 							<span class="badge badge-warning" style="background-color:#ad9463;"><a href="findPwView.do" class="link" style="color:#fff; padding: 5px;">비밀번호 찾기</a></span>
 						</div>
-
+						
 						<div class="form-button">
-							<button class="button button-block button-primary" type="submit">로그인</button>
+							<button class="button button-block button-primary" type="submit" onclick="login2.do();">로그인</button>
 						</div>
-
-					<!-- 	<a href="enrollView.do" class="btn_type2 btn_member"><span
-							class="txt_type">회원가입</span></a> -->
-
 					</form>
 				</div>
-
 			</div>
-<%-- 			<!-- <p class="offset-custom-1 text-gray-light">SNS 계정으로 로그인하기</p> -->
-			<div class="group-xs group-middle">
-				<a href="${ apiURL }" onclick="window.open(this.href, '_blank', 'width=800px,height=500px,toolbars=no,scrollbars=no'); return false;">
-				<a href="${ apiURL }">
-					<img src="/me/resources/images/naverLogin.png" width="165px" height="54px"></a>&nbsp;&nbsp;
-				<!-- <a href="kakaoLogin.move" onclick="window.open(this.href, '_blank', 'width=800px,height=700px,toolbars=no,scrollbars=no'); return false;"> -->
-				<a href="kakaoLogin.move">
-					<img src="/me/resources/images/kakaoLogin.jpg" width="165px" height="54px"></a>
-			</div> --%>
 		</div>
 	</section>
 

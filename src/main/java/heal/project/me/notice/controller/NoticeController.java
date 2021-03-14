@@ -37,18 +37,7 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	// about us 페이지로 이동
-	@RequestMapping("aboutUs.do")
-	public String aboutUs() {
-		return "notice/aboutUs";
-	}
-
-	// faq 페이지로 이동
-		@RequestMapping("faq.move")
-		public String faq() {
-			return "notice/faq";
-		}
-
+	
 	// ajax로 최신 공지글 조회 요청 처리용
 		@RequestMapping(value = "ntop3.do", method = RequestMethod.POST)
 		@ResponseBody
@@ -114,6 +103,39 @@ public class NoticeController {
 				model.addAttribute("endPage", endPage);
 
 				return "notice/noticeListView";
+			} else {
+				model.addAttribute("msg", currentPage + "페이지 출력 목록 조회 실패.");
+				return "common/errorPage";
+			}
+		}
+		
+		// 공지사항 전체 목록보기 요청 처리용
+		@RequestMapping("adminnlist.do")
+		public String NoticeList2Method(@RequestParam("page") int currentPage, Model model) {
+			
+			int limit = 10;
+			ArrayList<Notice> list = noticeService.selectadminNoticeList(currentPage, limit);
+			
+			// 페이지 처리와 관련된 값 처리
+			// 총 페이지 계산을 위한 총 목록 갯수 조회
+			int listCount = noticeService.getListCount();
+			int maxPage = (int) ((double) listCount / limit + 0.9);
+			// 현재 페이지가 속한 페이지그룹의 시작페이지 값 설정
+			// 예 : 현재 페이지가 35이면, 시작페이지를 31로 지정(페이지 갯수를 10개 표시할 경우)
+			int startPage = ((int) (double) currentPage / 10) * 10 + 1;
+			int endPage = startPage + 9;
+
+			if (maxPage < endPage)
+				endPage = maxPage;
+
+			if (list.size() > 0) {
+				model.addAttribute("list", list);
+				model.addAttribute("currentPage", currentPage);
+				model.addAttribute("maxPage", maxPage);
+				model.addAttribute("startPage", startPage);
+				model.addAttribute("endPage", endPage);
+
+				return "admin/AdminNoticeListView";
 			} else {
 				model.addAttribute("msg", currentPage + "페이지 출력 목록 조회 실패.");
 				return "common/errorPage";
@@ -262,44 +284,4 @@ public class NoticeController {
 			}
 		}
 		
-		@RequestMapping(value="nsearchTitle.do", method=RequestMethod.POST)
-		public String noticeSearchTitleMethod(@RequestParam("keyword") String keyword, Model model) {
-			ArrayList<Notice> list = noticeService.selectSearchTitle(keyword);
-
-			if (list.size() > 0) {
-				model.addAttribute("list", list);
-				return "notice/noticeListView";
-			} else {
-				model.addAttribute("msg", keyword + "로 검색된 공지사항 정보가 없습니다.");
-				return "common/errorPage";
-			}
-		}
-		
-		@RequestMapping(value="nsearchWriter.do", method=RequestMethod.POST)
-		public String noticeSearchWriterMethod(@RequestParam("keyword") String keyword, Model model) {
-			ArrayList<Notice> list = noticeService.selectSearchWriter(keyword);
-
-			if (list.size() > 0) {
-				model.addAttribute("list", list);
-				return "notice/noticeListView";
-			} else {
-				model.addAttribute("msg",  keyword + "로 검색된 공지사항 정보가 없습니다.");
-				return "common/errorPage";
-			}
-		}
-		
-		@RequestMapping(value="nsearchDate.do", method=RequestMethod.POST)
-		public String noticeSearchDateMethod(SearchDate dates, Model model) {
-			ArrayList<Notice> list = noticeService.selectSearchDate(dates);
-
-			if (list.size() > 0) {
-				model.addAttribute("list", list);
-				return "notice/noticeListView";
-			} else {
-				model.addAttribute("msg", "날짜로 검색된 공지사항 정보가 없습니다.");
-				return "common/errorPage";
-			}
-		}
-	
-	
 }

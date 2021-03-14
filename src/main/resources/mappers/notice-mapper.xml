@@ -41,7 +41,32 @@
           AND RNUM <= #{ endRow }
                 ]]>
    </select>
-   
+
+<!-- 관리자용 -->
+   <select id="selectadminNoticeList" parameterType="heal.project.me.notice.model.vo.NoticePage" resultMap="noticeResultSet">
+      <![CDATA[
+        SELECT *
+          FROM (
+                 SELECT ROWNUM RNUM
+               , NID
+               , NTYPE
+               , NUSER
+               , NTITLE
+               , NCONTENT
+               , N_FILE
+               , N_RFILE
+               , N_DATE
+               , N_MODFIY_DATE
+               , NCOUNT
+               , NSTATUS
+           FROM (
+           SELECT *
+           FROM NOTICE
+          ORDER BY NID DESC))
+          WHERE RNUM >= #{ startRow }
+          AND RNUM <= #{ endRow }
+                ]]>
+   </select>   
    
    <select id="getListCount" resultType="_int">
       select count(*)
@@ -114,7 +139,8 @@
     <update id="updateNotice" parameterType="Notice">
       update notice
       set ntitle = #{ ntitle },
-         ncontent = #{ ncontent }
+         ncontent = #{ ncontent },
+         nstatus = #{ nstatus }
          <if test="n_file != null">
          , n_file = #{ n_file }
          </if>

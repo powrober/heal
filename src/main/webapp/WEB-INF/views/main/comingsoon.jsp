@@ -66,17 +66,44 @@ p
 	<header>
 		<div class="hero">
 			<p></p>
-			<h1>중간점검</h1>
+			<h1>사이트 오픈</h1>
 			<hr>
 			<p id="launch"></p>
 		</div>
 	</header>
 
+	<section class="section section-lg bg-default text-center" style="margin-top: -30px;">
+			<div class="container">
+				<h3>Login</h3>
+				<div class="row row-fix justify-content-sm-center">
+					<div class="col-md-8 col-lg-6 col-xl-4">
+						<!-- RD Mailform-->
+						<form class="rd-mailform form-fix" action="login.do" method="post" name="form" id="form">
+	
+							<div class="form-wrap form-wrap-validation">
+								<input class="form-input" id="forms-login-name" type="text" name="id" value="${ autoId }" data-constraints="@Required">
+								<label class="form-label" for="forms-login-name">ID</label>
+							</div>
+	
+							<div class="form-wrap form-wrap-validation">
+								<input class="form-input" id="forms-login-password" type="password" name="pwd" value="${ autoPwd }" data-constraints="@Required"> 
+								<label class="form-label" for="forms-login-password">Password</label>
+							</div>
+	
+							<div class="form-button">
+								<button class="button button-block button-primary" type="submit">로그인</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
 </body>
 
 	<script>
 	
-		var countDownDate = new Date("Feb 22, 2021 00:00:00").getTime();
+		var countDownDate = new Date("Apr 20, 2021 00:00:00").getTime();
 		/* var countDownDate = new Date("Feb 13, 2021 00:00:00").getTime(); */
 
 		var x = setInterval(function() {

@@ -178,12 +178,20 @@ table.table2 td {
 			<td bgcolor=white>
 				<table class="table2">
 					<tr>
-						<td width="200px">작성자</td>
-						<td width="500px">${ board.buser } 님</td>
+						<td width="150px">말머리</td>
+						<td width="150px">${ board.btype }</td>
+						<td width="150px">작성자</td>
+						<td width="150px">${ board.buser } 님</td>
+					</tr>
+					<tr>
+						<td width="150px">작성일</td>
+						<td width="150px">${ board.b_date }</td>
+						<td width="150px">조회수</td>
+						<td width="150px">${ board.bcount } 뷰</td>
 					</tr>
 					<tr>
 						<td width="200px">첨부파일</td>
-						<td width="500px">
+						<td width="500px"  colspan='3'>
 							<c:if test="${ empty board.b_file }">첨부파일 없음</c:if>
 							<c:if test="${ !empty board.b_file }">
 								<c:url var="bfd" value="/bfdown.do">
@@ -195,8 +203,7 @@ table.table2 td {
 						</td>
 					</tr>
 					<tr>
-						<td width="200px">내 용</td>
-						<td width="500px" height="200">
+						<td width="500px" height="200" colspan='4'>
 							<c:if test="${ empty board.b_file }">${ board.bcontent }</c:if>
 							<c:if test="${ !empty board.b_file }">
 								<c:url var="bfd" value="/bfdown.do">
@@ -213,45 +220,32 @@ table.table2 td {
 
 		<tfoot>
           <td colspan="4" style="text-align: right;">
-          	<%-- 로그인한 상태이면서, 본인이 작성한 게시글 일 때 --%>
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick eq board.buser }">
-				<c:url var="buv" value="/bupview.do">
+          
+          
+        	<%-- 관리자가 로그인 했을일 때  --%>
+			
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
+				<c:url var="abuv" value="/adminbupview.do">
 					<c:param name="bid" value="${ board.bid }" />
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
-			<button type="button" onclick="javascript:location.href='${ buv }'" style='float:center'>수정</button>
+			<button type="button" onclick="javascript:location.href='${ abuv }'">수정</button> &nbsp; &nbsp;
 							 
 				<c:url var="bdl" value="/bdelete.do">
 					<c:param name="bid" value="${ board.bid }" />
 				</c:url>
-			<button type="button" onclick="javascript:location.href='${ bdl }'" style='float:center'>글삭제</button>
+			<button type="button" onclick="javascript:location.href='${ bdl }'">글삭제</button> &nbsp; &nbsp;
 			
 				<c:url var="bls" value="/blist.do">
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
-			<button type="button" onclick="javascript:location.href='${ bls }'" style='float:center'>목록</button>
-			
+			<button type="button" onclick="javascript:location.href='${ bls }'">목록</button>
 			</c:if> 
-			
-			<%-- 로그인한 상태이면서, 본인이 작성한 게시글이 아닐 때 --%>
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'MEMBER' }">
-							
-				<c:url var="boardBlame" value="/b.blame.insert.do">
-					<c:param name="page" value="${ currentPage }" />
-				</c:url>
-			<button type="button" onclick="showBlamForm1();">신고</button> &nbsp; &nbsp;
-			
-				<c:url var="bls" value="/blist.do">
-					<c:param name="page" value="${ currentPage }" />
-				</c:url>
-			<button type="button" onclick="javascript:location.href='${ bls }'">목록</button> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
-			</c:if> 
-			
-			
-			<%-- 관리자가 로그인 했을일 때  --%>
-			
-			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'admin' }">
-				<c:url var="buv" value="/bupview.do">
+		  
+          
+          	<%-- 작성자가 게시글을 볼 때 --%>
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick eq board.buser }">
+			<c:url var="buv" value="/bupview.do">
 					<c:param name="bid" value="${ board.bid }" />
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
@@ -265,15 +259,32 @@ table.table2 td {
 				<c:url var="bls" value="/blist.do">
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
-			<button type="button" onclick="javascript:location.href='${ bls }'">목록</button> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+			<button type="button" onclick="javascript:location.href='${ bls }'">목록</button>
 			</c:if> 
+	      
+    		
+			<%-- 일반회원이 게시글을 볼 때 --%>
+			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'MEMBER' }">
+							
+				<c:url var="boardBlame" value="/b.blame.insert.do">
+					<c:param name="page" value="${ currentPage }" />
+				</c:url>
+				
+			<button type="button" onclick="showBlamForm1();">신고</button> &nbsp; &nbsp;
+			
+				<c:url var="bls" value="/blist.do">
+					<c:param name="page" value="${ currentPage }" />
+				</c:url>
+			<button type="button" onclick="javascript:location.href='${ bls }'">목록</button>
+			</c:if> 
+			
 			
 			<%-- 비로그인일때 --%> 
 			<c:if test="${ empty sessionScope.loginUser }">  
 				<c:url var="bls" value="/blist.do">
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
-			<button type="button" onclick="javascript:location.href= '${ bls }';">목록</button>
+			<button type="button" onclick="javascript:location.href= '${ bls }'">목록</button>
 			</c:if>
 				
 			</td>
@@ -426,6 +437,58 @@ table.table2 td {
 	<div id="rlistView" style="padding-bottom: 30px;">
 		<table id="rlistTbl" align="center" cellspacing="0" cellpadding="20" border="1" width="500"></table>
 	</div>
+
+
+<div class="section-md">
+                <p class="h4-alternate">댓글작성</p>
+                <div class="comment-group">
+                  <!-- Comment-->
+                  <article class="comment">
+                    <div class="comment-body">
+                      <div class="comment-header">
+                        <p class="comment-title">Catherine Payne</p>
+                        <time class="comment-time" datetime="2019">2 days ago</time>
+                      </div>
+                      <div class="comment-text">
+                        <p>Ei sumo eruditi sadipscing nec, scripta epicurei ut eam. Duo ut fastidii platonem, eu soleat salutandi neglegentur est. Erant harum malorum eum ne</p>
+                      </div>
+                      <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
+                    </div>
+                  </article>
+                  <div class="comment-group"> 
+                    <!-- Comment-->
+                    <article class="comment">
+                      <div class="comment-avatar"><img src="images/user-2-80x80.jpg" alt="" width="80" height="80"/>
+                      </div>
+                      <div class="comment-body">
+                        <div class="comment-header">
+                          <p class="comment-title">Ronald Chen</p>
+                          <time class="comment-time" datetime="2019">2 days ago</time><span class="comment-reply">Catherine Payne</span>
+                        </div>
+                        <div class="comment-text">
+                          <p>Te partem omnesque eligendi has, nam ex persius lobortis. His ex amet facilis, ne vix diceret dolorum. Veniam nonumes sit an. Sit et possit hendrerit, ne his doming mnesarchum</p>
+                        </div>
+                        <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- Comment-->
+                  <article class="comment">
+                    <div class="comment-avatar"><img src="images/user-3-80x80.jpg" alt="" width="80" height="80"/>
+                    </div>
+                    <div class="comment-body">
+                      <div class="comment-header">
+                        <p class="comment-title">Philip Bowman</p>
+                        <time class="comment-time" datetime="2019">2 days ago</time>
+                      </div>
+                      <div class="comment-text">
+                        <p>Ei tollit euismod cum, augue labore euripidis mel ex, ut corpora appellantur deterruisset mel. Quo et consulatu suscipiantur. In sed homero habemus neglegentur</p>
+                      </div>
+                      <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
+                    </div>
+                  </article>
+                </div>
+              </div>
 
 
 

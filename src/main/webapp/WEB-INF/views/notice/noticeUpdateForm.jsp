@@ -47,6 +47,8 @@ table.table2 td {
 		<br><br>
 		<form action="nupdate.do" method="post" enctype="multipart/form-data" style="padding-bottom: 30px;">
 			<input type="hidden" name="nid" value="${ notice.nid }">
+			<input type="hidden" name="nstatus" value="${ notice.nstatus }">
+			<input type="hidden" name="page" value="${ currentPage }">
 			<c:if test="${ !empty notice.n_file }">
 				<input type="hidden" name="file_path" value="${ notice.n_file }">
 			</c:if>
@@ -72,12 +74,17 @@ table.table2 td {
 							
 							<tr>
 								<td>제 목</td>
-								<td><input type="text" name="ntitle"></td>
+								<td><input type="text" name="ntitle" value="${ notice.ntitle }"></td>
 							</tr>
 							
 							<tr>
-								<td>작성자</td>
-								<td><input type="text" name="nuser" readonly value="${ notice.nuser }"></td>
+								<td>공개여부</td>
+								<td>
+									<label class="">
+							 			<input type="radio" name="nstatus" value="Y" checked="checked"> <span class="ico"></span>&emsp;공개&emsp;&emsp;</label>
+							 		<label class="">
+										<input type="radio" name="nstatus"	value="N"> <span class="ico"></span>&emsp;비공개</label>
+								</td>
 							</tr>
 	
 							<tr>
@@ -94,14 +101,20 @@ table.table2 td {
 	
 							<tr>
 								<td>내 용</td>
-								<td><textarea name="ncontent" rows="5" cols="50">${ notice.ncontent }</textarea></td>
+								<td>
+								<textarea class="textarea_editor form-control border-radius-0" name="ncontent" rows="10" cols="100">${ notice.ncontent }</textarea>
+								</td>
 							</tr>
 							
 							<tr>
 								<th colspan="2" style="text-align: right; padding-top:20px">
-									<input type="submit" value="수정하기">&nbsp;
+									<input type="submit" value="수정">&nbsp;
 									<input type="reset" value="리셋"> &nbsp;
-									<button onclick="javascript:history.go(-1); return false;">이전</button>
+									<button onclick="javascript:history.go(-1); return false;">이전</button> &nbsp;
+									<c:url var="nlist" value="/nlist.do">
+											<c:param name="page" value="${ currentPage }" />
+										</c:url>
+									<button onclick="javascript:location.href='${ nlist }'; return false;">목록</button>
 								</th>
 							</tr>
 						</table>

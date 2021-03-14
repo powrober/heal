@@ -9,6 +9,7 @@ public interface NoticeService {
 	ArrayList<Notice> selectAll();
 	int addNoticeCount(int nid);
 	ArrayList<Notice> selectNoticeList(int currentPage, int limit);
+	ArrayList<Notice> selectadminNoticeList(int currentPage, int limit);
 	Notice selectnotice(int nid);
 	int insertNotice(Notice notice);
 	int updateNotice(Notice notice);

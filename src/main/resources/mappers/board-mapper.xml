@@ -162,6 +162,7 @@
       update board
          set   btitle = #{ btitle }
              , bcontent = #{ bcontent }
+             , bstatus = #{ bstatus }
              , b_modfiy_date = sysdate
          <if test="b_file == null">
             , b_file = null

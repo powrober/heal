@@ -162,14 +162,15 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
 						<c:url var="mypage" value="/myInfo.do">
 						<c:param name="nick" value="${ loginUser.nick }"/>
 					</c:url>
-						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
 						<li><a class="nav-link" href="${ mypage }">마이페이지</a></li>
+						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
 					</c:if>
 					<c:if test="${ !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
 						<c:url var="mypage" value="/myInfo.do">
 						<c:param name="nick" value="${ loginUser.nick }"/>
 					</c:url>
 						<li><a class="nav-link" href="${ mlist }">관리자페이지</a></li>
+						<li><a class="nav-link" href="logout.do">로그아웃</a></li>
 					</c:if>
                   </ul>
                 </div>

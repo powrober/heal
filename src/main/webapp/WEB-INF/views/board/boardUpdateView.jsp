@@ -45,7 +45,7 @@ table.table2 td {
 	<c:import url="../main/header.jsp"/>
 	<hr>
 
-	<section style="padding: 70px 0 60px 0;">
+	<section style="padding: 70px 0 -20px 0;">
 		
 		<br><br>
 		<form action="bupdate.do" method="post" enctype="multipart/form-data" style="padding-bottom: 30px;">
@@ -75,8 +75,8 @@ table.table2 td {
 							</tr>
 							
 							<tr>
-								<td>작성자</td>
-								<td><input type="text" name="buser" readonly value="${ board.buser }"></td>
+								<td>제목</td>
+								<td><input type="text" name="btitle" value="${ board.btitle }"></td>
 							</tr>
 	
 							<tr>
@@ -103,8 +103,9 @@ table.table2 td {
 							
 							<tr>
 								<th colspan="2" style="text-align: right; padding-top:20px">
-									<input type="submit" value="수정하기">&nbsp;
-									<input type="reset" value="수정취소"> &nbsp;
+									<input type="submit" value="수정">&nbsp;
+									<input type="reset" value="리셋"> &nbsp;
+									<button onclick="javascript:history.go(-1); return false;">이전</button> &nbsp;
 										<c:url var="blist" value="/blist.do">
 											<c:param name="page" value="${ currentPage }" />
 										</c:url>

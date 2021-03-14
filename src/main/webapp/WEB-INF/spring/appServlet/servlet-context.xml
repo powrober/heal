@@ -53,7 +53,7 @@
 	<context:component-scan base-package="heal.project.me" />
 	
 		
- <!-- 
+ 
 	<interceptors>
 		<interceptor>
 			<mapping path="/login.do"/>
@@ -62,5 +62,5 @@
 		
 
 	</interceptors>
- -->	
+ 	
 </beans:beans>

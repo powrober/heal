@@ -29,6 +29,12 @@
 <c:url var="bllist" value="b.blame.list.do">
 	<c:param name="page" value="1" />
 </c:url>
+<c:url var="blist" value="adminblist.do">
+	<c:param name="page" value="1" />
+</c:url>
+<c:url var="nlist" value="adminnlist.do">
+	<c:param name="page" value="1" />
+</c:url>
 	
      <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg" >
        <div class="parallax-content">
@@ -38,8 +44,8 @@
              <li><a href="home.do">Home</a></li>
              <li><a href="${ mlist }">회원리스트</a></li>
              <li><a href="${ bllist }">불량회원 리스트</a></li>
-             <li><a href="#">댓글 리스트</a></li>
-             <li><a href="#">팝업 관리</a></li>
+             <li><a href="${ nlist }">공지사항</a></li>
+             <li><a href="${ blist }">자유게시판</a></li>
              <li><a href="#">????</a></li>
            </ul>
          </div>
@@ -61,7 +67,7 @@
 				<col width="100">
 				<col width="80">
 				<col width="50">
-				<col width="50">
+				<col width="100">
 				<col width="100">
 				<col width="550">
 				<col width="80">
@@ -108,7 +114,7 @@
 						
 						<td align="center" width="50" style="font-size:15px; color: black;">${ m.gender }</td>
 						
-						<td align="center" width="50"  style="font-size:15px; color: black;">${ m.phone }</td>
+						<td align="center" width="100"  style="font-size:15px; color: black;">${ m.phone }</td>
 	
 						<td align="center" width="100"  style="font-size:15px; color: black;">${ m.email }</td>
 						

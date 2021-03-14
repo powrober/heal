@@ -64,6 +64,11 @@ public class NoticeServiceImpl implements NoticeService {
 	public ArrayList<Notice> selectNoticeList(int currentPage, int limit) {
 		return noticeDao.selectNoticeList(currentPage, limit);
 	}
+	
+	@Override
+	public ArrayList<Notice> selectadminNoticeList(int currentPage, int limit) {
+		return noticeDao.selectNoticeList(currentPage, limit);
+	}
 
 	@Override
 	public int addNoticeCount(int nid) {

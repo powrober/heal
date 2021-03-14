@@ -36,4 +36,10 @@ public class EtcPageController {
 		return "admin/blameListView";
 	}
 
+	// Room 페이지 이동
+	@RequestMapping("room.do")
+	public String room() {
+		return "room/room";
+	}
+
 }

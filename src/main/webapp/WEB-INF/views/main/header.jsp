@@ -149,7 +149,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   
                   <ul class="rd-navbar-nav" style="float:left;">
                     <li class="active"><a href="home.do">Home</a></li>
-                    <li><a href="#">예약안내</a></li>
+                    <li><a href="room.do">예약안내</a></li>
                     <li><a href="enjoy.do">즐길거리</a></li>
                     <li><a href="${ nlist }">공지사항</a></li>
                     <li><a href="${ blist }">자유게시판</a></li>

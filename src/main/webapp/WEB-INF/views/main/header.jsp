@@ -150,7 +150,7 @@ html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {
                   <ul class="rd-navbar-nav" style="float:left;">
                     <li class="active"><a href="home.do">Home</a></li>
                     <li><a href="roominfo.do">안내사항</a></li>
-                    <li><a href="rooms.do">힐링하우스</a></li>
+                    <li><a href="roomlist.do">힐링하우스</a></li>
                     <li><a href="enjoy.do">즐길거리</a></li>
                     <li><a href="${ nlist }">공지사항</a></li>
                     <li><a href="${ blist }">자유게시판</a></li>

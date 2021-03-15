@@ -8,17 +8,6 @@
 <title>게시글 작성</title>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" href="/me/resources/writerform/css/core.css" />
-<link rel="stylesheet" href="/me/resources/writerform/css/css2.css" />
-<link rel="stylesheet" href="/me/resources/writerform/css/icon-font.min.css" />
-<link rel="stylesheet" href="/me/resources/writerform/css/style.css" />
-
-
 <style>
 table.table2 {
 	border-collapse: separate;

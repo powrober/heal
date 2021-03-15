@@ -78,22 +78,20 @@
 							+ "<button onclick='showBlamForm2();' style='float:right'>신고</button>"
 							+ "</td></tr></table></td></tr></table>"; */
 							if (loginUser == json.list[i].bruser) {
-								values += "<tr><td><"+ json.list[i].bruser
-										+ "> 님 댓글</td><td>"	+ json.list[i].br_date
-										+ "</td></tr><tr><td colspan='2'>"
-										+ "<form action='rupdate.do' method='post'>"
-										+ "<input type='hidden' name='brid' value='" +  json.list[i].brid  + "'>"
+								values 	+= "<article class='comment'><div class='comment-body'><div class='comment-header'><p class='comment-title'>"+ json.list[i].bruser
+										+ "님 댓글</p><time class='comment-time' datetime='2019'>"	+ json.list[i].br_date
+										+ "</time></div><div class='comment-text'><form action='brupdate.do' method='post'>"
+										+ "<input type='hidden' name='brid' value='"+  json.list[i].brid  + "'>"
 										+ "<input type='hidden' name='bid' value='${board.bid}'>"
 										+ "<textarea name='brcontent' rows='2' cols='70'>"
 										+ decodeURIComponent(json.list[i].brcontent).replace(/\+/gi, " ")
-										+ "</textarea><br><input type='submit' value='수정' style='width:50px;float:right;'></form>"
-										+ "<button onclick='replyDelete("+ json.list[i].brid+ ");' style='width:50px;float:right;margin-right:10px'>삭제 </button></td></tr>";
-							} else { 
-			 					values += "<tr><td><"+ json.list[i].bruser
-										+ "> 님 댓글</td><td>"+ json.list[i].br_date
-										+ "</td></tr><tr><td colspan='2'>"
+										+ "</textarea><div class='comment-footer'><input type='submit' value='수정' style='width:50px;float:right;'><button onclick='replyDelete("+ json.list[i].brid+ ");' style='width:50px;float:right;margin-right:10px'>삭제 </button></div></form></div></div></article>";
+								} else { 
+			 					values += "<article class='comment'><div class='comment-body'><div class='comment-header'><p class='comment-title'>"+ json.list[i].bruser
+										+ "님 댓글</p><time class='comment-time' datetime='2019'>"+ json.list[i].br_date
+										+ "</time></div><div class='comment-text'><p>"
 										+ decodeURIComponent(json.list[i].brcontent).replace(/\+/gi, " ") 
-										+ "<button onclick='showBlamForm2();' style='float:right'>신고</button></td></tr>";
+										+ "</p></div><div class='comment-footer'></div></div></article>";
 				}
 			} //for in
 			$("#rlistTbl").html($("#rlistTbl").html() + values);
@@ -107,7 +105,7 @@
 	}); //notice top3 ajax
 }); //jquery document ready
 	function replyDelete(brid) {
-		location.href = "${ pageContext.request.contextPath }/rdel.do?brid="
+		location.href = "${ pageContext.request.contextPath }/brdel.do?brid="
 				+ brid + "&bid=${ board.bid }";
 	}
 	function showReplyForm() {
@@ -173,24 +171,24 @@ table.table2 td {
 				
 	<br>
 
-	<table align="center" cellpadding="2" cellspacing="0" width="700">
+	<table align="center" cellpadding="2" cellspacing="0" width="1000" style="width: 1000px;">
 		<tr>
 			<td bgcolor=white>
 				<table class="table2">
 					<tr>
 						<td width="150px">말머리</td>
-						<td width="150px">${ board.btype }</td>
+						<td width="350px">${ board.btype }</td>
 						<td width="150px">작성자</td>
-						<td width="150px">${ board.buser } 님</td>
+						<td width="350px">${ board.buser } 님</td>
 					</tr>
 					<tr>
-						<td width="150px">작성일</td>
-						<td width="150px">${ board.b_date }</td>
-						<td width="150px">조회수</td>
-						<td width="150px">${ board.bcount } 뷰</td>
+						<td width="250px">작성일</td>
+						<td width="250px">${ board.b_date }</td>
+						<td width="250px">조회수</td>
+						<td width="250px">${ board.bcount } 뷰</td>
 					</tr>
 					<tr>
-						<td width="200px">첨부파일</td>
+						<td width="250px">첨부파일</td>
 						<td width="500px"  colspan='3'>
 							<c:if test="${ empty board.b_file }">첨부파일 없음</c:if>
 							<c:if test="${ !empty board.b_file }">
@@ -266,11 +264,11 @@ table.table2 td {
 			<%-- 일반회원이 게시글을 볼 때 --%>
 			<c:if test="${ !empty sessionScope.loginUser and loginUser.nick ne board.buser and loginUser.user_lv eq 'MEMBER' }">
 							
-				<c:url var="boardBlame" value="/b.blame.insert.do">
+				<%-- <c:url var="boardBlame" value="/b.blame.insert.do">
 					<c:param name="page" value="${ currentPage }" />
 				</c:url>
 				
-			<button type="button" onclick="showBlamForm1();">신고</button> &nbsp; &nbsp;
+			<button type="button" onclick="showBlamForm1();">신고</button> &nbsp; &nbsp; --%>
 			
 				<c:url var="bls" value="/blist.do">
 					<c:param name="page" value="${ currentPage }" />
@@ -291,7 +289,7 @@ table.table2 td {
 		</tfoot>
 	</table>
 
-		<%-- 게시글 신고하기 폼 영역  --%>
+		<%-- 게시글 신고하기 폼 영역  
 			<div id="blameDiv1" style="padding-bottom: 30px; padding-top: 20px;">
 				<form action="b.blame.insert.do" method="post">
 					<input type="hidden" name="blame_bid" value="${ board.bid }">
@@ -339,50 +337,10 @@ table.table2 td {
 						</tr>
 					</table>
 				</form>
-			</div>		
+			</div>		--%>
 	
-	<%-- 로그인한 상태일 때 댓글달기 사용하게 함 --%> 
-			<c:if test="${ !empty loginUser }">
-			
-				<%-- 댓글달기 폼 영역 --%>
-				<br>
-				<div id="replyDiv" style="padding-bottom: 30px;  padding-top: 20px;">
-					<form action="brinsert.do" method="post">
-						<input type="hidden" name="b_ref_bid" value="${ board.bid }">
-						<table align="center" width="700" border="0" cellpadding="2">
-						
-						<tr>
-							<td height="20" align="center" bgcolor="#ccc"><font color="white">댓글작성</font></td>
-						</tr>
-						
-						
-							<tr>
-								<td bgcolor=white>
-									<table class="table2">
-										
-										<tr>
-											<td width="200px">작성자</td>
-											<td width="500px"><input type="text" name="bruser" readonly value="${ sessionScope.loginUser.nick }"></td>
-										</tr>
-										
-										<tr>
-											<td width="200px">내 용</td>
-											<td width="500px"><textarea name="brcontent" rows="5" cols="60"></textarea></td>
-										</tr>
-										
-										<tr>
-											<td colspan="2"  style="text-align: right;">
-											<input type="submit" value="댓글등록">&nbsp;
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</c:if> 
-			
-		<%-- 게시글 신고하기 폼 영역  --%>
+	
+		<%-- <%-- 게시글 신고하기 폼 영역 
 			<div id="blameDiv2" style="padding-bottom: 30px;">
 				<form action="b.blame.insert.do" method="post">
 					<input type="hidden" name="blame_bid" value="${ board.bid }">
@@ -430,60 +388,67 @@ table.table2 td {
 						</tr>
 					</table>
 				</form>
-			</div>		
+			</div>		 --%>
 			
- 
-	<%-- 댓글목록 표시 영역 --%>
-	<div id="rlistView" style="padding-bottom: 30px;">
-		<table id="rlistTbl" align="center" cellspacing="0" cellpadding="20" border="1" width="500"></table>
-	</div>
-
-
-<div class="section-md">
-                <p class="h4-alternate">댓글작성</p>
-                <div class="comment-group">
-                  <!-- Comment-->
-                  <article class="comment">
-                    <div class="comment-body">
-                      <div class="comment-header">
-                        <p class="comment-title">Catherine Payne</p>
-                        <time class="comment-time" datetime="2019">2 days ago</time>
-                      </div>
-                      <div class="comment-text">
-                        <p>Ei sumo eruditi sadipscing nec, scripta epicurei ut eam. Duo ut fastidii platonem, eu soleat salutandi neglegentur est. Erant harum malorum eum ne</p>
-                      </div>
-                    </div>
-                  </article>
-                  <div class="comment-group"> 
-                    <!-- Comment-->
-                    <article class="comment">
-                      <div class="comment-body">
-                        <div class="comment-header">
-                          <p class="comment-title">Ronald Chen</p>
-                          <time class="comment-time" datetime="2019">2 days ago</time><span class="comment-reply">Catherine Payne</span>
-                        </div>
-                        <div class="comment-text">
-                          <p>Te partem omnesque eligendi has, nam ex persius lobortis. His ex amet facilis, ne vix diceret dolorum. Veniam nonumes sit an. Sit et possit hendrerit, ne his doming mnesarchum</p>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                  <!-- Comment-->
-                  <article class="comment">
-                    <div class="comment-body">
-                      <div class="comment-header">
-                        <p class="comment-title">Philip Bowman</p>
-                        <time class="comment-time" datetime="2019">2 days ago</time>
-                      </div>
-                      <div class="comment-text">
-                        <p>Ei tollit euismod cum, augue labore euripidis mel ex, ut corpora appellantur deterruisset mel. Quo et consulatu suscipiantur. In sed homero habemus neglegentur</p>
-                      </div>
-                    </div>
-                  </article>
+			
+	<section class="section section-lg bg-default" style="padding-top: 0px;padding-bottom: 0px;" id="rlistView">
+        <div class="container container-wide">
+          <div class="row justify-content-sm-center">
+            <div class="col-lg-10 col-xl-8 col-xxl-6 sections-collapsable single-post-wrap">
+              <div class="section-md" style="padding-top: 0px;">
+                <p class="h3-alternate">Comments</p>
+                <div class="comment-group" id="rlistTbl">
+                 
+                  
                 </div>
               </div>
-
-
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      <%-- 로그인한 상태일 때 댓글달기 사용하게 함 --%> 
+			<c:if test="${ !empty loginUser }">
+			
+				<%-- 댓글달기 폼 영역 --%>
+				<br>
+				<div id="replyDiv" style="padding-bottom: 10px; padding-top: 10px;">
+					<form action="brinsert.do" method="post">
+						<input type="hidden" name="b_ref_bid" value="${ board.bid }">
+						<table align="center" width="700" border="0" cellpadding="2">
+						
+						<tr>
+							<td height="20" align="center" bgcolor="#ccc"><font color="white">댓글작성</font></td>
+						</tr>
+						
+						
+							<tr>
+								<td bgcolor=white>
+									<table class="table2">
+										
+										<tr>
+											<td width="200px">작성자</td>
+											<td width="500px"><input type="text" name="bruser" readonly value="${ sessionScope.loginUser.nick }"></td>
+										</tr>
+										
+										<tr>
+											<td width="200px">내 용</td>
+											<td width="500px"><textarea name="brcontent" rows="5" cols="60"></textarea></td>
+										</tr>
+										
+										<tr>
+											<td colspan="2"  style="text-align: right;">
+											<input type="submit" value="댓글등록">&nbsp;
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</c:if> 
+			
 
 	<jsp:include page="../main/footer.jsp" />
 

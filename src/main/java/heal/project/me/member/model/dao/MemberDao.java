@@ -18,6 +18,22 @@ public class MemberDao {
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
+	
+	// 관리자회원 정보 수정
+		public int nowyMember(int mid) {
+			return sqlSession.update("memberMapper.nowyMember", mid);
+		}
+		public int nownMember(int mid) {
+			return sqlSession.update("memberMapper.nownMember", mid);
+		}
+		public int lvMMember(int mid) {
+			return sqlSession.update("memberMapper.lvMMember", mid);
+		}
+		public int lvAMember(int mid) {
+			return sqlSession.update("memberMapper.lvAMember", mid);
+		}
+	
+	
 	// 관리자가 회원 정보 수정
 		public int update2Member(Member m) {
 			return sqlSession.update("memberMapper.update2Member", m);

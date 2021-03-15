@@ -19,8 +19,8 @@
    <select id="selectNewNoticeList" parameterType="heal.project.me.notice.model.vo.NoticePage" resultMap="noticeResultSet">
       <![CDATA[
         SELECT *
-          FROM (
-                 SELECT ROWNUM RNUM
+        FROM (
+        SELECT ROWNUM RNUM
                , NID
                , NTYPE
                , NUSER
@@ -32,11 +32,9 @@
                , N_MODFIY_DATE
                , NCOUNT
                , NSTATUS
-           FROM (
-           SELECT *
            FROM NOTICE
            WHERE NSTATUS = 'Y'
-          ORDER BY NID DESC))
+          ORDER BY NID DESC)
           WHERE RNUM >= #{ startRow }
           AND RNUM <= #{ endRow }
                 ]]>
@@ -47,23 +45,21 @@
       <![CDATA[
        SELECT *
           FROM (
-                 SELECT ROWNUM RNUM
-               , N.NID
-               , N.NTYPE
-               , N.NUSER
-               , N.NTITLE
-               , N.NCONTENT
-               , N.N_FILE
-               , N.N_RFILE
-               , N.N_DATE
-               , N.N_MODFIY_DATE
-               , N.NCOUNT
-               , N.NSTATUS
-           FROM (
+       SELECT ROWNUM RNUM
+               , NID
+               , NTYPE
+               , NUSER
+               , NTITLE
+               , NCONTENT
+               , N_FILE
+               , N_RFILE
+               , N_DATE
+               , N_MODFIY_DATE
+               , NCOUNT
+               , NSTATUS
+           FROM NOTICE
            SELECT *
-           FROM NOTICE N
-           WHERE NID IS NOT NULL
-          ORDER BY NID DESC))
+          ORDER BY NID DESC)
           WHERE RNUM >= #{ startRow }
           AND RNUM <= #{ endRow }
                 ]]>
@@ -154,6 +150,7 @@
    <delete id="deleteNotice" parameterType="_int">
    		update notice
 		   set NSTATUS = 'N'
+            	, n_modfiy_date = sysdate
       where nid = #{ nid }
    </delete>
 

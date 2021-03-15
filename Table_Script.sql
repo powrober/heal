@@ -251,8 +251,16 @@ INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL,'1', '욕설', '테스트닉네임1', 
 INSERT INTO BLAME VALUES(SEQ_BLID.NEXTVAL,'1', '사기', '테스트닉네임1', '테스트닉네임1', '21/01/01', '광고성 홍보글을 올리고 있어요');
 
 
-------------------------------------------------------------------------------------------------------------------- 정산 테이블 생성
+------------------------------------------------------------------------------------------------------------------- 방문자 테이블
+CREATE TABLE VISIT(
+V_DATE DATE NOT NULL,
+CONSTRAINT PK_V_DATE PRIMARY KEY(V_DATE)
+);
 
+COMMENT ON COLUMN VISIT.V_DATE IS '방문자';
 
+INSERT INTO VISIT VALUES(TO_DATE('10-06-2016','MM-DD-YYYY'));
+INSERT INTO VISIT VALUES(TO_DATE('11-07-2016','MM-DD-YYYY'));
+INSERT INTO VISIT VALUES(TO_DATE('11-08-2016','MM-DD-YYYY'));
 
 COMMIT;

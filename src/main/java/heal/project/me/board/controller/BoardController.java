@@ -282,9 +282,18 @@ public class BoardController {
 
 	// 게시글 페이지별 목록 조회 요청 처리용
 	@RequestMapping("blist.do")
-	public String boardListMethod(@RequestParam("page") int currentPage, Model model) {
+	public String boardListMethod(SearchDate dates, @RequestParam("page") int currentPage, Model model) {
 		
 		int limit = 10;
+		int startRow = (currentPage - 1) * limit - 1;
+		int endRow = startRow + limit - 1;
+
+		SearchAndPage searches = new SearchAndPage();
+		searches.setBegin(dates.getBegin());
+		searches.setEnd(dates.getEnd());
+		searches.setStartRow(startRow);
+		searches.setEndRow(endRow);
+		
 		ArrayList<BoardList> list = boardService.selectBoardList(currentPage, limit);
 		
 		// 페이지 처리와 관련된 값 처리
@@ -305,6 +314,9 @@ public class BoardController {
 			model.addAttribute("maxPage", maxPage);
 			model.addAttribute("startPage", startPage);
 			model.addAttribute("endPage", endPage);
+			model.addAttribute("action", "blist.do");
+			model.addAttribute("begin", dates.getBegin());
+			model.addAttribute("end", dates.getEnd());
 
 			return "board/boardListView";
 		} else {

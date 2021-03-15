@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%
+	pageContext.setAttribute("br", "<br/>");
+	pageContext.setAttribute("cn", "\n");
+%>
 <%-- 응답온 페이지값 추출함 --%>
 <c:set var="currentPage" value="${ requestScope.page }" />
 
@@ -202,13 +207,13 @@ table.table2 td {
 					</tr>
 					<tr>
 						<td width="500px" height="200" colspan='4'>
-							<c:if test="${ empty board.b_file }">${ board.bcontent }</c:if>
+							<c:if test="${ empty board.b_file }">${ fn:replace(board.bcontent, cn, br) }</c:if>
 							<c:if test="${ !empty board.b_file }">
 								<c:url var="bfd" value="/bfdown.do">
 									<c:param name="ofile" value="${ board.b_file }" />
 									<c:param name="rfile" value="${ board.b_rfile }" />
 								</c:url>
-							<img src="/me/resources/board_files/${ board.b_file }" style="width:500px;"><br>${ board.bcontent }
+							<img src="/me/resources/board_files/${ board.b_file }" style="width:500px;"><br>${ fn:replace(board.bcontent, cn, br) }
 							</c:if>
 						</td>
 					</tr>

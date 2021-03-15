@@ -3,7 +3,7 @@ package heal.project.me.member.model.vo;
 import java.sql.Date;
 
 public class Member {
-	private String mid;
+	private int mid;
 	private String id;
 	private String pwd;
 	private String name;
@@ -21,9 +21,9 @@ public class Member {
 	
 	public Member() {}
 
-	public Member(String mid, String id, String pwd, String name, String nick, Date birthday, String gender,
-			String phone, String email, String address, Date join_date, Date enroll_date, String user_now,
-			String user_lv, String etc) {
+	public Member(int mid, String id, String pwd, String name, String nick, Date birthday, String gender, String phone,
+			String email, String address, Date join_date, Date enroll_date, String user_now, String user_lv,
+			String etc) {
 		super();
 		this.mid = mid;
 		this.id = id;
@@ -42,11 +42,11 @@ public class Member {
 		this.etc = etc;
 	}
 
-	public String getMid() {
+	public int getMid() {
 		return mid;
 	}
 
-	public void setMid(String mid) {
+	public void setMid(int mid) {
 		this.mid = mid;
 	}
 

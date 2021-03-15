@@ -6,6 +6,13 @@ import heal.project.me.member.model.vo.Member;
 
 public interface MemberService {
 
+	// 관리자가회원 정보 수정 서비스를 위한 메소드
+	int nowyMember(int mid);
+	int nownMember(int mid);
+	int lvMMember(int mid);
+	int lvAMember(int mid);
+	
+	
 	// 회원 정보 수정 서비스를 위한 메소드
 	int update2Member(Member m);
 

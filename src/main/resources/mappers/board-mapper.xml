@@ -71,7 +71,7 @@
                , B_MODFIY_DATE
                , BCOUNT
                , BSTATUS
-        FROM BOARD B
+        FROM BOARD
         WHERE BSTATUS = 'Y'
         ORDER BY BID DESC)
         WHERE RNUM >=  #{ startRow }
@@ -287,32 +287,22 @@
           FROM  (
                  SELECT ROWNUM RNUM
                , BID
-               , B_REF_BID
                , BTYPE
+               , BUSER 
                , BTITLE
-               , BWRITER
-               , B_ORIGINAL_FILENAME
-               , B_RENAME_FILENAME
-               , B_CREATE_DATE
+               , BCONTENT
+               , B_FILE
+               , B_RFILE
+               , B_DATE
+               , B_MODFIY_DATE
                , BCOUNT
-               , GRADE
-          FROM  ( SELECT B.BID
-                        ,(SELECT COUNT(*) FROM B_REPLY R LEFT JOIN BOARD B ON B.BID = R.B_REF_BID WHERE R.B_STATUS = 'Y') AS B_REF_BID
-                		, B.BTYPE
-                		, B.BTITLE
-                		, B.BWRITER
-                		, B.B_ORIGINAL_FILENAME
-                		, B.B_RENAME_FILENAME
-                		, B.B_CREATE_DATE
-                		, B.BCOUNT
-                		, M.GRADE
-           FROM BOARD B
-           LEFT JOIN B_REPLY R ON B.B_RCOUNT = R.B_REF_BID
-           LEFT JOIN MEMBER M ON B.BWRITER = M.NICKNAME
-           WHERE B.BSTATUS = 'Y'
-	         AND B.B_CREATE_DATE BETWEEN #{ begin }
-             AND #{ end }
-          ORDER BY B.BID DESC))
+               , BSTATUS
+          FROM  ( SELECT *
+          		  FROM BOARD
+           		  WHERE BSTATUS = 'Y'
+	              AND B_DATE BETWEEN #{ begin }
+                  AND #{ end }
+          		  ORDER BY BID DESC))
           WHERE RNUM >=  #{ startRow }
           AND RNUM <= #{ endRow }
                ]]>

@@ -46,9 +46,63 @@ public class MemberController {
 
 	// 로깅시 추가
 	private Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
-	
-	
+
+	// 관리자가 수정하기
+	@RequestMapping("nowyMember.do")
+	public String nowyMember(@RequestParam("mid") int mid, Model model) {
+
+		int result = mService.nowyMember(mid);
+
+		if (result > 0) {
+			return "redirect:mlist.do?page=1";
+		} else {
+			model.addAttribute("msg", "회원 정보 수정 실패!");
+			return "common/errorPage";
+		}
+	}
+
+	// 관리자가 수정하기
+	@RequestMapping("nownMember.do")
+	public String nownMember(@RequestParam("mid") int mid, Model model) {
+
+		int result = mService.nownMember(mid);
+
+		if (result > 0) {
+			return "redirect:mlist.do?page=1";
+		} else {
+			model.addAttribute("msg", "회원 정보 수정 실패!");
+			return "common/errorPage";
+		}
+	}
+
+	// 관리자가 수정하기
+	@RequestMapping("lvMMember.do")
+	public String lvMMember(@RequestParam("mid") int mid, Model model) {
+
+		int result = mService.lvMMember(mid);
+
+		if (result > 0) {
+			return "redirect:mlist.do?page=1";
+		} else {
+			model.addAttribute("msg", "회원 정보 수정 실패!");
+			return "common/errorPage";
+		}
+	}
+
+	// 관리자가 수정하기
+	@RequestMapping("lvAMember.do")
+	public String lvAMember(@RequestParam("mid") int mid, Model model) {
+
+		int result = mService.lvAMember(mid);
+
+		if (result > 0) {
+			return "redirect:mlist.do?page=1";
+		} else {
+			model.addAttribute("msg", "회원 정보 수정 실패!");
+			return "common/errorPage";
+		}
+	}
+
 	// 관리자가 수정하기
 	@RequestMapping("mupdate2.do")
 	public String update2Member(@ModelAttribute Member m, Model model, @RequestParam("post") String post) {
@@ -63,7 +117,6 @@ public class MemberController {
 			return "common/errorPage";
 		}
 	}
-	
 
 	// 내정보 테스트 페이지로 이동 -- 임시 --나중에지움
 	@RequestMapping("minsert2.do")
@@ -74,10 +127,10 @@ public class MemberController {
 	// 회원 리스트 *** 이부분 수정하면 경필한테 알려주셈
 	@RequestMapping("mlist.do")
 	public String MemberListMethod(@RequestParam("page") int currentPage, Model model) {
-		
+
 		int limit = 10;
 		ArrayList<Member> list = mService.selectMemberList(currentPage, limit);
-		
+
 		// 페이지 처리와 관련된 값 처리
 		// 총 페이지 계산을 위한 총 목록 갯수 조회
 		int listCount = mService.getListCount();
@@ -144,7 +197,6 @@ public class MemberController {
 		return "member/login";
 	}
 
-
 	// 회원가입 페이지로 이동
 	@RequestMapping("enrollView.do")
 	public String enrollView() {
@@ -204,53 +256,76 @@ public class MemberController {
 		}
 	}
 
-	// 로그인 메소드 - @ModelAttribute를 이용한 값 전달 방법(4)
+	/*
+	 * // 로그인 메소드 - @ModelAttribute를 이용한 값 전달 방법(4)
+	 * 
+	 * @RequestMapping(value = "login.do", method = RequestMethod.POST) public
+	 * String memberLogin(@ModelAttribute Member m,
+	 * 
+	 * @RequestParam(value = "auto_login", required = false) String auto_login,
+	 * HttpServletResponse response, Model model, HttpSession session) {
+	 * 
+	 * Member loginUser = mService.loginMember(m);
+	 * 
+	 * // System.out.println(loginUser);
+	 * 
+	 * if (loginUser != null && bcryptPasswordEncoder.matches(m.getPwd(),
+	 * loginUser.getPwd())) { // 로그인 성공 session.setAttribute("loginUser",
+	 * loginUser);
+	 * 
+	 * 자동로그인 Cookie cookieId = null; Cookie cookiePwd = null; String login_rem =
+	 * auto_login; // 체크 되어있으면 on 안되어있으면 null이 넘어옴
+	 * 
+	 * if (login_rem != null && login_rem.trim().equals("on")) { // 체크가 되어있으면
+	 * cookieId = new Cookie("autoId", java.net.URLEncoder.encode(m.getId())); //
+	 * ("키",값) cookiePwd = new Cookie("autoPwd",
+	 * java.net.URLEncoder.encode(m.getPwd())); // cookie.setDomain("localhost");
+	 * 
+	 * // 쿠키 유호시간을 세팅 1년 cookieId.setMaxAge(60 * 60 * 24 * 365);
+	 * cookiePwd.setMaxAge(60 * 60 * 24 * 365);
+	 * 
+	 * // 쿠키값을 클라이언트에 저장 response.addCookie(cookieId);
+	 * response.addCookie(cookiePwd); } else { // 체크가 안된 상태에서 로그인이 들어왔을 때 cookieId =
+	 * new Cookie("autoId", null); cookieId.setMaxAge(0); // 유효시간을 0으로
+	 * 
+	 * cookiePwd = new Cookie("autoPwd", null); cookiePwd.setMaxAge(0);
+	 * 
+	 * response.addCookie(cookieId); // 쿠키값을 클라이언트에 저장
+	 * response.addCookie(cookiePwd); } 자동로그인
+	 * 
+	 * System.out.println("로그인 회원정보 : " + loginUser);
+	 * 
+	 * return "main/home";
+	 * 
+	 * } else { model.addAttribute("msg", "로그인 실패"); return "common/errorPage"; } }
+	 */
+	// 로그인
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	public String memberLogin(@ModelAttribute Member m,
-			@RequestParam(value = "auto_login", required = false) String auto_login, HttpServletResponse response,
-			Model model, HttpSession session) {
-
+	public String memberLogin(@ModelAttribute Member m, Model model) {
 		Member loginUser = mService.loginMember(m);
 
-		// System.out.println(loginUser);
+		/*
+		 * //네이버로 로그인 SNSLogin snsLogin = new SNSLogin(naverSns);
+		 * model.addAttribute("naver_url", snsLogin.getNaverAuthURL());
+		 */
+
+		/*
+		 * String bcrypt = bcryptPasswordEncoder.encode(m.getPwd());
+		 * System.out.println("loginUser" + loginUser); System.out.println("Member" +
+		 * m); System.out.println( bcryptPasswordEncoder.matches(m.getPwd(),
+		 * loginUser.getPwd()));
+		 * 
+		 * System.out.println(bcrypt.length()+","+m.getPwd().length());
+		 * System.out.println(loginUser.getPwd().length());
+		 * 
+		 * logger.info("암호화 " + bcrypt +"글자수"+ m.getPwd().length());
+		 */
 
 		if (loginUser != null && bcryptPasswordEncoder.matches(m.getPwd(), loginUser.getPwd())) {
-			// 로그인 성공
-			session.setAttribute("loginUser", loginUser);
+			model.addAttribute("loginUser", loginUser);
 
-			/* 자동로그인 */
-			Cookie cookieId = null;
-			Cookie cookiePwd = null;
-			String login_rem = auto_login; // 체크 되어있으면 on 안되어있으면 null이 넘어옴
+			return "redirect:home.do";
 
-			if (login_rem != null && login_rem.trim().equals("on")) { // 체크가 되어있으면
-				cookieId = new Cookie("autoId", java.net.URLEncoder.encode(m.getId())); // ("키",값)
-				cookiePwd = new Cookie("autoPwd", java.net.URLEncoder.encode(m.getPwd()));
-				// cookie.setDomain("localhost");
-
-				// 쿠키 유호시간을 세팅 1년
-				cookieId.setMaxAge(60 * 60 * 24 * 365);
-				cookiePwd.setMaxAge(60 * 60 * 24 * 365);
-
-				// 쿠키값을 클라이언트에 저장
-				response.addCookie(cookieId);
-				response.addCookie(cookiePwd);
-			} else { // 체크가 안된 상태에서 로그인이 들어왔을 때
-				cookieId = new Cookie("autoId", null);
-				cookieId.setMaxAge(0); // 유효시간을 0으로
-
-				cookiePwd = new Cookie("autoPwd", null);
-				cookiePwd.setMaxAge(0);
-
-				response.addCookie(cookieId); // 쿠키값을 클라이언트에 저장
-				response.addCookie(cookiePwd);
-			}
-			/* 자동로그인 */
-			
-			System.out.println("로그인 회원정보 : " + loginUser);
-			
-			return "main/home";
-			
 		} else {
 			model.addAttribute("msg", "로그인 실패");
 			return "common/errorPage";
@@ -357,7 +432,6 @@ public class MemberController {
 		return "redirect:home.do";
 	}
 
-	
 	// '내정보 관리하기'로 이동
 	@RequestMapping("myInfoUpdate.do")
 	public String myInfoUpdateView(@RequestParam("id") String id, Model model) {
@@ -376,7 +450,6 @@ public class MemberController {
 	public String profileView() {
 		return "member/profile";
 	}
-
 
 	// 회원가입
 	@RequestMapping("minsert.do")
@@ -560,7 +633,6 @@ public class MemberController {
 		}
 	}
 
-	
 	@ResponseBody
 	@RequestMapping("idCheck.do")
 	public String idCheck(String id) {
@@ -572,6 +644,5 @@ public class MemberController {
 			return "ok";
 		}
 	}
-
 
 }

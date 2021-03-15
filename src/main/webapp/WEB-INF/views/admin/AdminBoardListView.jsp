@@ -73,12 +73,7 @@
 				<col width="50">
 				<col width="80">
 				<col width="100">
-				<col width="200">
-				<col width="80">
-				<col width="50">
-				<col width="100">
-				<col width="100">
-				<col width="550">
+				<col width="400">
 				<col width="80">
 				<col width="50">
 				<col width="50">
@@ -94,6 +89,7 @@
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">내용</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">첨부파일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">수정</th>
 				</tr>
@@ -116,16 +112,17 @@
 									<c:url value="/bdetail.do" var="und">
 										<c:param name="bid" value="${ b.bid }" />
 									</c:url>
-									<a href="${und}" style="color: black;">${b.btitle}</a>
-							<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-							<c:if test="${ empty b.b_file }"> </c:if>
-						</td>
+									<a href="${und}" style="color: black; display: inline-block; width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center;"">${b.btitle}</a></td>
 	
-						<td align="center" width="200"  style="font-size:15px; color: black;">${ b.bcontent }</td>
+						<td align="center" width="400"  style="font-size:15px; color: black; display: inline-block; width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  display: flex; align-items: center;">${ b.bcontent }</td>
 
 						<td align="center" width="80"  style="font-size:15px; color: black;">${ b.b_date }</td>
 						
 						<td align="center" width="50" style="font-size:15px; color: black;">${ b.bcount }</td>
+						
+						<td align="center" width="50" style="font-size:15px; color: black;">
+							<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+							<c:if test="${ empty b.b_file }"> # </c:if></td>
 
 						<td align="center" width="50" style="font-size:15px; color: black;">${ b.bstatus }</td>
 						

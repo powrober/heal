@@ -42,7 +42,7 @@ function showWriteForm() {
 <c:url var="blist" value="adminblist.do">
 	<c:param name="page" value="1" />
 </c:url>
-<c:url var="nlist" value="adminnlist.do">
+<c:url var="nlist" value="adminadminnlist.do">
 	<c:param name="page" value="1" />
 </c:url>
 	
@@ -82,12 +82,7 @@ function showWriteForm() {
 				<col width="50">
 				<col width="80">
 				<col width="100">
-				<col width="200">
-				<col width="80">
-				<col width="50">
-				<col width="100">
-				<col width="100">
-				<col width="550">
+				<col width="400">
 				<col width="80">
 				<col width="50">
 				<col width="50">
@@ -103,6 +98,7 @@ function showWriteForm() {
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">내용</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">첨부파일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">수정</th>
 				</tr>
@@ -125,16 +121,18 @@ function showWriteForm() {
 									<c:url value="/ndetail.do" var="und">
 										<c:param name="nid" value="${ n.nid }" />
 									</c:url>
-									<a href="${und}" style="color: black;">${n.ntitle}</a>
-							<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-							<c:if test="${ empty n.n_file }"> </c:if>
+									<a href="${und}" style="color: black; display: inline-block; width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center;">${n.ntitle}</a>
 						</td>
 	
-						<td align="center" width="200"  style="font-size:15px; color: black;">${ n.ncontent }</td>
+						<td align="center" width="400"  style="font-size:15px; color: black; display: inline-block; width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  display: flex; align-items: center;">${ n.ncontent }</td>
 
 						<td align="center" width="80"  style="font-size:15px; color: black;">${ n.n_date }</td>
 						
 						<td align="center" width="50" style="font-size:15px; color: black;">${ n.ncount }</td>
+						
+						<td align="center" width="50" style="font-size:15px; color: black;">
+							<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+							<c:if test="${ empty n.n_file }"> # </c:if></td>
 
 						<td align="center" width="50" style="font-size:15px; color: black;">${ n.nstatus }</td>
 						
@@ -156,6 +154,7 @@ function showWriteForm() {
         </table>
     </div>
     
+    
 	<%-- 현재 페이지가 1이 아니면 링크설정, 현재 1페이지이면 링크없음 --%>
 	<c:if test="${ empty action}">
 		<%-- 페이징 처리  [맨처음][이전] 숫자...........  [다음][맨끝] --%>
@@ -164,7 +163,7 @@ function showWriteForm() {
             [맨처음]
          </c:if>
 			<c:if test="${ currentPage > 1 }">
-				<c:url var="nls" value="/nlist.do">
+				<c:url var="nls" value="/adminnlist.do">
 					<c:param name="page" value="1" />
 				</c:url>
 				<a href="${ nls }">[맨처음]</a>
@@ -173,7 +172,7 @@ function showWriteForm() {
 			<%-- 이전 그룹이 있으면 링크설정, 이전 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage - 10) < startPage and (currentPage - 10) >= 1 }">
-				<c:url var="nls2" value="/nlist.do">
+				<c:url var="nls2" value="/adminnlist.do">
 					<c:param name="page" value="${ startPage - 10 }" />
 				</c:url>
 				<a href="${ nls2 }">[이전]</a>
@@ -189,7 +188,7 @@ function showWriteForm() {
 					<font size="4" color="red">[${ p }]</font>
 				</c:if>
 				<c:if test="${ p ne currentPage }">
-					<c:url var="nls3" value="/nlist.do">
+					<c:url var="nls3" value="/adminnlist.do">
 						<c:param name="page" value="${ p }" />
 					</c:url>
 					<a href="${ nls3 }">${ p }</a>
@@ -199,7 +198,7 @@ function showWriteForm() {
 			<%-- 다음 그룹이 있으면 링크설정, 다음 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage + 10) > endPage && (currentPage + 10) < maxPage }">
-				<c:url var="nls4" value="/nlist.do">
+				<c:url var="nls4" value="/adminnlist.do">
 					<c:param name="page" value="${ endPage + 10 }" />
 				</c:url>
 				<a href="${ nls4 }">[다음그룹]</a>
@@ -214,7 +213,7 @@ function showWriteForm() {
             [맨끝]&nbsp;
          </c:if>
 			<c:if test="${ currentPage < maxPage }">
-				<c:url var="nls5" value="/nlist.do">
+				<c:url var="nls5" value="/adminnlist.do">
 					<c:param name="page" value="${ maxPage }" />
 				</c:url>
 				<a href="${ nls5 }">[맨끝]</a>
@@ -245,7 +244,7 @@ function showWriteForm() {
 			<%-- 이전 그룹이 있으면 링크설정, 이전 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage - 10) < startPage and (currentPage - 10) >= 1 }">
-				<c:url var="nsearch2" value="/nlist.do">
+				<c:url var="nsearch2" value="/adminnlist.do">
 					<c:param name="page" value="${ startPage - 10 }" />
 				</c:url>
 				<a href="${ nsearch2 }">[이전]</a>
@@ -261,7 +260,7 @@ function showWriteForm() {
 					<font size="4" color="red">[${ p }]</font>
 				</c:if>
 				<c:if test="${ p ne currentPage }">
-					<c:url var="nsearch3" value="/nlist.do">
+					<c:url var="nsearch3" value="/adminnlist.do">
 						<c:param name="page" value="${ p }" />
 					</c:url>
 					<a href="${ nsearch3 }">${ p }</a>
@@ -271,7 +270,7 @@ function showWriteForm() {
 			<%-- 다음 그룹이 있으면 링크설정, 다음 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage + 10) > endPage && (currentPage + 10) < maxPage }">
-				<c:url var="nsearch4" value="/nlist.do">
+				<c:url var="nsearch4" value="/adminnlist.do">
 					<c:param name="page" value="${ endPage + 10 }" />
 				</c:url>
 				<a href="${ nsearch4 }">[다음그룹]</a>
@@ -285,7 +284,7 @@ function showWriteForm() {
             [맨끝]&nbsp;
          </c:if>
 			<c:if test="${ currentPage < maxPage }">
-				<c:url var="nsearch5" value="/nlist.do">
+				<c:url var="nsearch5" value="/adminnlist.do">
 					<c:param name="page" value="${ maxPage }" />
 				</c:url>
 				<a href="${ nsearch5 }">[맨끝]</a>

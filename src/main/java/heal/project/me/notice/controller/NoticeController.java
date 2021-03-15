@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import heal.project.me.common.SearchAndPage;
 import heal.project.me.common.SearchDate;
 import heal.project.me.notice.model.service.NoticeService;
 import heal.project.me.notice.model.vo.Notice;
@@ -78,9 +79,20 @@ public class NoticeController {
 
 		// 공지사항 전체 목록보기 요청 처리용
 		@RequestMapping("nlist.do")
-		public String NoticeListMethod(@RequestParam("page") int currentPage, Model model) {
+		public String NoticeListMethod(SearchDate dates, @RequestParam("page") int currentPage, Model model) {
 			
+			// 전달된 값을 이용해서 출력할 시작행과 끝행을 계산함
 			int limit = 10;
+			int startRow = (currentPage - 1) * limit - 1;
+			int endRow = startRow + limit - 1;
+
+			SearchAndPage searches = new SearchAndPage();
+			searches.setBegin(dates.getBegin());
+			searches.setEnd(dates.getEnd());
+			searches.setStartRow(startRow);
+			searches.setEndRow(endRow);
+			
+			
 			ArrayList<Notice> list = noticeService.selectNoticeList(currentPage, limit);
 			
 			// 페이지 처리와 관련된 값 처리
@@ -100,7 +112,10 @@ public class NoticeController {
 				model.addAttribute("currentPage", currentPage);
 				model.addAttribute("maxPage", maxPage);
 				model.addAttribute("startPage", startPage);
+				model.addAttribute("action", "nlist.do");
 				model.addAttribute("endPage", endPage);
+				model.addAttribute("begin", dates.getBegin());
+				model.addAttribute("end", dates.getEnd());
 
 				return "notice/noticeListView";
 			} else {

@@ -78,16 +78,6 @@ table.table2 td {
 							</tr>
 							
 							<tr>
-								<td>공개여부</td>
-								<td>
-									<label class="">
-							 			<input type="radio" name="nstatus" value="Y" checked="checked"> <span class="ico"></span>&emsp;공개&emsp;&emsp;</label>
-							 		<label class="">
-										<input type="radio" name="nstatus"	value="N"> <span class="ico"></span>&emsp;비공개</label>
-								</td>
-							</tr>
-	
-							<tr>
 								<td>첨부파일</td>
 								<td>
 									<%-- 원래 첨부파일이 있는 경우 --%>

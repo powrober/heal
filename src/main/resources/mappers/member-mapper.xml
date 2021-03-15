@@ -21,6 +21,43 @@
    </resultMap>
    
    
+   <!-- 관리자가 회원 상태 변경1 수정 -->
+	<update id="nowyMember" parameterType="_int">
+		UPDATE 
+		       MEMBER
+		   SET 
+		       user_now = 'Y'
+		 WHERE MID = #{ mid }  
+	</update>
+   
+   <!-- 관리자가 회원 상태 변경1 수정 -->
+	<update id="nownMember" parameterType="_int">
+		UPDATE 
+		       MEMBER
+		   SET 
+		       user_now = 'N'
+		 WHERE MID = #{ mid }  
+	</update>
+   
+   <!-- 관리자가 회원 상태 변경1 수정 -->
+	<update id="lvMMember" parameterType="_int">
+		UPDATE 
+		       MEMBER
+		   SET 
+		       user_lv = 'MEMBER'
+		 WHERE MID = #{ mid }  
+	</update>
+	
+   <!-- 관리자가 회원 상태 변경1 수정 -->
+	<update id="lvAMember" parameterType="_int">
+		UPDATE 
+		       MEMBER
+		   SET 
+		       user_lv = 'admin'
+		 WHERE MID = #{ mid }  
+	</update>
+   
+   
     <!-- 관리자가 회원 정보 수정 -->
 	<update id="update2Member" parameterType="Member">
 		UPDATE 

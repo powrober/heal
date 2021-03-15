@@ -20,6 +20,22 @@ public class MemerServiceImpl implements MemberService {
 
 	// 관리자가 회원 정보 수정 
 	@Override
+	public int nowyMember(int mid) {
+		return mDao.nowyMember(mid);
+	}
+	public int nownMember(int mid) {
+		return mDao.nownMember(mid);
+	}
+	public int lvMMember(int mid) {
+		return mDao.lvMMember(mid);
+	}
+	public int lvAMember(int mid) {
+		return mDao.lvAMember(mid);
+	}
+
+	
+	// 관리자가 회원 정보 수정 
+	@Override
 	public int update2Member(Member m) {
 		return mDao.update2Member(m);
 	}

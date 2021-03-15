@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
 <c:set var="currentPage" value="${ requestScope.page }" />
 
 
@@ -75,11 +76,11 @@ span.error {
 										<tbody>
 											<tr class="fst">
 												<th>회원번호</th>
-												<td><input type="text" name="mid" value="${ member.mid }" readonly>${ member.mid }</td>
+												<td><input type="text" name="mid" value="${ member.mid }" readonly></td>
 											</tr>
 											<tr class="fst">
 												<th>회원아이디</th>
-												<td><input type="text" name="id" value="${ member.id }" readonly>${ member.id }</td>
+												<td><input type="text" name="id" value="${ member.id }" readonly></td>
 											</tr>
 											<tr class="fst">
 												<th>회원이름</th>

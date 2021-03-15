@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%
+	pageContext.setAttribute("br", "<br/>");
+	pageContext.setAttribute("cn", "\n");
+%>
 <%-- 응답온 페이지값 추출함 --%>
 <c:set var="currentPage" value="${ requestScope.page }" />
 
@@ -87,13 +92,13 @@ table.table2 td {
 					</tr>
 					<tr>
 						<td width="500px" height="200" colspan='4'>
-							<c:if test="${ empty notice.n_file }">${ notice.ncontent }</c:if>
+							<c:if test="${ empty notice.n_file }">${ fn:replace(notice.ncontent, cn, br) }</c:if>
 							<c:if test="${ !empty notice.n_file }">
 								<c:url var="nfd" value="/nfdown.do">
 									<c:param name="ofile" value="${ notice.n_file }" />
 									<c:param name="rfile" value="${ notice.n_rfile }" />
 								</c:url>
-							<img src="/me/resources/notice_files/${ notice.n_file }" style="width:500px;"><br>${ notice.ncontent }
+							<img src="/me/resources/notice_files/${ notice.n_file }" style="width:500px;"><br>${ fn:replace(notice.ncontent, cn, br)}
 							</c:if>
 						</td>
 					</tr>

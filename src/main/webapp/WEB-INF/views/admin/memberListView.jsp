@@ -17,6 +17,7 @@
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
 
+
 </head>
 
 <body>
@@ -63,14 +64,16 @@
 			<colgroup>
 				<col width="50">
 				<col width="50">
-				<col width="80">
+				<col width="100">
 				<col width="100">
 				<col width="80">
 				<col width="50">
 				<col width="100">
 				<col width="100">
-				<col width="550">
+				<col width="500">
 				<col width="80">
+				<col width="50">
+				<col width="50">
 				<col width="50">
 				<col width="50">
 				<col width="50">
@@ -91,7 +94,8 @@
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">회원등급</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">메모</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">수정</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" colspan='2'>상태변경</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" colspan='2'>등급변경</th>
 				</tr>
 				
 				<tr>
@@ -106,7 +110,11 @@
 						
 						<td align="center" width="50"  style="font-size:15px; color: black;">${ m.id }</td>
 	
-						<td align="center" width="80"  style="font-size:15px; color: black;">${ m.name }</td>
+						<%-- 	<c:url value="/minsert2.do" var="m">
+								<c:param name="mid" value="${ m.mid }" />
+								<c:param name="page" value="1" />
+							</c:url> --%>
+						<td align="center" width="100"  style="font-size:15px; color: black;"><a href="minsert2.do">${ m.name }</a></td>
 						
 						<td align="center" width="100"  style="font-size:15px; color: black;">${ m.nick }</td>
 	
@@ -118,7 +126,7 @@
 	
 						<td align="center" width="100"  style="font-size:15px; color: black;">${ m.email }</td>
 						
-						<td align="center" width="550"  style="font-size:15px; color: black;">${ m.address }</td>
+						<td align="center" width="500"  style="font-size:15px; color: black; display: inline-block; width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center;">${ m.address }</td>
 						
 						<td align="center" width="80"  style="font-size:15px; color: black;">${ m.join_date }</td>
 						
@@ -132,20 +140,42 @@
 							<c:if test="${ empty m.etc }">＃</c:if>
 						
 						</td>
-
-							<c:url var="mm" value="/minsert2.do">
-								<c:param name="page" value="${ currentPage }" />
-							</c:url>
-												
+						
 						<td align="center" width="50" style="font-size:15px; color: black;">
 						
-						<button type="button" onclick="javascript:location.href='${ mm }'" style='float:center'>수정</button>
 						
+						<c:url var="nowy" value="/nowyMember.do">
+							<c:param name="mid" value="${ member.mid }" />
+						</c:url>
+						
+						<button type="button" onclick="location.href='${ nowy }'" style='float:center'>정상</button>
+						
+						</td> 
+						
+						<td align="center" width="50" style="font-size:15px; color: black;">
+						
+						<c:url var="nown" value="/nownMember.do">
+							<c:param name="mid" value="${ member.mid }" />
+						</c:url>
+						<button type="button" onclick="location.href='${ nown }'" style='float:center'>제한</button>
+						</td>
+						 
+						<td align="center" width="50" style="font-size:15px; color: black;">
+							<c:url var="lvm" value="/lvMMember.do">
+								<c:param name="page" value="${ currentPage }" />
+							</c:url>
+						<button type="button" onclick="javascript:location.href='${ lvm }'" style='float:center'>일반</button>
+						</td> 
+						
+						<td align="center" width="50" style="font-size:15px; color: black;">
+							<c:url var="lva" value="/lvAMember.do">
+								<c:param name="page" value="${ currentPage }" />
+							</c:url>
+						<button type="button" onclick="javascript:location.href='${ lva }'" style='float:center'>관리자</button>
 						</td> 
 						
 					</tr>
 					</c:forEach>
-					
 					
             </tbody>
         </table>

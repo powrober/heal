@@ -22,7 +22,7 @@
 <title>자유게시판</title>
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
-
+<!-- 
 <script type="text/javascript">
 	 $(function() {
 		showDiv();
@@ -61,7 +61,7 @@
 		location.href = "${ blamelist }";
 	}
 	
-</script>
+</script> -->
 
 </head>
 
@@ -131,25 +131,16 @@
 					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
 				</form>
 			</div>
-		</div>
-		 --%>
-				
-		<%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -40px;">
-					<c:url var="blame" value="/b.blame.list.do">
-						<c:param name="page" value="1" />
-					</c:url>
-				<button onclick="javascript:location.href='${ blame }';" class="btn btn-warning btn-round" style="color: #fff;">신고자 현황</button>
-			</div>
-		</c:if>
-		
+		</div>	
 	</div>
+		 --%>
+			
 	
 	
 	<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
 		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" >
 			<colgroup>
+				<col width="100">
 				<col width="100">
 				<col width="100">
 				<col width="100">
@@ -164,6 +155,7 @@
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제&nbsp;&nbsp;&nbsp;&nbsp;목</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성날짜</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">첨부파일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
 				</tr>
 				
@@ -182,11 +174,9 @@
 						<td align="left" width="550" style="font-size:15px; color: black;"><c:url var="bdt" value="/bdetail.do">
 								<c:param name="page" value="${ currentPage }" />
 								<c:param name="bid" value="${ b.bid }" />
-							</c:url> <a href="${ bdt }" style="color: black;">${ b.btitle }</a>&nbsp;
-								<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-								<c:if test="${ empty b.b_file }"> &nbsp; </c:if></td>
+							</c:url> <a href="${ bdt }" style="color: black; display: inline-block; width: 450px;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${ b.btitle }</a></td>
 					
-						<td align="center" width="150" style="font-size:15px; color: black;">${ b.buser }
+						<td align="center" width="200" style="font-size:15px; color: black;">${ b.buser }
 							 <%-- <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade lt 0}"> 불량회원
 							 <img src="/hhw/resources/images/i_0.png" style="width:20px; float:left;">
 							 </c:if>
@@ -205,6 +195,10 @@
 							 </td>
 	
 						<td align="center" width="130" style="font-size:15px; color: black;">${ b.b_date }</td>
+						
+						<td align="center" width="130" style="font-size:15px; color: black;">
+								<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+								<c:if test="${ empty b.b_file }"> # </c:if></td>
 	
 						<td align="center" width="80" style="font-size:15px; color: black;">${ b.bcount }</td>
 						

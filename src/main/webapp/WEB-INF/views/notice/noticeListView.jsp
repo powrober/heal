@@ -85,6 +85,7 @@
 							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제&nbsp;&nbsp;&nbsp;&nbsp;목</th>
 							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
 							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성날짜</th>
+							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">첨부파일</th>
 							<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
 						</tr>
 						
@@ -104,13 +105,15 @@
 									<c:url value="/ndetail.do" var="und">
 										<c:param name="nid" value="${ n.nid }" />
 									</c:url>
-									<a href="${und}" style="color: black;">${n.ntitle}</a>
-										<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-										<c:if test="${ empty n.n_file }"> &nbsp; </c:if></td>
+									<a href="${und}" style="color: black; display: inline-block; width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${n.ntitle}</a></td>
 							
-								<td align="center" width="150" style="font-size:15px; color: black;">${n.nuser}</td>
+								<td align="center" width="200" style="font-size:15px; color: black;">${n.nuser}</td>
 			
 								<td align="center" width="130" style="font-size:15px; color: black;"><fmt:formatDate value="${n.n_date}" pattern="yyyy-MM-dd"/></td>
+
+								<td align="center" width="130" style="font-size:15px; color: black;">
+										<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px; display: inline-block; "> </c:if>
+										<c:if test="${ empty n.n_file }"> # </c:if></td>
 			
 								<td align="center" width="80" style="font-size:15px; color: black;">${ n.ncount }</td>
 								

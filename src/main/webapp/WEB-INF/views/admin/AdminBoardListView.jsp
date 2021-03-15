@@ -19,49 +19,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판</title>
+<title>관리자 자유게시판</title>
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
-
-<script type="text/javascript">
-	 $(function() {
-		showDiv();
-
-		$("input[name=item]").on("change", function() { //on으로 이벤트 설정가능 "change"이벤트일때 function()을 실행해라
-			showDiv(); // = radio버튼상태가 바뀔때 showDiv를 실행해라
-		});
-	});
-	function showDiv() {
-		if ($("input[name=item]").eq(0).is(":checked")) { //첫번째가 선택 되어 있느냐, 그러면 이 함수를 실행해라~! 라는 뜻
-			$("#titleDiv").css("display", "block");
-			$("#writerDiv").css("display", "none");
-			$("#dateDiv").css("display", "none");
-		}
-		if ($("input[name=item]").eq(1).is(":checked")) { //두번째가 선택 되어 있느냐, 그러면 이 함수를 실행해라~! 라는 뜻
-			$("#titleDiv").css("display", "none");
-			$("#writerDiv").css("display", "block");
-			$("#dateDiv").css("display", "none");
-		}
-		if ($("input[name=item]").eq(2).is(":checked")) { //세번째가 선택 되어 있느냐, 그러면 이 함수를 실행해라~! 라는 뜻
-			$("#titleDiv").css("display", "none");
-			$("#writerDiv").css("display", "none");
-			$("#dateDiv").css("display", "block");
-		}
-	}
-	
-	function showWriteForm() {
-		location.href = "${ bwf }";
-	}
-	
-	function login() {
-		location.href = "${ login }";
-	} 
-
-	function testBlame() {
-		location.href = "${ blamelist }";
-	}
-	
-</script>
 
 </head>
 
@@ -70,196 +30,128 @@
 	<jsp:include page="../main/header.jsp" />
 	
 	
-	<div style="text-align: center; padding-top: -20px;">
+
+<c:url var="mlist" value="mlist.do">
+	<c:param name="page" value="1" />
+</c:url>
+<c:url var="bllist" value="b.blame.list.do">
+	<c:param name="page" value="1" />
+</c:url>
+<c:url var="blist" value="adminblist.do">
+	<c:param name="page" value="1" />
+</c:url>
+<c:url var="nlist" value="adminnlist.do">
+	<c:param name="page" value="1" />
+</c:url>
+	
+     <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg" >
+       <div class="parallax-content">
+         <div class="container">
+           <p class="heading-1 breadcrumbs-custom-title">자유게시판</p>
+           <ul class="breadcrumbs-custom-path">
+             <li><a href="home.do">Home</a></li>
+             <li><a href="${ mlist }">회원리스트</a></li>
+             <li><a href="${ bllist }">불량회원 리스트</a></li>
+             <li><a href="${ nlist }">공지사항</a></li>
+             <li><a href="${ blist }">자유게시판</a></li>
+             <li><a href="#">????</a></li>
+           </ul>
+         </div>
+       </div>
+     </section>
+     
+	<div style="text-align: center;">
 		<div>
-			<h3 style="margin: 10px 0 30px 0;">자유게시판</h3>
+			<h2 style="margin: 20px 0 10px 0;">자유게시판 리스트</h2>
 		</div>
 	</div>
-	
-	
-	<%-- 검색기능 --%>
-	<div>
-		<div style="text-align: left; padding-left: 550px;">
-			<div>
-				<select name="btype" id="item">
-					<option id="item" value="">검색 항목 선택</option>
-					<option id="item" value="title">제목</option>
-					<option id="item" value="writer">작성자</option>
-					<option id="item" value="date">게시날짜</option>
-				</select>
-	
-				<input type="radio" name="item" value="title" checked> 제목&nbsp; &nbsp; &nbsp; 
-				<input type="radio" name="item" value="writer">	 작성자 &nbsp; &nbsp; &nbsp; 
-				<input type="radio" name="item" value="date"> 날짜
-			</div>
-	
-			<div id="titleDiv">
-				<form action="bsearchTitle.do" method="post">
-					<input type="hidden" name="page" value="1">
-					<input type="search" name="keyword" placeholder="제목">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
-					<c:url var="blist" value="/blist.do">
-						<c:param name="page" value="1" />
-					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
-				</form>
-			</div>
-	
-			<div id="writerDiv">
-				<form action="bsearchWriter.do" method="post">
-					<input type="hidden" name="page" value="1">
-					<input type="search" name="keyword" placeholder="닉네임">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
-					<c:url var="blist" value="/blist.do">
-						<c:param name="page" value="1" />
-					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
-				</form>
-			</div>
-	
-			<div id="dateDiv">
-				<form action="bsearchDate.do" method="post">
-					<input type="hidden" name="page" value="1">
-					<input type="date" name="begin"> ~ <input type="date" name="end">
-					<input type="submit" value="검색" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">
-					<%-- 목록 출력 --%>
-					<c:url var="blist" value="/blist.do">
-						<c:param name="page" value="1" />
-					</c:url>
-					<button onclick="javascript:location.href='${ blist }';" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">전체 목록</button>
-				</form>
-			</div>
-		</div>
 		
-				
-		<%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -40px;">
-					<c:url var="blame" value="/b.blame.list.do">
-						<c:param name="page" value="1" />
-					</c:url>
-				<button onclick="javascript:location.href='${ blame }';" class="btn btn-warning btn-round" style="color: #fff;">신고자 현황</button>
-			</div>
-		</c:if>
-		
-	</div>
-	
-	
 	<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
-		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" >
+		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" style="width: 1800px;" >
 			<colgroup>
+				<col width="50">
+				<col width="50">
+				<col width="80">
+				<col width="100">
+				<col width="200">
+				<col width="80">
+				<col width="50">
 				<col width="100">
 				<col width="100">
-				<col width="100">
-				<col width="100">
-				<col width="100">
-				<col width="100">
+				<col width="550">
+				<col width="80">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
 			</colgroup>
 			<thead>
 				<tr>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" class="title">번 호</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">말머리</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제&nbsp;&nbsp;&nbsp;&nbsp;목</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성날짜</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제목</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">내용</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">수정</th>
 				</tr>
 				
 				<tr>
-					<td colspan="6" class="blank2">&nbsp;
+					<td colspan="7" class="blank2">&nbsp;
 			    </tr>
             </thead>
             <tbody>
                 <tr>
-                	<c:forEach items="${ requestScope.list }" var="b" >
+            	    <c:forEach items="${ requestScope.list }" var="b" >
 	                <tr>
-						<td align="center" width="80" style="font-size:15px; color: black;">${ b.bid }</td>
+						<td align="center" width="50"  style="font-size:15px; color: black;">${ b.bid }</td>
+						
+						<td align="center" width="50"  style="font-size:15px; color: black;">${ b.btype }</td>
 	
-						<td align="center" width="150" style="font-size:15px; color: black;">${ b.btype }</td>
+						<td align="center" width="80"  style="font-size:15px; color: black;">${ b.buser }</td>
+						
+						<td align="center" width="100"  style="font-size:15px; color: black;">
+									<c:url value="/bdetail.do" var="und">
+										<c:param name="bid" value="${ b.bid }" />
+									</c:url>
+									<a href="${und}" style="color: black;">${b.btitle}</a>
+							<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
+							<c:if test="${ empty b.b_file }"> </c:if>
+						</td>
 	
-						<td align="left" width="550" style="font-size:15px; color: black;"><c:url var="bdt" value="/bdetail.do">
+						<td align="center" width="200"  style="font-size:15px; color: black;">${ b.bcontent }</td>
+
+						<td align="center" width="80"  style="font-size:15px; color: black;">${ b.b_date }</td>
+						
+						<td align="center" width="50" style="font-size:15px; color: black;">${ b.bcount }</td>
+
+						<td align="center" width="50" style="font-size:15px; color: black;">${ b.bstatus }</td>
+						
+							<c:url var="#" value="#">
 								<c:param name="page" value="${ currentPage }" />
-								<c:param name="bid" value="${ b.bid }" />
-							</c:url> <a href="${ bdt }" style="color: black;">${ b.btitle }</a>&nbsp;
-								<c:if test="${ !empty b.b_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-								<c:if test="${ empty b.b_file }"> &nbsp; </c:if></td>
-					
-						<td align="center" width="150" style="font-size:15px; color: black;">${ b.buser }
-							 <%-- <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade lt 0}"> 불량회원
-							 <img src="/hhw/resources/images/i_0.png" style="width:20px; float:left;">
-							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 1  &&  b.grade lt 10}">  신규회원
-							 <img src="/hhw/resources/images/i_1.png" style="width:20px; float:left;">
-							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 11 && b.grade lt 20}">  우수회원
-							 <img src="/hhw/resources/images/i_2.png" style="width:20px; float:left;">
-							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade ge 21 && b.grade lt 30}">  최우수회원
-							 <img src="/hhw/resources/images/i_3.png" style="width:20px; float:left;">
-							 </c:if>
-							 <c:if test="${ b.bwriter ne '' and b.bwriter ne null and b.grade eq 0}">  관리자
-							 <img src="/hhw/resources/images/i_admin.png" style="width:20px; float:left;">
-							 </c:if> --%>
-							 </td>
-	
-						<td align="center" width="130" style="font-size:15px; color: black;">${ b.b_date }</td>
-	
-						<td align="center" width="80" style="font-size:15px; color: black;">${ b.bcount }</td>
+							</c:url>
+												
+						<td align="center" width="50" style="font-size:15px; color: black;">
+						
+						<button type="button" onclick="javascript:location.href='${ a}'" style='float:center'>수정</button>
+						
+						</td> 
 						
 					</tr>
 					</c:forEach>
-				</tr>
+					
+					
             </tbody>
         </table>
     </div>
-
-
-		<%-- 로그인한 사용자만 글쓰기 기능 사용할 수 있게 함 --%>
-		<c:if test="${ !empty sessionScope.loginUser }">
-			<div style="text-align: right; padding-right: 550px;">
-				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color:#fff; font-family:sans-serif; background-color:#ad9463;">글쓰기</button>
-			</div>
-		</c:if>
-		
-		
-		<%-- 로그인 안한 사람이 글쓰기 할 때 --%>
-		<c:if test="${ empty sessionScope.loginUser }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -20px">
-				<button class="btn btn-warning btn-round"
-					style="color:#fff; font-family:sans-serif; background-color:#ad9463;" data-toggle="modal" data-target="#Medium-modal">글쓰기</button>
-				<div class="col-md-4 col-sm-12 mb-30">
-							<div class="pd-20 card-box height-100-p">
-								<div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-dialog-centered">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title" id="myLargeModalLabel">게시판 글쓰기 이용 안내</h4>
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-											</div>
-											<div class="modal-body">
-												<h6 style="text-align: center;">자유게시판 이용은 로그인 후 글쓰기가 가능합니다</h6>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>&nbsp;
-												<button type="button" class="btn btn-primary" onclick="login();">Login</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-				</div>
-			</div>
-		</c:if>
-	
-	<br>
 	
 
 	<%-- 현재 페이지가 1이 아니면 링크설정, 현재 1페이지이면 링크없음 --%>
 	<c:if test="${ empty action}">
 		<%-- 페이징 처리  [맨처음][이전] 숫자...........  [다음][맨끝] --%>
-		<div style="text-align: center; margin-bottom: 50px; margin-top: -50px">
+		<div style="text-align: center; margin-bottom: 50px;">
 			<c:if test="${ currentPage <= 1}">
             [맨처음]
          </c:if>

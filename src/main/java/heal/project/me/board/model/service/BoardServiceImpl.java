@@ -34,6 +34,10 @@ public class BoardServiceImpl implements BoardService {
 	public ArrayList<BoardList> selectBoardList(int currentPage, int limit) {
 		return boardDao.selectBoardList(currentPage, limit);
 	}
+	@Override
+	public ArrayList<BoardList> selectadminBoardList(int currentPage, int limit) {
+		return boardDao.selectadminBoardList(currentPage, limit);
+	}
 
    @Override
    public ArrayList<Board> selectTop3() {

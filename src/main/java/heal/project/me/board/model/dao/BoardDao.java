@@ -31,10 +31,15 @@ public class BoardDao {
 		return (ArrayList<BoardList>)list;
 	}
 	
-	/*
-	 * public int addInsertReply(int bid) { return
-	 * sqlSession.update("boardMapper.addInsertReply", bid); }
-	 */
+	//관리자용
+	public ArrayList<BoardList> selectadminBoardList(int currentPage, int limit) {
+		//전달된 값을 이용해서 출력할 시작행과 끝행을 계산함
+		int startRow = (currentPage - 1) * limit -1;
+		int endRow = startRow + limit - 1;
+		
+		List<BoardList> list = sqlSession.selectList("boardMapper.selectadminBoardList", new BoardPage(startRow, endRow));
+		return (ArrayList<BoardList>)list;
+	}
 	
 	
 	public ArrayList<Board> selectTop3() {

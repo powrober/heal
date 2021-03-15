@@ -19,6 +19,14 @@
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
 
+<script type="text/javascript">
+
+function showWriteForm() {
+	location.href = "${ nwf }";
+}
+
+</script>
+
 </head>
 
 <body>
@@ -53,11 +61,19 @@
          </div>
        </div>
      </section>
-<div style="text-align: center;">
+     
+	<div style="text-align: center;">
 		<div>
 			<h2 style="margin: 20px 0 10px 0;">공지사항 리스트</h2>
 		</div>
 	</div>
+		
+        <%-- 관리자가 로그인 했을 때 --%>
+		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
+			<div style="text-align: right; padding-right: 550px; margin-top: -50px">
+				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="background-color: #ad9463; color: #fff;">글쓰기</button>
+			</div>
+		</c:if>
 		
 	<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
 		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" style="width: 1800px;" >
@@ -66,6 +82,7 @@
 				<col width="50">
 				<col width="80">
 				<col width="100">
+				<col width="200">
 				<col width="80">
 				<col width="50">
 				<col width="100">
@@ -83,6 +100,7 @@
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">말머리</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제목</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">내용</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성일</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
@@ -103,11 +121,17 @@
 	
 						<td align="center" width="80"  style="font-size:15px; color: black;">${ n.nuser }</td>
 						
-						<td align="center" width="100"  style="font-size:15px; color: black;">${ n.ntitle }
+						<td align="center" width="100"  style="font-size:15px; color: black;">
+									<c:url value="/ndetail.do" var="und">
+										<c:param name="nid" value="${ n.nid }" />
+									</c:url>
+									<a href="${und}" style="color: black;">${n.ntitle}</a>
 							<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-							<c:if test="${ empty m.etc }"> </c:if>
+							<c:if test="${ empty n.n_file }"> </c:if>
 						</td>
 	
+						<td align="center" width="200"  style="font-size:15px; color: black;">${ n.ncontent }</td>
+
 						<td align="center" width="80"  style="font-size:15px; color: black;">${ n.n_date }</td>
 						
 						<td align="center" width="50" style="font-size:15px; color: black;">${ n.ncount }</td>

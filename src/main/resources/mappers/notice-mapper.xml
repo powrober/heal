@@ -45,23 +45,24 @@
 <!-- 관리자용 -->
    <select id="selectadminNoticeList" parameterType="heal.project.me.notice.model.vo.NoticePage" resultMap="noticeResultSet">
       <![CDATA[
-        SELECT *
+       SELECT *
           FROM (
                  SELECT ROWNUM RNUM
-               , NID
-               , NTYPE
-               , NUSER
-               , NTITLE
-               , NCONTENT
-               , N_FILE
-               , N_RFILE
-               , N_DATE
-               , N_MODFIY_DATE
-               , NCOUNT
-               , NSTATUS
+               , N.NID
+               , N.NTYPE
+               , N.NUSER
+               , N.NTITLE
+               , N.NCONTENT
+               , N.N_FILE
+               , N.N_RFILE
+               , N.N_DATE
+               , N.N_MODFIY_DATE
+               , N.NCOUNT
+               , N.NSTATUS
            FROM (
            SELECT *
-           FROM NOTICE
+           FROM NOTICE N
+           WHERE NID IS NOT NULL
           ORDER BY NID DESC))
           WHERE RNUM >= #{ startRow }
           AND RNUM <= #{ endRow }

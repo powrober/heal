@@ -12,6 +12,7 @@ public interface BoardService {
 	//보드리스트 vo
 	BoardList selectBoardList(int bid);
 	ArrayList<BoardList> selectBoardList(int currentPage, int limit);
+	ArrayList<BoardList> selectadminBoardList(int currentPage, int limit);
 	
 	// 댓글 업데이트
 	/* int addInsertReply(int bid); */

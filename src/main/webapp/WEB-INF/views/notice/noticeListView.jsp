@@ -67,14 +67,6 @@
 		</div>
 	</div>
         
-        
-        <%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -20px">
-				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="color: #fff;">글쓰기</button>
-			</div>
-		</c:if>
-		
              <%-- 테이블 --%>
 			<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
 				<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" >

@@ -125,78 +125,93 @@
               
               <!-- Owl Carousel-->
               <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="1" data-md-items="1" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-stage-padding="5" data-loop="true" data-margin="30" data-mouse-drag="false" data-dots="true" data-autoplay="true">
-                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-1.jpg" alt="" width="570" height="415"/></a>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-1.jpg" alt="" width="570" height="415"/></a>
                   <div class="post-blog-caption">
                     <div class="post-blog-caption-header">
                       <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="#">인기</a></li>
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
                       </ul>
                       <ul class="post-blog-meta">
                         <li><span>온돌</span></li>
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">블루102호 / 퍼플101호, 102호</a></h5>
+                      <h5><a class="post-blog-title" href="blue101.do">블루 101호</a></h5>
                     </div>
                   </div>
                 </article>
-                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-2.jpg" alt="" width="570" height="415"/></a>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-2.jpg" alt="" width="570" height="415"/></a>
                   <div class="post-blog-caption">
                     <div class="post-blog-caption-header">
                       <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="#">인기</a></li>
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
                       </ul>
                       <ul class="post-blog-meta">
                         <li><span>침대</span></li>
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">블루103호 / 퍼플103호</a></h5>
+                      <h5><a class="post-blog-title" href="blue101.do">블루 102호</a></h5>
                     </div>
                   </div>
                 </article>
-                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-3.jpg" alt="" width="570" height="415"/></a>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-3.jpg" alt="" width="570" height="415"/></a>
                   <div class="post-blog-caption">
                     <div class="post-blog-caption-header">
                       <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="#">인기</a></li>
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
                       </ul>
                       <ul class="post-blog-meta">
                         <li><span>특실/복층</span></li>
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">블루201호 / 퍼플203호</a></h5>
+                      <h5><a class="post-blog-title" href="blue101.do">블루 103호</a></h5>
                     </div>
                   </div>
                 </article>
-                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-4.jpg" alt="" width="570" height="415"/></a>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-4.jpg" alt="" width="570" height="415"/></a>
                   <div class="post-blog-caption">
                     <div class="post-blog-caption-header">
                       <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="#">인기</a></li>
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
                       </ul>
                       <ul class="post-blog-meta">
                         <li><span>특실/복층</span></li>
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">블루202호 / 퍼플202호</a></h5>
+                      <h5><a class="post-blog-title" href="blue101.do">블루 201호</a></h5>
                     </div>
                   </div>
                 </article>
-                <article class="post-blog"><a class="post-blog-image" href="#"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="415"/></a>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="415"/></a>
                   <div class="post-blog-caption">
                     <div class="post-blog-caption-header">
                       <ul class="post-blog-tags">
-                        <li><a class="button-tags" href="#">인기</a></li>
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
                       </ul>
                       <ul class="post-blog-meta">
                         <li><span>특실/복층</span></li>
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">퍼플201호, 203호</a></h5>
+                      <h5><a class="post-blog-title" href="blue101.do">블루 202호</a></h5>
+                    </div>
+                  </div>
+                </article>
+                <article class="post-blog"><a class="post-blog-image" href="blue101.do"><img src="/me/resources/images/room/main/1-5.jpg" alt="" width="570" height="415"/></a>
+                  <div class="post-blog-caption">
+                    <div class="post-blog-caption-header">
+                      <ul class="post-blog-tags">
+                        <li><a class="button-tags" href="blue101.do">인기</a></li>
+                      </ul>
+                      <ul class="post-blog-meta">
+                        <li><span>특실/복층</span></li>
+                      </ul>
+                    </div>
+                    <div class="post-blog-caption-body">
+                      <h5><a class="post-blog-title" href="blue101.do">블루 203호</a></h5>
                     </div>
                   </div>
                 </article>

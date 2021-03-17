@@ -43,6 +43,9 @@
 <c:url var="nlist" value="adminnlist.do">
 	<c:param name="page" value="1" />
 </c:url>
+<c:url var="b_rlist" value="adminbrlist.do">
+	<c:param name="page" value="1" />
+</c:url>
 	
      <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg" >
        <div class="parallax-content">
@@ -50,11 +53,11 @@
            <p class="heading-1 breadcrumbs-custom-title">자유게시판</p>
            <ul class="breadcrumbs-custom-path">
              <li><a href="home.do">Home</a></li>
-             <li><a href="${ mlist }">회원리스트</a></li>
-             <li><a href="${ bllist }">불량회원 리스트</a></li>
+			 <li><a href="${ mlist }">회원리스트</a></li>
              <li><a href="${ nlist }">공지사항</a></li>
              <li><a href="${ blist }">자유게시판</a></li>
-             <li><a href="#">????</a></li>
+             <li><a href="${ b_rlist }">댓글관리</a></li>
+             <li><a href="${ bllist }">불량회원 리스트</a></li>
            </ul>
          </div>
        </div>
@@ -143,7 +146,6 @@
             </tbody>
         </table>
     </div>
-	
 
 	<%-- 현재 페이지가 1이 아니면 링크설정, 현재 1페이지이면 링크없음 --%>
 	<c:if test="${ empty action}">

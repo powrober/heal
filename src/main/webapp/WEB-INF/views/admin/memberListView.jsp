@@ -36,6 +36,9 @@
 <c:url var="nlist" value="adminnlist.do">
 	<c:param name="page" value="1" />
 </c:url>
+<c:url var="b_rlist" value="adminbrlist.do">
+	<c:param name="page" value="1" />
+</c:url>
 	
      <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg" >
        <div class="parallax-content">
@@ -44,10 +47,10 @@
            <ul class="breadcrumbs-custom-path">
              <li><a href="home.do">Home</a></li>
              <li><a href="${ mlist }">회원리스트</a></li>
-             <li><a href="${ bllist }">불량회원 리스트</a></li>
              <li><a href="${ nlist }">공지사항</a></li>
              <li><a href="${ blist }">자유게시판</a></li>
-             <li><a href="#">????</a></li>
+             <li><a href="${ b_rlist }">댓글관리</a></li>
+             <li><a href="${ bllist }">불량회원 리스트</a></li>
            </ul>
          </div>
        </div>

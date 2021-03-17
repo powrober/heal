@@ -15,6 +15,15 @@ public class B_ReplyServiceImpl implements B_ReplyService {
 	private B_ReplyDao b_replyDao;
 	
 	@Override
+	public ArrayList<B_Reply> selectadminBoardReplyList(int currentPage, int limit) {
+		return b_replyDao.selectadminBoardReplyList(currentPage, limit);
+	}
+	@Override
+	public int getListCount() {
+	      return b_replyDao.getListCount();
+	   }
+	
+	@Override
 	public int insertB_Reply(B_Reply b_reply) {
 		return b_replyDao.insertB_Reply(b_reply);
 	}

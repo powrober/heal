@@ -9,30 +9,28 @@
 <c:set var="endPage" value="${ requestScope.endPage }" />
 <c:set var="currentPage" value="${ requestScope.currentPage }" />
 
-<c:url var="nwf" value="/nwform.do" />
+<%-- 글쓰기 페이지 이동 요청 url --%>
+<c:url var="bwf" value="/bwmove.do" />
+<c:url var="login" value="/loginView.do" />
+<c:url var="blamelist" value="/b.blame.list.do" />
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 모아보기</title>
+<title>관리자 자유게시판</title>
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
-
-<script type="text/javascript">
-
-function showWriteForm() {
-	location.href = "${ nwf }";
-}
-
-</script>
 
 </head>
 
 <body>
+
 	<jsp:include page="../main/header.jsp" />
-		
 	
+	
+
 <c:url var="mlist" value="mlist.do">
 	<c:param name="page" value="1" />
 </c:url>
@@ -52,7 +50,7 @@ function showWriteForm() {
      <section class="section breadcrumbs-custom parallax-container context-dark" data-parallax-img="/me/resources/images/swiper1.jpg" >
        <div class="parallax-content">
          <div class="container">
-           <p class="heading-1 breadcrumbs-custom-title">공지사항</p>
+           <p class="heading-1 breadcrumbs-custom-title">댓글관리</p>
            <ul class="breadcrumbs-custom-path">
              <li><a href="home.do">Home</a></li>
 			 <li><a href="${ mlist }">회원리스트</a></li>
@@ -67,16 +65,9 @@ function showWriteForm() {
      
 	<div style="text-align: center;">
 		<div>
-			<h2 style="margin: 20px 0 10px 0;">공지사항 리스트</h2>
+			<h2 style="margin: 20px 0 10px 0;">댓글 리스트</h2>
 		</div>
 	</div>
-		
-        <%-- 관리자가 로그인 했을 때 --%>
-		<c:if test="${  !empty sessionScope.loginUser and loginUser.user_lv eq 'admin' }">
-			<div style="text-align: right; padding-right: 550px; margin-top: -50px">
-				<button onclick="showWriteForm();" class="btn btn-warning btn-round" style="background-color: #ad9463; color: #fff;">글쓰기</button>
-			</div>
-		</c:if>
 		
 	<div class="my_info_area" align="center" style="padding-top:30px; padding-bottom:30px ">
 		<table cellspacing="0" class="boardtype2 th_border my_table" width="1000" style="width: 1800px;" >
@@ -84,26 +75,18 @@ function showWriteForm() {
 				<col width="50">
 				<col width="50">
 				<col width="80">
-				<col width="100">
 				<col width="400">
 				<col width="80">
-				<col width="50">
-				<col width="50">
-				<col width="50">
-				<col width="50">
+				<col width="80">
 			</colgroup>
 			<thead>
 				<tr>
 					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col" class="title">번 호</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">말머리</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성자</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">제목</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">내용</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">작성일</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">조회수</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">첨부파일</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">상태</th>
-					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">수정</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">댓글 게시글 번호</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">댓글 작성자</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">댓글 내용</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">댓글 작성일</th>
+					<th style="text-align:center; font-size:15px; font-family:sans-serif; color: black;" scope="col">댓글 상태</th>
 				</tr>
 				
 				<tr>
@@ -112,52 +95,28 @@ function showWriteForm() {
             </thead>
             <tbody>
                 <tr>
-            	    <c:forEach items="${ requestScope.list }" var="n" >
+            	    <c:forEach items="${ requestScope.list }" var="br" >
 	                <tr>
-						<td align="center" width="50"  style="font-size:15px; color: black;">${ n.nid }</td>
+						<td align="center" width="50"  style="font-size:15px; color: black;">${ br.brid }</td>
 						
-						<td align="center" width="50"  style="font-size:15px; color: black;">${ n.ntype }</td>
+						<td align="center" width="50"  style="font-size:15px; color: black;">${ br.b_ref_bid }</td>
 	
-						<td align="center" width="80"  style="font-size:15px; color: black;">${ n.nuser }</td>
+						<td align="center" width="80"  style="font-size:15px; color: black;">${ br.bruser }</td>
 						
-						<td align="center" width="100"  style="font-size:15px; color: black;">
-									<c:url value="/ndetail.do" var="und">
-										<c:param name="nid" value="${ n.nid }" />
-									</c:url>
-									<a href="${und}" style="color: black; display: inline-block; width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center;">${n.ntitle}</a>
-						</td>
-	
-						<td align="center" width="400"  style="font-size:15px; color: black; display: inline-block; width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  display: flex; align-items: center;">${ n.ncontent }</td>
+						<td align="center" width="400"  style="font-size:15px; color: black; display: inline-block; width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  display: flex; align-items: center;">${ br.brcontent }</td>
 
-						<td align="center" width="80"  style="font-size:15px; color: black;">${ n.n_date }</td>
+						<td align="center" width="80"  style="font-size:15px; color: black;">${ br.br_date }</td>
 						
-						<td align="center" width="50" style="font-size:15px; color: black;">${ n.ncount }</td>
-						
-						<td align="center" width="50" style="font-size:15px; color: black;">
-							<c:if test="${ !empty n.n_file }"><img src="/me/resources/images/file.png" style="width:20px;"> </c:if>
-							<c:if test="${ empty n.n_file }"> # </c:if></td>
+						<td align="center" width="80"  style="font-size:15px; color: black;">${ br.br_status }</td>
 
-						<td align="center" width="50" style="font-size:15px; color: black;">${ n.nstatus }</td>
-						
-							<c:url var="#" value="#">
-								<c:param name="page" value="${ currentPage }" />
-							</c:url>
-												
-						<td align="center" width="50" style="font-size:15px; color: black;">
-						
-						<button type="button" onclick="javascript:location.href='${ a}'" style='float:center'>수정</button>
-						
-						</td> 
-						
 					</tr>
 					</c:forEach>
-					
 					
             </tbody>
         </table>
     </div>
-    
-    
+		
+
 	<%-- 현재 페이지가 1이 아니면 링크설정, 현재 1페이지이면 링크없음 --%>
 	<c:if test="${ empty action}">
 		<%-- 페이징 처리  [맨처음][이전] 숫자...........  [다음][맨끝] --%>
@@ -166,19 +125,19 @@ function showWriteForm() {
             [맨처음]
          </c:if>
 			<c:if test="${ currentPage > 1 }">
-				<c:url var="nls" value="/adminnlist.do">
+				<c:url var="bls" value="/blist.do">
 					<c:param name="page" value="1" />
 				</c:url>
-				<a href="${ nls }">[맨처음]</a>
+				<a href="${ bls }">[맨처음]</a>
 			</c:if>
 			&nbsp;
 			<%-- 이전 그룹이 있으면 링크설정, 이전 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage - 10) < startPage and (currentPage - 10) >= 1 }">
-				<c:url var="nls2" value="/adminnlist.do">
+				<c:url var="bls2" value="/blist.do">
 					<c:param name="page" value="${ startPage - 10 }" />
 				</c:url>
-				<a href="${ nls2 }">[이전]</a>
+				<a href="${ bls2 }">[이전]</a>
 			</c:if>
 			<c:if
 				test="${ !((currentPage - 10) < startPage and (currentPage - 10) >= 1) }">
@@ -191,20 +150,20 @@ function showWriteForm() {
 					<font size="4" color="red">[${ p }]</font>
 				</c:if>
 				<c:if test="${ p ne currentPage }">
-					<c:url var="nls3" value="/adminnlist.do">
+					<c:url var="bls3" value="/blist.do">
 						<c:param name="page" value="${ p }" />
 					</c:url>
-					<a href="${ nls3 }">${ p }</a>
+					<a href="${ bls3 }">${ p }</a>
 				</c:if>
 			</c:forEach>
 			&nbsp;
 			<%-- 다음 그룹이 있으면 링크설정, 다음 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage + 10) > endPage && (currentPage + 10) < maxPage }">
-				<c:url var="nls4" value="/adminnlist.do">
+				<c:url var="bls4" value="/blist.do">
 					<c:param name="page" value="${ endPage + 10 }" />
 				</c:url>
-				<a href="${ nls4 }">[다음그룹]</a>
+				<a href="${ bls4 }">[다음그룹]</a>
 			</c:if>
 			<c:if
 				test="${ !((currentPage + 10) > endPage && (currentPage + 10) < maxPage) }">
@@ -216,10 +175,10 @@ function showWriteForm() {
             [맨끝]&nbsp;
          </c:if>
 			<c:if test="${ currentPage < maxPage }">
-				<c:url var="nls5" value="/adminnlist.do">
+				<c:url var="bls5" value="/blist.do">
 					<c:param name="page" value="${ maxPage }" />
 				</c:url>
-				<a href="${ nls5 }">[맨끝]</a>
+				<a href="${ bls5 }">[맨끝]</a>
 			</c:if>
 		</div>
 	</c:if>
@@ -232,25 +191,25 @@ function showWriteForm() {
             [맨처음]
          </c:if>
 			<c:if test="${ currentPage > 1 }">
-				<c:url var="nsearch1" value="${ action }">
-					<c:if test="${ action ne 'nsearchDate.do'}">
+				<c:url var="bsearch1" value="${ action }">
+					<c:if test="${ action ne 'bsearchDate.do'}">
 						<c:param name="page" value="1" />
 					</c:if>
-					<c:if test="${ action eq 'nsearchDate.do'}">
+					<c:if test="${ action eq 'bsearchDate.do'}">
 						<c:param name="begin" value="${ begin }" />
 						<c:param name="end" value="${ end }" />
 					</c:if>
 				</c:url>
-				<a href="${ nsearch1 }">[맨처음]</a>
+				<a href="${ bsearch1 }">[맨처음]</a>
 			</c:if>
 			&nbsp;
 			<%-- 이전 그룹이 있으면 링크설정, 이전 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage - 10) < startPage and (currentPage - 10) >= 1 }">
-				<c:url var="nsearch2" value="/adminnlist.do">
+				<c:url var="bsearch2" value="/blist.do">
 					<c:param name="page" value="${ startPage - 10 }" />
 				</c:url>
-				<a href="${ nsearch2 }">[이전]</a>
+				<a href="${ bsearch2 }">[이전]</a>
 			</c:if>
 			<c:if
 				test="${ !((currentPage - 10) < startPage and (currentPage - 10) >= 1) }">
@@ -263,20 +222,20 @@ function showWriteForm() {
 					<font size="4" color="red">[${ p }]</font>
 				</c:if>
 				<c:if test="${ p ne currentPage }">
-					<c:url var="nsearch3" value="/adminnlist.do">
+					<c:url var="bsearch3" value="/blist.do">
 						<c:param name="page" value="${ p }" />
 					</c:url>
-					<a href="${ nsearch3 }">${ p }</a>
+					<a href="${ bsearch3 }">${ p }</a>
 				</c:if>
 			</c:forEach>
 			&nbsp;
 			<%-- 다음 그룹이 있으면 링크설정, 다음 그룹 없으면 링크없음 --%>
 			<c:if
 				test="${ (currentPage + 10) > endPage && (currentPage + 10) < maxPage }">
-				<c:url var="nsearch4" value="/adminnlist.do">
+				<c:url var="bsearch4" value="/blist.do">
 					<c:param name="page" value="${ endPage + 10 }" />
 				</c:url>
-				<a href="${ nsearch4 }">[다음그룹]</a>
+				<a href="${ bsearch4 }">[다음그룹]</a>
 			</c:if>
 			<c:if
 				test="${ !((currentPage + 10) > endPage && (currentPage + 10) < maxPage) }">
@@ -287,15 +246,14 @@ function showWriteForm() {
             [맨끝]&nbsp;
          </c:if>
 			<c:if test="${ currentPage < maxPage }">
-				<c:url var="nsearch5" value="/adminnlist.do">
+				<c:url var="bsearch5" value="/blist.do">
 					<c:param name="page" value="${ maxPage }" />
 				</c:url>
-				<a href="${ nsearch5 }">[맨끝]</a>
+				<a href="${ bsearch5 }">[맨끝]</a>
 			</c:if>
 		</div>
 	</c:if>
-	
-	<jsp:include page="../main/footer.jsp" />
 
+	<jsp:include page="../main/footer.jsp" />
 </body>
 </html>

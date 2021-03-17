@@ -97,7 +97,7 @@
 										+ "</time></div><div class='comment-text'><p>"
 										+ decodeURIComponent(json.list[i].brcontent).replace(/\+/gi, " ") 
 										+ "</p></div><div class='comment-footer'></div></div></article>";
-				}
+						}
 			} //for in
 			$("#rlistTbl").html($("#rlistTbl").html() + values);
 			

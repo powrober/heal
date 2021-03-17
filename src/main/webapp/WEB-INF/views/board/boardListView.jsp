@@ -22,9 +22,9 @@
 <title>자유게시판</title>
 
 <script type="text/javascript" src="/me/resources/js/jquery-3.5.1.min.js"></script>
-<!-- 
+ 
 <script type="text/javascript">
-	 $(function() {
+	/*  $(function() {
 		showDiv();
 
 		$("input[name=item]").on("change", function() { //on으로 이벤트 설정가능 "change"이벤트일때 function()을 실행해라
@@ -48,7 +48,7 @@
 			$("#dateDiv").css("display", "block");
 		}
 	}
-	
+	 */
 	function showWriteForm() {
 		location.href = "${ bwf }";
 	}
@@ -61,7 +61,7 @@
 		location.href = "${ blamelist }";
 	}
 	
-</script> -->
+</script>
 
 </head>
 

@@ -12,6 +12,31 @@
 		<result column="br_status" property="br_status" />
 	</resultMap>
 
+	<select id="selectadminBoardReplyList" parameterType="heal.project.me.b_reply.model.vo.B_ReplyoardPage" resultMap="resultB_Reply">
+      <![CDATA[
+        SELECT *
+        FROM (
+        SELECT ROWNUM RNUM
+               , BRID
+               , BRCONTENT
+               , B_REF_BID
+               , BRUSER
+               , BR_DATE
+               , BR_MODIFY_DATE
+               , BR_STATUS
+        FROM B_Reply
+        ORDER BY BRID DESC)
+        WHERE RNUM >=  #{ startRow }
+        AND RNUM <= #{ endRow }
+                ]]>
+   </select>
+
+	<select id="getListCount" resultType="_int">
+      select count(*)
+        from b_reply
+	</select>
+
+
 	<!-- 댓글 목록 -->
 	<select id="listB_Reply" resultType="heal.project.me.b_reply.model.vo.B_Reply">
 		select brid, brcontent, b_ref_bid, bruser, br_date, br_modify_date, br_status

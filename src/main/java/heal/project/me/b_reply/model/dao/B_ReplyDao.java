@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import heal.project.me.b_reply.model.vo.B_Reply;
+import heal.project.me.b_reply.model.vo.B_ReplyoardPage;
 
 @Repository("b_replyDao")
 public class B_ReplyDao {
@@ -35,5 +36,20 @@ public class B_ReplyDao {
 		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectList", b_ref_bid);
 		return (ArrayList<B_Reply>)list;
 	}
+	
+	//관리자용
+	public ArrayList<B_Reply> selectadminBoardReplyList(int currentPage, int limit) {
+		//전달된 값을 이용해서 출력할 시작행과 끝행을 계산함
+		int startRow = (currentPage - 1) * limit -1;
+		int endRow = startRow + limit - 1;
+		
+		List<B_Reply> list = sqlSession.selectList("b_replyMapper.selectadminBoardReplyList", new B_ReplyoardPage(startRow, endRow));
+		return (ArrayList<B_Reply>)list;
+	}
+
+	public int getListCount() {
+		return sqlSession.selectOne("b_replyMapper.getListCount");
+	}
+
 	
 }
